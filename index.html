@@ -1,727 +1,1022 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
- <title>Céline Haller – Créatrice du projet Un Bol à l’École</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Céline Haller, professeure des écoles à Strasbourg, créatrice du projet &quot;Un Bol à l'École&quot;, conférencière et formatrice en pédagogie.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Céline Haller — Un Bol à l’École</title>
+  <meta name="description" content="Un Bol à l’École : un projet petit-déjeuner pédagogique au service du bien-être, des apprentissages et de l’égalité des chances." />
+  <style>
+    :root{
+      --bg: #fbfbfd;
+      --ink: #0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --border: rgba(15, 23, 42, .10);
+      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+      --radius: 22px;
 
-<style>
-  :root{
-    --accent:#ff7a18;          /* orange plus moderne */
-    --accent-soft:#fff1e6;
-    --bg:#f6f7fb;
-    --text:#1f2937;
-    --muted:#6b7280;
-    --card-bg:#ffffff;
-    --shadow: 0 14px 35px rgba(17,24,39,.08);
-    --shadow-soft: 0 10px 24px rgba(17,24,39,.06);
-    --radius:18px;
-    --radius-sm:14px;
-    --max-width:1100px;
-  }
+      --mint:#2dd4bf;
+      --coral:#fb7185;
+      --sun:#fbbf24;
+      --sky:#60a5fa;
+      --violet:#a78bfa;
+      --leaf:#34d399;
 
-  body{
-    margin:0;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    color:var(--text);
-    background:
-      radial-gradient(circle at 15% 10%, rgba(255,122,24,.14), transparent 45%),
-      radial-gradient(circle at 85% 15%, rgba(255,122,24,.10), transparent 40%),
-      linear-gradient(180deg, #ffffff 0%, var(--bg) 55%, #ffffff 100%);
-    line-height:1.65;
-  }
+      --max: 1100px;
+    }
 
-  /* conteneur principal */
-  .container{
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 28px 18px 64px;
-  }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(45,212,191,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 500px at 70% 120%, rgba(251,113,133,.14), transparent 60%),
+        var(--bg);
+    }
 
-  /* titres */
-  h1,h2,h3{
-    letter-spacing:-0.02em;
-    margin:0 0 10px;
-  }
-  h1{ font-size: clamp(30px, 3.6vw, 46px); line-height:1.05; }
-  h2{ font-size: clamp(20px, 2.2vw, 28px); }
-  h3{ font-size: 16px; }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
 
-  .kicker{
-    display:inline-flex;
-    gap:10px;
-    align-items:center;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: var(--accent-soft);
-    color: #9a3f00;
-    font-weight:700;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-  }
+    /* Layout */
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 22px; }
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,251,253,.72);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:14px; height:14px; border-radius:999px;
+      background: linear-gradient(135deg, var(--mint), var(--sky));
+      box-shadow: 0 6px 18px rgba(45,212,191,.25);
+    }
+    .links{
+      display:flex; align-items:center; gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-weight:600;
+      color:rgba(15,23,42,.78);
+      font-size:14px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      border-radius:999px;
+      box-shadow: 0 8px 22px rgba(15,23,42,.06);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 10px 30px rgba(15,23,42,.08);
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 34px rgba(15,23,42,.10); }
+    .btn.primary{
+      border:none;
+      color: #071018;
+      background: linear-gradient(135deg, rgba(45,212,191,.95), rgba(96,165,250,.95));
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.60);
+    }
 
-  /* cartes */
-  .card{
-    background: var(--card-bg);
-    border: 1px solid rgba(17,24,39,.08);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-soft);
-    padding: 18px;
-  }
+    /* Sections */
+    section{ padding:70px 0; }
+    .hero{
+      padding:78px 0 40px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .card{
+      background: rgba(255,255,255,.78);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroCard{
+      padding:30px 28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard::before{
+      content:"";
+      position:absolute; inset:-80px -60px auto auto;
+      width:220px; height:220px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(251,191,36,.35), transparent 60%);
+      filter: blur(0px);
+    }
+    h1{
+      margin:0 0 12px;
+      font-size: clamp(34px, 4vw, 54px);
+      letter-spacing:-.6px;
+      line-height:1.05;
+    }
+    .lead{
+      margin:0 0 18px;
+      color: rgba(15,23,42,.78);
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 60ch;
+    }
+    .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+    .chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .chip{
+      font-size:13px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      color: rgba(15,23,42,.74);
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .chip b{ color: rgba(15,23,42,.95); }
+    .chip .sw{
+      width:10px; height:10px; border-radius:999px; display:inline-block;
+    }
 
-  /* listes de liens dans les cadres */
-  .media-list{
-    display:grid;
-    gap: 12px;
-    margin: 12px 0 0;
-    padding:0;
-    list-style:none;
-  }
+    .sideCard{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .miniTitle{
+      font-size:13px;
+      color: rgba(15,23,42,.55);
+      letter-spacing:.2px;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+    .bigQuote{
+      font-size:18px;
+      line-height:1.5;
+      margin:0;
+      color: rgba(15,23,42,.86);
+      font-weight:800;
+    }
+    .sideGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:auto;
+    }
+    .stat{
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.62);
+    }
+    .stat .k{ font-size:20px; font-weight:900; letter-spacing:-.2px; }
+    .stat .t{ font-size:13px; color: rgba(15,23,42,.65); margin-top:4px; font-weight:700; }
 
-  /* lien “carte” */
-  .link-card{
-    display:block;
-    padding: 12px 14px;
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(17,24,39,.10);
-    background: linear-gradient(180deg, #fff, #fff);
-    text-decoration:none;
-    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-  }
-  .link-card:hover{
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-    border-color: rgba(255,122,24,.35);
-  }
-  .link-card .title{
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom:4px;
-  }
-  .link-card .subtitle{
-    color: var(--muted);
-    font-size: 13px;
-  }
+    /* Color bands */
+    .band{
+      position:relative;
+      border-radius: 28px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.70);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+    .band::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 220px at 15% 10%, rgba(45,212,191,.22), transparent 60%),
+        radial-gradient(520px 220px at 75% 0%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(520px 240px at 80% 110%, rgba(251,113,133,.16), transparent 62%);
+      pointer-events:none;
+    }
+    .band > *{ position:relative; z-index:1; }
 
-  /* grille principale (tes colonnes) */
-  .two-cols{
-    display:grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-  @media (max-width: 980px){
-    .two-cols{ grid-template-columns: 1fr; }
-  }
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+    }
+    h2{
+      margin:0;
+      font-size: clamp(24px, 2.6vw, 34px);
+      letter-spacing:-.4px;
+      line-height:1.15;
+    }
+    .sub{
+      margin:0;
+      color: rgba(15,23,42,.70);
+      max-width: 62ch;
+      line-height:1.5;
+      font-size: 15.5px;
+    }
 
-  /* nav plus clean si tu en as une */
-  .nav{
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(8px);
-    background: rgba(255,255,255,.72);
-    border-bottom: 1px solid rgba(17,24,39,.06);
-    z-index: 20;
-  }
+    /* Mind map */
+    .mindWrap{
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:18px;
+      align-items:stretch;
+    }
 
-  /* boutons */
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding: 12px 16px;
-    border-radius: 999px;
-    border: 1px solid rgba(17,24,39,.10);
-    background: #fff;
-    font-weight: 800;
-    cursor:pointer;
-    text-decoration:none;
-    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-  }
-  .btn-primary{
-    background: var(--accent);
-    color: white;
-    border-color: rgba(0,0,0,.0);
-  }
-  .btn:hover{
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-soft);
-    border-color: rgba(255,122,24,.35);
-  }
-</style>
+    .mind{
+      position:relative;
+      min-height: 560px;
+      border-radius: 26px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .mind::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(800px 400px at 50% 45%, rgba(15,23,42,.04), transparent 60%),
+        radial-gradient(520px 260px at 20% 20%, rgba(45,212,191,.10), transparent 60%),
+        radial-gradient(520px 260px at 80% 20%, rgba(96,165,250,.10), transparent 60%),
+        radial-gradient(520px 260px at 75% 85%, rgba(251,191,36,.10), transparent 60%);
+      pointer-events:none;
+    }
 
+    .node{
+      position:absolute;
+      width: 220px;
+      padding:14px 14px;
+      border-radius: 20px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 25px rgba(15,23,42,.08);
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .node:hover{ transform: translateY(-2px); box-shadow: 0 16px 32px rgba(15,23,42,.10); }
+    .node.active{ border-color: rgba(15,23,42,.22); transform: translateY(-2px); }
+    .node .nTitle{ font-weight:900; letter-spacing:-.2px; margin:0 0 6px; display:flex; align-items:center; gap:10px; }
+    .badge{
+      width:12px; height:12px; border-radius:999px;
+      background: var(--mint);
+      box-shadow: 0 10px 18px rgba(45,212,191,.24);
+      flex:0 0 auto;
+    }
+    .node .nBody{
+      margin:0;
+      color: rgba(15,23,42,.70);
+      font-size: 13.5px;
+      line-height:1.35;
+      font-weight:700;
+    }
+
+    .center{
+      position:absolute;
+      left:50%; top:50%;
+      transform: translate(-50%, -50%);
+      width: 260px;
+      padding:18px 18px;
+      border-radius: 24px;
+      border:1px solid rgba(15,23,42,.12);
+      background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,255,255,.72));
+      box-shadow: 0 18px 44px rgba(15,23,42,.10);
+    }
+    .center h3{ margin:0 0 6px; font-size: 20px; letter-spacing:-.3px; }
+    .center p{ margin:0; color: rgba(15,23,42,.70); font-weight:700; line-height:1.4; font-size: 13.5px; }
+    .center .mini{
+      margin-top:10px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.65);
+      font-size: 12.5px;
+      font-weight:800;
+      color: rgba(15,23,42,.72);
+    }
+
+    /* Node positions (desktop) */
+    .n1{ left: 50%; top: 6%; transform: translate(-50%, 0); }
+    .n2{ left: 10%; top: 22%; }
+    .n3{ left: 80%; top: 22%; transform: translate(-50%, 0); }
+    .n4{ left: 6%; top: 56%; }
+    .n5{ left: 86%; top: 56%; transform: translate(-50%, 0); }
+    .n6{ left: 50%; top: 83%; transform: translate(-50%, -50%); }
+    .n7{ left: 50%; top: 60%; transform: translate(-50%, 0); width: 240px; }
+
+    /* Side panel */
+    .panel{
+      padding:18px;
+      border-radius: 26px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height: 560px;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:-120px auto auto -120px;
+      width:280px; height:280px; border-radius:999px;
+      background: radial-gradient(circle at 40% 40%, rgba(167,139,250,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .panel > *{ position:relative; z-index:1; }
+
+    .panelTitle{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    .panelText{
+      margin:0;
+      color: rgba(15,23,42,.72);
+      line-height:1.55;
+      font-weight:700;
+      font-size: 14.5px;
+    }
+    .bullets{
+      margin:0;
+      padding-left: 18px;
+      color: rgba(15,23,42,.72);
+      font-weight:800;
+      line-height:1.55;
+      font-size: 14px;
+    }
+    .bullets li{ margin: 6px 0; }
+    .panel .miniBtns{ margin-top:auto; display:flex; gap:10px; flex-wrap:wrap; }
+
+    /* Grids */
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .tile{
+      padding:18px;
+      border-radius: 22px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 10px 25px rgba(15,23,42,.07);
+      position:relative;
+      overflow:hidden;
+      min-height: 140px;
+    }
+    .tile::after{
+      content:"";
+      position:absolute; inset:-60px -60px auto auto;
+      width:160px; height:160px; border-radius:999px;
+      opacity:.28;
+      background: radial-gradient(circle at 30% 30%, rgba(45,212,191,.9), transparent 65%);
+      pointer-events:none;
+    }
+    .tile:nth-child(2)::after{ background: radial-gradient(circle at 30% 30%, rgba(251,113,133,.9), transparent 65%); }
+    .tile:nth-child(3)::after{ background: radial-gradient(circle at 30% 30%, rgba(251,191,36,.9), transparent 65%); }
+    .tile h4{ margin:0 0 6px; font-size:16px; letter-spacing:-.2px; }
+    .tile p{ margin:0; color: rgba(15,23,42,.70); line-height:1.45; font-weight:700; font-size:14px; }
+
+    .offers{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .offer{
+      padding:18px;
+      border-radius: 22px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.76);
+      box-shadow: 0 10px 26px rgba(15,23,42,.08);
+      display:flex; flex-direction:column; gap:10px;
+      position:relative;
+      overflow:hidden;
+      min-height: 190px;
+    }
+    .offer .cap{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .pillSmall{
+      font-size:12px;
+      font-weight:900;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.62);
+      color: rgba(15,23,42,.68);
+      white-space:nowrap;
+    }
+    .offer h4{ margin:0; font-size:16px; letter-spacing:-.2px; }
+    .offer p{ margin:0; color: rgba(15,23,42,.70); line-height:1.45; font-weight:700; }
+    .offer ul{
+      margin:0;
+      padding-left: 18px;
+      color: rgba(15,23,42,.70);
+      font-weight:800;
+      line-height:1.5;
+      font-size: 13.5px;
+    }
+    .offer li{ margin:6px 0; }
+    .offer .cta{ margin-top:auto; }
+
+    .strip{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .contactCard{
+      padding:22px;
+      border-radius: 26px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.76);
+      box-shadow: var(--shadow);
+    }
+    .formRow{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    label{ font-size:12px; font-weight:900; color: rgba(15,23,42,.65); display:block; margin: 12px 0 6px; }
+    input, textarea{
+      width:100%;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      padding:12px 12px;
+      font-family: inherit;
+      font-size:14px;
+      background: rgba(255,255,255,.72);
+      outline:none;
+    }
+    textarea{ min-height: 120px; resize:vertical; }
+    input:focus, textarea:focus{ border-color: rgba(15,23,42,.22); box-shadow: 0 0 0 4px rgba(96,165,250,.14); }
+
+    footer{
+      padding: 28px 0 50px;
+      color: rgba(15,23,42,.60);
+      font-weight:800;
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .mindWrap{ grid-template-columns: 1fr; }
+      .panel{ min-height: unset; }
+      .mind{ min-height: 520px; }
+      .grid3{ grid-template-columns: 1fr; }
+      .offers{ grid-template-columns: 1fr; }
+      .strip{ grid-template-columns: 1fr; }
+      .formRow{ grid-template-columns: 1fr; }
+      .links{ display:none; }
+    }
+
+    /* Mobile mind-map -> list mode */
+    @media (max-width: 700px){
+      .mind{
+        min-height: unset;
+        padding: 16px;
+      }
+      .center, .node{ position:static; transform:none; width:100%; }
+      .center{ margin-bottom: 12px; }
+      .node{ margin: 10px 0; }
+    }
+
+    /* Accessibility helpers */
+    .sr-only{
+      position:absolute !important;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Retour en haut de page">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Céline Haller</span>
+        </a>
 
-<header>
-  <div class="nav">
-    <div class="nav-left">
-      <div class="logo-dot">CH</div>
-      <span>Céline Haller</span>
-    </div>
-    <nav class="nav-links">
-      <a href="#parcours">Parcours</a>
-      <a href="#projet">Un Bol à l'École</a>
-      <a href="#interventions">Interventions</a>
-      <a href="#medias">Médias</a>
-      <a href="#contact">Contact</a>
-      <a href="#medias">Médias</a>
+        <nav class="links" aria-label="Navigation">
+          <a class="pill" href="#carte">Carte mentale</a>
+          <a class="pill" href="#impact">Impact</a>
+          <a class="pill" href="#offres">Conférences & formations</a>
+          <a class="pill" href="#ressources">Ressources</a>
+          <a class="pill" href="#contact">Contact</a>
+        </nav>
 
-    </nav>
-  </div>
-</header>
-
-<main>
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="hero-kicker">Éducation & innovation sociale</div>
-      <h1>Je suis <span>Céline Haller</span>, professeure des écoles & créatrice du projet « Un Bol à l’École »</h1>
-<img src="celine-haller.jpg" alt="Céline Haller" style="width:220px;border-radius:12px;margin:20px 0;">
-      <p class="hero-subtitle">
-        <p>
-Je suis professeure des écoles en éducation prioritaire à Strasbourg depuis 2012 et enseignante depuis 2007.<br>
-Je suis la créatrice du projet <em>Un Bol à l’École</em>, un dispositif pédagogique autour du petit déjeuner, reconnu pour son impact éducatif et social.<br>
-En parallèle de mon métier d'enseignante, j'interviens aujourd’hui auprès d’enseignants, de collectivités, de fondations et de médias pour partager cette expérience de terrain et accompagner des projets éducatifs.
-</p>
-      </p>
-      <div class="hero-tags">
-        <span class="tag">Conférences inspirantes</span>
-        <span class="tag">Formation des enseignants</span>
-        <span class="tag">Pédagogie & inégalités sociales</span>
-        <span class="tag">Projet « Petit Déjeuner »</span>
-      </div>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Inviter Céline en conférence</a>
-        <a href="#medias" class="btn-ghost">Infos & demandes médias</a>
-        <span class="hero-note">Basée à Strasbourg – interventions en France et à l’international</span>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="profile-card">
-        <div class="profile-badge">Global Teacher Prize – Top 10</div>
-        <div class="profile">
-          <div class="avatar">C</div>
-          <div class="profile-info">
-            <h2>Céline Haller</h2>
-            <p>Professeure des écoles (REP+) – Académie de Strasbourg</p>
-            <div class="profile-pill">Fondatrice du projet « Un Bol à l’École »</div>
-          </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn ghost" href="#offres">Voir les offres</a>
+          <a class="btn primary" href="#contact">Me contacter</a>
         </div>
-        <ul class="profile-list">
-          <li><span class="bullet"></span><span>Plusieurs années d’expérimentation de petits déjeuners pédagogiques en classe.</span></li>
-          <li><span class="bullet"></span><span>Un projet désormais déployé dans de nombreuses écoles et collectivités.</span></li>
-          <li><span class="bullet"></span><span>Interventions auprès d’enseignants, associations, fondations et décideurs publics.</span></li>
-        </ul>
       </div>
     </div>
-  </section>
+  </header>
 
-  <div class="layout">
-    <!-- PARCOURS -->
-    <section id="parcours">
-      <div class="section-kicker">Mon parcours</div>
-      <h2 class="section-title">De la salle de classe aux conférences</h2>
-      <p class="section-intro">
-        Je suis professeure des écoles en éducation prioritaire (REP+), à Strasbourg. 
-        Au fil des années, j’ai développé un projet pédagogique autour du petit déjeuner à l’école,
-        en croisant nutrition, lutte contre les inégalités, compétences psychosociales et plaisir d’apprendre.
-      </p>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="card heroCard">
+            <h1>Un site simple, coloré,<br/>et qui respire.</h1>
+            <p class="lead">
+              J’accompagne les équipes éducatives et les partenaires à déployer <b>Un Bol à l’École</b> :
+              un projet “petit-déjeuner pédagogique” au service du <b>bien-être</b>, des <b>apprentissages</b>
+              et de l’<b>égalité des chances</b>.
+            </p>
 
-      <div class="two-cols">
-        <div class="card">
-          <h3>Qui je suis</h3>
-          <p>
-            Enseignante de terrain, je construis mes propositions à partir de ce qui se passe vraiment dans une classe :
-            les besoins des élèves, les contraintes des équipes, les réalités des familles.
-          </p>
-          <p>
-            Mon travail articule :
-          </p>
-          <ul>
-            <li>une approche très concrète des pratiques de classe ;</li>
-            <li>des apports issus de la recherche en éducation et en sciences sociales ;</li>
-            <li>un dialogue constant avec les partenaires (collectivités, associations, fondations, chercheurs…).</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">Éducation prioritaire</span>
-            <span class="pill">Pédagogie active</span>
-            <span class="pill">Égalité des chances</span>
+            <div class="actions">
+              <a class="btn primary" href="#carte">Découvrir la carte mentale</a>
+              <a class="btn" href="#contact">Demander un échange</a>
+              <a class="btn ghost" href="#ressources">Voir les ressources</a>
+            </div>
+
+            <div class="chips" aria-label="Mots-clés">
+              <span class="chip"><span class="sw" style="background:var(--mint)"></span><b>Bien-être</b></span>
+              <span class="chip"><span class="sw" style="background:var(--coral)"></span><b>Petit-déjeuner</b></span>
+              <span class="chip"><span class="sw" style="background:var(--sun)"></span><b>Égalité</b></span>
+              <span class="chip"><span class="sw" style="background:var(--sky)"></span><b>Rituels</b></span>
+              <span class="chip"><span class="sw" style="background:var(--violet)"></span><b>Formation</b></span>
+            </div>
           </div>
-        </div>
 
-        <div class="card">
-          <h3>Repères de parcours</h3>
-          <ul class="timeline">
-            <li class="timeline-item">
-              <div class="timeline-label">Aujourd’hui</div>
-              <div class="timeline-main">Professeure des écoles – REP+ à Strasbourg</div>
-              <div class="timeline-sub">Mise en œuvre quotidienne du projet « Un Bol à l’École » avec mes élèves.</div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-label">Depuis plusieurs années</div>
-              <div class="timeline-main">Création et développement du « Petit Déjeuner Pédagogique »</div>
-              <div class="timeline-sub">Construction d’un cadre pédagogique, d’outils et de séances clés en main.</div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-label">Reconnaissance</div>
-              <div class="timeline-main">Top 10 – Global Teacher Prize</div>
-              <div class="timeline-sub">Le projet est reconnu internationalement comme une innovation éducative majeure.</div>
-            </li>
-          </ul>
+          <aside class="card sideCard" aria-label="Encadré résumé">
+            <div class="miniTitle">En deux lignes</div>
+            <p class="bigQuote">
+              “Un projet concret, duplicable, qui crée du lien et remet les apprentissages dans le réel.”
+            </p>
+
+            <div class="sideGrid" aria-label="Repères">
+              <div class="stat">
+                <div class="k">✓</div>
+                <div class="t">Déploiement simple</div>
+              </div>
+              <div class="stat">
+                <div class="k">↻</div>
+                <div class="t">Adaptable à chaque école</div>
+              </div>
+              <div class="stat">
+                <div class="k">⚡</div>
+                <div class="t">Format dynamique</div>
+              </div>
+              <div class="stat">
+                <div class="k">♥</div>
+                <div class="t">Cohésion de classe</div>
+              </div>
+            </div>
+            <div style="margin-top:6px; color:rgba(15,23,42,.65); font-weight:800; line-height:1.5;">
+              <span class="miniTitle" style="display:block; margin-bottom:6px;">À personnaliser</span>
+              Ajoute ici : une photo, un mini témoignage, ou 2–3 chiffres d’impact (quand tu veux).
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-
-    <!-- PROJET -->
-    <section id="projet">
-      <div class="section-kicker">Le projet</div>
-      <h2 class="section-title">« Un Bol à l’École » – bien plus qu’un petit déjeuner</h2>
-      <p class="section-intro">
-        À partir d’un moment simple et universel – le petit déjeuner –, j’ai conçu un dispositif complet 
-        qui articule alimentation, bien-être, apprentissages fondamentaux et lien avec les familles.
-      </p>
-
-      <div class="two-cols">
-        <div class="card">
-          <h3>Une démarche pédagogique globale</h3>
-          <p>
-            « Un Bol à l’École » n’est pas une simple distribution de nourriture.
-            C’est un temps ritualisé, pensé comme un support d’apprentissages :
-          </p>
-          <ul>
-            <li>travail sur le langage oral et écrit ;</li>
-            <li>mathématiques à partir du réel (mesures, proportions, statistiques…) ;</li>
-            <li>sciences (nutrition, digestion, énergie, microbiote…) ;</li>
-            <li>compétences psychosociales (coopération, empathie,engagement, attention, persévérance, solidarité, estime de soi…) ;</li>
-            <li>éducation à la citoyenneté et à l’égalité.</li>
-          </ul>
-          <div class="card-footer">
-            Je propose aujourd’hui de partager cette expérience avec les équipes et partenaires qui souhaitent 
-            adapter ce dispositif à leur contexte.
+    <!-- MIND MAP -->
+    <section id="carte">
+      <div class="wrap">
+        <div class="band">
+          <div class="sectionHead">
+            <div>
+              <h2>Carte mentale</h2>
+              <p class="sub">
+                Une vue d’ensemble sans re-raconter toute l’histoire. Clique sur un nœud pour afficher le détail à droite.
+                (Sur mobile, ça passe en liste.)
+              </p>
+            </div>
+            <button class="btn" type="button" id="resetBtn" aria-label="Réinitialiser la sélection">Réinitialiser</button>
           </div>
-        </div>
 
-        <div class="card">
-          <h3>Impact & déploiement</h3>
-          <p>
-            Le projet s’est progressivement diffusé au-delà de ma classe, puis de mon école, 
-            jusqu’à inspirer de nombreuses initiatives dans d’autres territoires (ce dispositif bénéficie aujourd'hui à plus de 300 000 enfants).
-          </p>
-          <ul>
-            <li>Accompagnement d’écoles et de collectivités dans la mise en place du petit déjeuner à l’école.</li>
-            <li>Contributions à des ressources pédagogiques et à des formations pour enseignants.</li>
-            <li>Échanges réguliers avec des chercheurs et des acteurs de la lutte contre la pauvreté.</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">Bien-être à l’école</span>
-            <span class="pill">Lutte contre la pauvreté</span>
-            <span class="pill">Lien école-familles</span>
-          </div>
-        </div>
-      </div>
-    </section>
+          <div class="mindWrap">
+            <div class="mind" aria-label="Carte mentale interactive">
+              <div class="center" role="group" aria-label="Centre de la carte mentale">
+                <h3>Un Bol à l’École</h3>
+                <p>Petit-déjeuner • bien-être • apprentissages • égalité</p>
+                <div class="mini" aria-label="Tags">
+                  <span class="tag">Rituel</span>
+                  <span class="tag">Climat</span>
+                  <span class="tag">Équipe</span>
+                  <span class="tag">Terrain</span>
+                </div>
+              </div>
 
-    <!-- INTERVENTIONS -->
-    <section id="interventions">
-      <div class="section-kicker">Interventions</div>
-      <h2 class="section-title">Ce que je propose</h2>
-      <p class="section-intro">
-        J’interviens auprès d’enseignants, de cadres de l’Éducation nationale, de collectivités, 
-        de fondations et d’associations, en France et à l’étranger.
-      </p>
+              <div class="node n1" data-node="pourquoi" tabindex="0" role="button" aria-label="Pourquoi">
+                <div class="nTitle"><span class="badge" style="background:var(--sun)"></span>Pourquoi</div>
+                <p class="nBody">Bien-être • égalité • climat apaisé</p>
+              </div>
 
-      <div class="grid">
-        <div class="card">
-          <div class="card-tag">Conférences</div>
-          <h3>Conférences inspirantes</h3>
-          <p>
-            Récit d’une expérience de terrain qui montre comment un petit geste – offrir un bol à l’école –
-            peut transformer le climat de classe, les apprentissages et le rapport des familles à l’école.
-          </p>
-          <ul>
-            <li>Pour colloques, journées d’étude, événements grand public.</li>
-            <li>Adaptable à différents publics (éducation, social, santé, philanthropie…).</li>
-          </ul>
-          <div class="card-footer">
-            <strong>Formats&nbsp;:</strong> 30 à 60 minutes, avec ou sans temps d’échanges.
-          </div>
-        </div>
+              <div class="node n2" data-node="pourqui" tabindex="0" role="button" aria-label="Pour qui">
+                <div class="nTitle"><span class="badge" style="background:var(--sky)"></span>Pour qui</div>
+                <p class="nBody">Écoles • collectivités • réseaux</p>
+              </div>
 
-        <div class="card">
-          <div class="card-tag">Formations</div>
-          <h3>Formations & ateliers pour équipes</h3>
-          <p>
-            Accompagnement des équipes éducatives dans la mise en place ou l’enrichissement 
-            de petits déjeuners pédagogiques en milieu scolaire.
-          </p>
-          <ul>
-            <li>Construction du cadre pédagogique et organisationnel.</li>
-            <li>Exemples de séquences et d’outils clés en main.</li>
-            <li>Temps d’échanges à partir des réalités de terrain.</li>
-          </ul>
-          <div class="card-footer">
-            <strong>Public&nbsp;:</strong> enseignants, directions, personnels périscolaires, associations.
-          </div>
-        </div>
+              <div class="node n3" data-node="changement" tabindex="0" role="button" aria-label="Ce que ça change">
+                <div class="nTitle"><span class="badge" style="background:var(--mint)"></span>Ce que ça change</div>
+                <p class="nBody">Cohésion • engagement • ancrage</p>
+              </div>
 
-        <div class="card">
-          <div class="card-tag">Accompagnement</div>
-          <h3>Accompagnement de projets</h3>
-          <p>
-            Travail sur mesure avec les structures qui souhaitent déployer un projet petit déjeuner 
-            à l’échelle d’une école, d’une ville ou d’un réseau.
-          </p>
-          <ul>
-            <li>Diagnostic de départ et objectifs.</li>
-            <li>Co-construction du dispositif.</li>
-            <li>Suivi, évaluation, ajustements.</li>
-          </ul>
-          <div class="card-footer">
-            Possibilité de collaboration avec des équipes de recherche et des fondations.
-          </div>
-        </div>
+              <div class="node n4" data-node="propose" tabindex="0" role="button" aria-label="Ce que je propose">
+                <div class="nTitle"><span class="badge" style="background:var(--violet)"></span>Ce que je propose</div>
+                <p class="nBody">Conférences • formations • accompagnement</p>
+              </div>
 
-        <div class="card">
-          <div class="card-tag">Médias</div>
-          <h3>Interventions médias & témoignages</h3>
-          <p>
-            Témoignage de terrain sur la pauvreté, l’alimentation, le bien-être à l’école et le rôle de l’enseignant 
-            dans la réduction des inégalités.
-          </p>
-          <ul>
-            <li>Interviews, podcasts, reportages, tables rondes.</li>
-            <li>Réaction à l’actualité éducative et sociale.</li>
-          </ul>
-          <div class="card-footer">
-            Voir la section <a href="#medias">Médias</a> pour plus d’informations.
+              <div class="node n5" data-node="recevez" tabindex="0" role="button" aria-label="Ce que vous recevez">
+                <div class="nTitle"><span class="badge" style="background:var(--leaf)"></span>Ce que vous recevez</div>
+                <p class="nBody">Kit • ressources • trames prêtes</p>
+              </div>
+
+              <div class="node n6" data-node="deploiement" tabindex="0" role="button" aria-label="Cadre et déploiement">
+                <div class="nTitle"><span class="badge" style="background:var(--coral)"></span>Cadre & déploiement</div>
+                <p class="nBody">Simple • adaptable • partenariats</p>
+              </div>
+
+              <div class="node n7" data-node="actus" tabindex="0" role="button" aria-label="Ressources et actus">
+                <div class="nTitle"><span class="badge" style="background:var(--sky)"></span>Ressources & actus</div>
+                <p class="nBody">Téléchargements • médias • agenda</p>
+              </div>
+            </div>
+
+            <aside class="panel" aria-label="Détails du nœud sélectionné">
+              <div class="miniTitle">Détail</div>
+              <h3 class="panelTitle" id="panelTitle">Clique un nœud 👈</h3>
+              <p class="panelText" id="panelText">
+                Ici, on évite la répétition : chaque nœud a une version courte + quelques puces actionnables.
+              </p>
+              <ul class="bullets" id="panelBullets" aria-label="Puces">
+                <li>Tu peux remplacer ces textes par tes formulations exactes.</li>
+                <li>Tu peux aussi ajouter un lien “en savoir plus”.</li>
+                <li>Ou garder minimaliste : c’est très bien.</li>
+              </ul>
+
+              <div class="miniBtns">
+                <a class="btn ghost" href="#offres">Voir les offres</a>
+                <a class="btn primary" href="#contact">Prendre contact</a>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MEDIAS -->
-    <section id="medias">
-      <div class="section-kicker">Médias & ressources</div>
-      <h2 class="section-title">Pour les journalistes & partenaires</h2>
-      <p class="section-intro">
-        Vous trouverez ci-dessous les principales ressources utiles pour préparer une interview ou un reportage.
-        Je peux également fournir un dossier de presse complet sur simple demande.
-      </p>
-
-      <div class="two-cols">
-        <div class="card">
-          <h3>Dossier & ressources</h3>
-          <ul class="media-list">
-            <li>
-  <strong>Dossier de présentation du projet</strong> – 
-  <a href="Dossier_presentation_Un_Bol_a_lEcole_Celine_Haller_aere.pdf" target="_blank">
-    télécharger le PDF
-  </a>
-</li>
-
-            <li>
-  <strong>Ressources pédagogiques & fiches</strong> – 
-  <a href="#" style="display:none;">exemples de séances</a>
-  <ul style="margin-top:6px; padding-left:18px;">
-    <li>
-      📘 Livre Hachette :
-      <a href="https://www.enseignants.hachette-education.com/recherche/?s=mettre%2520en%2520place%2520un%2520petit%2520dejeuner%2520pedagogique" target="_blank">
-        Mettre en place un petit-déjeuner pédagogique
-      </a>
-    </li>
-    <li>
-      🎓 Formation Nathan :
-      <a href="https://www.nathan.fr/la-salle-des-profs/articles/menez-des-petits-dejeuners-pedagogiques-en-classe" target="_blank">
-        Mener des petits-déjeuners pédagogiques en classe
-      </a>
-    </li>
-  </ul>
-</li>
-
-           
-            Pour recevoir des informations complémentaires ou organiser un échange exploratoire, 
-            vous pouvez me contacter directement via le formulaire ci-dessous.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Repères rapides</h3>
-          <p style="margin-bottom:0.4rem;">Quelques éléments de contexte utiles :</p>
+    <!-- IMPACT -->
+    <section id="impact">
+      <div class="wrap">
+        <div class="sectionHead">
           <div>
-            <span class="badge-soft">Professeure des écoles – REP+</span>
-            <span class="badge-soft">Académie de Strasbourg</span>
-            <span class="badge-soft">Global Teacher Prize – Top 10</span>
-            <span class="badge-soft">Projet « Un Bol à l’École »</span>
+            <h2>Impact & repères</h2>
+            <p class="sub">
+              Une section “preuves” très légère : des faits, pas un roman.
+              Remplace les exemples ci-dessous par tes données (ou supprime si tu veux rester sobre).
+            </p>
           </div>
-          <p style="margin-top:0.8rem;font-size:0.9rem;">
-            Je suis disponible pour des interventions en français ou en anglais.  
-        
+        </div>
+
+        <div class="grid3" role="list">
+          <div class="tile" role="listitem">
+            <h4>Climat & cohésion</h4>
+            <p>Un rituel simple qui met les élèves en sécurité, renforce le collectif et prépare aux apprentissages.</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h4>Égalité des chances</h4>
+            <p>Un cadre qui réduit les écarts et remet tout le monde au même point de départ, dès le matin.</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h4>Apprentissages dans le réel</h4>
+            <p>Langage, maths, culture, santé : le projet devient un support transversal et motivant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFERS -->
+    <section id="offres">
+      <div class="wrap">
+        <div class="band">
+          <div class="sectionHead">
+            <div>
+              <h2>Conférences & formations</h2>
+              <p class="sub">
+                Trois formats lisibles. Tu peux ajouter une fourchette de durée, des modalités, ou laisser “sur devis”.
+              </p>
+            </div>
+          </div>
+
+          <div class="offers">
+            <div class="offer">
+              <div class="cap">
+                <h4>Conférence inspirante</h4>
+                <span class="pillSmall">45–90 min</span>
+              </div>
+              <p>Une prise de hauteur + du concret. Objectif : donner envie et clarifier le “comment”.</p>
+              <ul>
+                <li>Récit + principes clés</li>
+                <li>Exemples de mise en œuvre</li>
+                <li>Temps d’échange</li>
+              </ul>
+              <div class="cta">
+                <a class="btn primary" href="#contact">Demander une conférence</a>
+              </div>
+            </div>
+
+            <div class="offer">
+              <div class="cap">
+                <h4>Formation d’équipe</h4>
+                <span class="pillSmall">½ journée / 1 jour</span>
+              </div>
+              <p>Pour passer à l’action : outils, trames, et plan de déploiement adapté à votre contexte.</p>
+              <ul>
+                <li>Diagnostic rapide</li>
+                <li>Kit + ressources</li>
+                <li>Plan de lancement</li>
+              </ul>
+              <div class="cta">
+                <a class="btn primary" href="#contact">Organiser une formation</a>
+              </div>
+            </div>
+
+            <div class="offer">
+              <div class="cap">
+                <h4>Accompagnement projet</h4>
+                <span class="pillSmall">sur mesure</span>
+              </div>
+              <p>Pour sécuriser le déploiement, embarquer les partenaires et gagner du temps.</p>
+              <ul>
+                <li>Feuille de route</li>
+                <li>Suivi & ajustements</li>
+                <li>Capitalisation</li>
+              </ul>
+              <div class="cta">
+                <a class="btn primary" href="#contact">Demander un devis</a>
+              </div>
+            </div>
+          </div>
+
+          <p class="sub" style="margin-top:14px;">
+            Option : ajoute ici une ligne “Ils repartent avec…” + 3 livrables précis (PDF, trames, calendrier, etc.).
           </p>
         </div>
       </div>
     </section>
-<!-- =======================
-     MÉDIAS & RESSOURCES
-======================== -->
-<section id="medias" style="margin-top:56px;">
-  <h2 style="margin:0 0 10px 0;">Médias & ressources</h2>
-  <p style="margin:0 0 22px 0; max-width:820px; line-height:1.6;">
-    Une sélection de vidéos, podcasts, articles et ressources institutionnelles autour du projet
-    <em>Un Bol à l’École</em>.
-  </p>
 
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
-
-    <!-- VIDEOS -->
-    <div style="border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:16px; background:#fff;">
-      <div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.7;">Vidéos</div>
-      <h3 style="margin:8px 0 8px 0;">À voir</h3>
-
-      <div style="display:grid; gap:12px; margin-top:10px;">
-        <div>
-          <div style="font-weight:600; margin:0 0 6px 0;">Présentation de l’ouvrage (Hachette)</div>
-          <iframe width="100%" height="210"
-            src="https://www.youtube.com/embed/Ks9hg6O8tLI"
-            title="Présentation de l’ouvrage chez Hachette"
-            frameborder="0"
-            allowfullscreen
-            style="border-radius:12px;">
-          </iframe>
+    <!-- RESSOURCES -->
+    <section id="ressources">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Ressources</h2>
+            <p class="sub">
+              Un espace simple : 3–6 liens max (sinon, c’est vite indigeste).
+            </p>
+          </div>
         </div>
 
-        <div>
-          <div style="font-weight:600; margin:0 0 6px 0;">Portrait – Académie de Strasbourg</div>
-          <iframe width="100%" height="210"
-            src="https://www.youtube.com/embed/1StcZQ8VKL0"
-            title="Portrait – Académie de Strasbourg"
-            frameborder="0"
-            allowfullscreen
-            style="border-radius:12px;">
-          </iframe>
-        </div>
-
-        <div style="margin-top:2px;">
-          <a href="https://fb.watch/bMrCC7afBr/" target="_blank"
-             style="display:inline-block; padding:10px 12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-            ▶ Vidéo du Ministère (Facebook)
-          </a>
-        </div>
-
-        <div style="margin-top:2px;">
-          <a href="https://www.youtube.com/watch?v=wdEZYuT3xfA" target="_blank"
-             style="display:inline-block; padding:10px 12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-            ▶ Autre vidéo (YouTube)
-          </a>
+        <div class="grid3" role="list">
+          <div class="tile" role="listitem">
+            <h4>Kit de démarrage</h4>
+            <p>Une page “quoi faire lundi matin” + check-list + trames. (Lien à ajouter)</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h4>Fiches pédagogiques</h4>
+            <p>Exemples de séquences et prolongements en classe. (Lien à ajouter)</p>
+          </div>
+          <div class="tile" role="listitem">
+            <h4>Médias & interventions</h4>
+            <p>Articles, podcasts, vidéos, événements. (Lien à ajouter)</p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- PODCASTS -->
-    <div style="border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:16px; background:#fff;">
-      <div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.7;">Podcasts</div>
-      <h3 style="margin:8px 0 8px 0;">À écouter</h3>
-
-      <div style="display:grid; gap:10px; margin-top:10px;">
-        <a href="https://www.radiofrance.fr/franceinter/podcasts/le-13-14/le-13-14-du-jeudi-27-fevrier-2025-2055975"
-           target="_blank"
-           style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-          <div style="font-weight:700;">France Inter — Le 13h/14h</div>
-          <div style="opacity:.75; margin-top:4px;">Émission / podcast</div>
-        </a>
-
-        <a href="https://www.deezer.com/fr/show/2392602"
-           target="_blank"
-           style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-          <div style="font-weight:700;">Canopé — Podcast (Deezer)</div>
-          <div style="opacity:.75; margin-top:4px;">Ressource audio</div>
-        </a>
-      </div>
-    </div>
-
-   <!-- PRESSE -->
-<div style="border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:16px; background:#fff;">
-  <div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.7;">Presse</div>
-  <h3 style="margin:8px 0 8px 0;">Ils en parlent</h3>
-
-  <div style="display:grid; gap:10px; margin-top:10px;">
-
-    <a href="https://www.bfmtv.com/alsace/bas-rhin/strasbourg/je-suis-tres-fiere-celine-haller-parmi-les-dix-meilleurs-professeurs-du-monde-de-retour-a-hautepierre_AV-202502260197.html"
-       target="_blank" rel="noopener"
-       style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none; background:#fff;">
-      <div style="font-weight:700; color:var(--accent);">BFMTV — Reportage</div>
-      <div style="opacity:.75; margin-top:4px;">Vidéo / article</div>
-    </a>
-
-    <a href="https://www.lalsace.fr/bas-rhin/2019/11/02/des-petits-dejeuners-nourrissants-a-tous-points-de-vue"
-       target="_blank" rel="noopener"
-       style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none; background:#fff;">
-      <div style="font-weight:700; color:var(--accent);">L’Alsace — Article</div>
-      <div style="opacity:.75; margin-top:4px;">Suite à la visite de la Rectrice</div>
-    </a>
-
-    <a href="https://fr.linkedin.com/posts/loopsider_avec-ses-petits-d%C3%A9jeuners-p%C3%A9dagogiques-cette-activity-7307309749417463810-wf6V"
-       target="_blank" rel="noopener"
-       style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none; background:#fff;">
-      <div style="font-weight:700; color:var(--accent);">Loopsider (LinkedIn) — Vidéo</div>
-      <div style="opacity:.75; margin-top:4px;">Format réseaux</div>
-    </a>
-
-    <a href="Telematin.mp4"
-       target="_blank" rel="noopener"
-       style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none; background:#fff;">
-      <div style="font-weight:700; color:var(--accent);">Télématin — France 2</div>
-      <div style="opacity:.75; margin-top:4px;">Reportage télévisé</div>
-    </a>
-
-    <a href="President.mov"
-       target="_blank" rel="noopener"
-       style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none; background:#fff;">
-      <div style="font-weight:700; color:var(--accent);">Le Président de la République</div>
-      <div style="opacity:.75; margin-top:4px;">Visite officielle</div>
-    </a>
-
-  </div>
-</div>
-
-
-
-
-
-     
-
-
-
-    <!-- INSTITUTIONNEL -->
-    <div style="border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:16px; background:#fff;">
-      <div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.7;">Institutionnel</div>
-      <h3 style="margin:8px 0 8px 0;">Ressources officielles</h3>
-
-      <div style="display:grid; gap:10px; margin-top:10px;">
-        <a href="https://eduscol.education.fr/2179/focus-sur-le-dispositif-des-petits-dejeuners"
-           target="_blank"
-           style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-          <div style="font-weight:700;">Éduscol — Focus dispositif</div>
-          <div style="opacity:.75; margin-top:4px;">Présentation & documents</div>
-        </a>
-
-        <a href="https://www.ac-strasbourg.fr/nos-enseignants-ont-du-talent-celine-haller-122922"
-           target="_blank"
-           style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-          <div style="font-weight:700;">Académie de Strasbourg — Portrait</div>
-          <div style="opacity:.75; margin-top:4px;">« Nos enseignants ont du talent »</div>
-        </a>
-
-        <a href="https://www.linkedin.com/posts/c%C3%A9line-haller-b0a172b3_activity-6854811049162489856-nET_?utm_source=share&utm_medium=member_desktop"
-           target="_blank"
-           style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-          <div style="font-weight:700;">Visite de Mme Elimas (LinkedIn)</div>
-          <div style="opacity:.75; margin-top:4px;">Publication</div>
-        </a>
-<a href="https://www.linkedin.com/posts/academie-de-strasbourg_aezducationnationale-acadaezmiedestrasbourg-ugcPost-7402389476884492288-AeUB?utm_source=share&utm_medium=member_ios" 
-   target="_blank"
-   style="padding:12px; border-radius:12px; border:1px solid rgba(0,0,0,.12); text-decoration:none;">
-  <div style="font-weight:700;">Visite du Président François Hollande (LinkedIn)</div>
-  <div style="opacity:.75; margin-top:4px;">Post vidéo / reportage</div>
-</a>
-
-
-<a href="#"
-   style="padding:12px; border-radius:12px; border:1px dashed rgba(0,0,0,.18); text-decoration:none; opacity:.75;">
-  <div style="font-weight:700;">Projet académique — Académie de Strasbourg</div>
-  <div style="opacity:.75; margin-top:4px;">(ajouter le lien exact)</div>
-</a>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
+    </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="section-kicker">Contact</div>
-      <h2 class="section-title">Me contacter</h2>
-      <p class="section-intro">
-        Pour une demande de conférence, de formation, d’accompagnement de projet ou une interview,
-        vous pouvez utiliser le formulaire ci-dessous ou me contacter directement par e-mail.
-      </p>
+      <div class="wrap">
+        <div class="band">
+          <div class="sectionHead">
+            <div>
+              <h2>Contact</h2>
+              <p class="sub">
+                Simple, direct. Tu peux remplacer le formulaire par un bouton mail si tu préfères.
+              </p>
+            </div>
+          </div>
 
-      <div class="contact-wrapper">
-        <div class="card">
-          <h3>Coordonnées</h3>
-          <div class="contact-line">
-            <div class="contact-label">E-mail</div>
-            <div>
-              <!-- 👉 Remplace cette adresse par la tienne -->
-              <a href="mailto:unbolalecole@hotmail.com">unbolalecole@hotmail.com</a>
-            </div>
-          </div>
-          <div class="contact-line">
-            <div class="contact-label">Localisation</div>
-            <div>Strasbourg, France (interventions sur place ou à distance)</div>
-          </div>
-          <!-- Si tu as des réseaux pro, tu pourras les ajouter ici -->
-          <!--
-          <div class="contact-line">
-            <div class="contact-label">Réseaux</div>
-            <div>
-              <a href="#">LinkedIn</a> · <a href="#">Twitter/X</a>
-            </div>
-          </div>
-          -->
-          <p class="contact-note">
-            Merci de préciser dans votre message le type d’intervention souhaitée 
-            (conférence, formation, accompagnement, reportage…) ainsi que les dates envisagées.
-          </p>
-        </div>
+          <div class="strip">
+            <div class="contactCard">
+              <div class="miniTitle">Me joindre</div>
+              <p class="panelText" style="margin-top:6px;">
+                <b>Email :</b> <a href="mailto:tonmail@exemple.fr">tonmail@exemple.fr</a><br/>
+                <b>Ville :</b> Strasbourg (académie de Strasbourg)<br/>
+                <b>Réseaux :</b> <a href="#" target="_blank" rel="noopener">LinkedIn</a> • <a href="#" target="_blank" rel="noopener">Instagram</a>
+              </p>
 
-        <div class="card">
-          <h3>Formulaire de contact</h3>
-          <!-- Simple formulaire HTML – à connecter ou à adapter selon ton hébergeur -->
-          <form action="mailto:unbolalecole@gmail.com" method="post" enctype="text/plain">
-            <div>
-              <label for="nom">Nom / Organisation</label>
-              <input type="text" id="nom" name="Nom" required>
+              <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn primary" href="mailto:tonmail@exemple.fr?subject=Demande%20d%27%C3%A9change%20-%20Un%20Bol%20%C3%A0%20l%27%C3%89cole">M’écrire</a>
+                <a class="btn" href="#offres">Voir les formats</a>
+              </div>
             </div>
-            <div>
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="Email" required>
+
+            <div class="contactCard">
+              <div class="miniTitle">Formulaire (option)</div>
+              <form onsubmit="return fakeSubmit(event)" aria-label="Formulaire de contact">
+                <div class="formRow">
+                  <div>
+                    <label for="name">Nom</label>
+                    <input id="name" name="name" placeholder="Votre nom" autocomplete="name" />
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" placeholder="email@exemple.fr" autocomplete="email" />
+                  </div>
+                </div>
+                <label for="msg">Message</label>
+                <textarea id="msg" name="msg" placeholder="Dites-moi votre contexte et ce que vous cherchez (conférence, formation, accompagnement)…"></textarea>
+                <div style="margin-top:12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                  <button class="btn primary" type="submit">Envoyer</button>
+                  <span id="formHint" style="color:rgba(15,23,42,.62); font-weight:800; font-size:13px;">
+                    (Démo : à relier à un service type Netlify Forms)
+                  </span>
+                </div>
+              </form>
             </div>
-            <div>
-              <label for="type">Type de demande</label>
-              <input type="text" id="type" name="Type de demande" placeholder="Conférence, formation, média…">
-            </div>
-            <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="Message" placeholder="Merci d’indiquer brièvement votre besoin, les publics concernés et les dates ou périodes envisagées."></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Envoyer la demande</button>
-          </form>
-          <p class="contact-note">
-            ⚠️ Selon votre navigateur, l’envoi via ce formulaire ouvre votre logiciel de messagerie.  
-            Si besoin, vous pouvez simplement copier l’adresse e-mail ci-contre.
-          </p>
+          </div>
+
         </div>
       </div>
     </section>
-  </div>
-</main>
+  </main>
 
-<footer>
-  © <span id="year"></span> Céline Haller – Enseignante, conférencière & créatrice du projet « Un Bol à l’École ».
-</footer>
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> — Céline Haller • Un Bol à l’École •
+      <a href="#top">Retour en haut</a>
+    </div>
+  </footer>
 
-<script>
-  // Affichage automatique de l'année courante dans le pied de page
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    // ===== Mind map data (à personnaliser) =====
+    const DATA = {
+      pourquoi: {
+        title: "Pourquoi",
+        text: "Un cadre concret pour soutenir le bien-être et l’égalité, tout en préparant les apprentissages dès le matin.",
+        bullets: [
+          "Climat de classe plus apaisé",
+          "Rituel sécurisant et inclusif",
+          "Un point d’entrée pour parler santé, langage, vivre-ensemble"
+        ]
+      },
+      pourqui: {
+        title: "Pour qui",
+        text: "Pour les équipes qui veulent un projet simple à lancer, et des partenaires qui cherchent un levier utile et visible.",
+        bullets: [
+          "Écoles & équipes pédagogiques",
+          "Collectivités / acteurs territoriaux",
+          "Réseaux éducatifs, INSPE, formations"
+        ]
+      },
+      changement: {
+        title: "Ce que ça change",
+        text: "Le projet agit comme un “démarrage doux” : cohésion, engagement, et apprentissages ancrés dans le réel.",
+        bullets: [
+          "Plus de disponibilité cognitive",
+          "Cohésion et coopération renforcées",
+          "Supports transversaux (langage, maths, culture)"
+        ]
+      },
+      propose: {
+        title: "Ce que je propose",
+        text: "Des formats clairs, du récit + du terrain, et surtout des ressources utilisables immédiatement.",
+        bullets: [
+          "Conférences (inspiration + méthode)",
+          "Formations d’équipes (kit + plan de déploiement)",
+          "Accompagnement sur mesure (feuille de route + suivi)"
+        ]
+      },
+      recevez: {
+        title: "Ce que vous recevez",
+        text: "Des livrables concrets, pensés pour gagner du temps et faciliter l’appropriation par l’équipe.",
+        bullets: [
+          "Kit de lancement (check-list + trames)",
+          "Ressources prêtes à l’emploi",
+          "Exemples, variantes, retours d’expérience"
+        ]
+      },
+      deploiement: {
+        title: "Cadre & déploiement",
+        text: "Une mise en œuvre simple, adaptable à votre école, avec possibilité de partenaires locaux.",
+        bullets: [
+          "Progressif (petit à petit, sans usine à gaz)",
+          "Adaptable aux contraintes (temps, locaux, budget)",
+          "Partenariats possibles selon territoire"
+        ]
+      },
+      actus: {
+        title: "Ressources & actus",
+        text: "Un endroit vivant mais minimaliste : quelques ressources utiles, et des actus quand il y en a.",
+        bullets: [
+          "Téléchargements (kits, trames, fiches)",
+          "Médias / interventions",
+          "Agenda (conférences, formations)"
+        ]
+      }
+    };
 
+    const nodes = Array.from(document.querySelectorAll(".node"));
+    const panelTitle = document.getElementById("panelTitle");
+    const panelText = document.getElementById("panelText");
+    const panelBullets = document.getElementById("panelBullets");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function setActive(key){
+      nodes.forEach(n => n.classList.toggle("active", n.dataset.node === key));
+
+      const d = DATA[key];
+      if(!d) return;
+
+      panelTitle.textContent = d.title;
+      panelText.textContent = d.text;
+
+      panelBullets.innerHTML = "";
+      d.bullets.forEach(b => {
+        const li = document.createElement("li");
+        li.textContent = b;
+        panelBullets.appendChild(li);
+      });
+    }
+
+    function reset(){
+      nodes.forEach(n => n.classList.remove("active"));
+      panelTitle.textContent = "Clique un nœud 👈";
+      panelText.textContent = "Ici, on évite la répétition : chaque nœud a une version courte + quelques puces actionnables.";
+      panelBullets.innerHTML = `
+        <li>Tu peux remplacer ces textes par tes formulations exactes.</li>
+        <li>Tu peux aussi ajouter un lien “en savoir plus”.</li>
+        <li>Ou garder minimaliste : c’est très bien.</li>
+      `;
+    }
+
+    nodes.forEach(n => {
+      n.addEventListener("click", () => setActive(n.dataset.node));
+      n.addEventListener("keydown", (e) => {
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          setActive(n.dataset.node);
+        }
+      });
+    });
+
+    resetBtn.addEventListener("click", reset);
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function fakeSubmit(e){
+      e.preventDefault();
+      const hint = document.getElementById("formHint");
+      hint.textContent = "Démo : formulaire non connecté (on peut le brancher Netlify / Formspree).";
+      return false;
+    }
+  </script>
 </body>
 </html>
