@@ -660,7 +660,8 @@
 
             <ul class="sideList">
               <li>Plusieurs années d’expérimentation de petits déjeuners pédagogiques en classe.</li>
-              <li>Un projet désormais déployé dans de nombreuses écoles et collectivités.</li>
+              <li>Un projet désormais déployé dans de nombreuses écoles et collectivités, bénéficiant à plus de 300 000 enfants à travers le territoire.</li>
+              <li>Un projet inscrit dans le Plan pauvreté du Gouvernement depuis 2019 qui permet son financement dans les écoles éligibles.<li>
               <li>Interventions auprès d’enseignants, associations, fondations et décideurs publics.</li>
             </ul>
 
@@ -681,7 +682,7 @@
             <div>
               <h2>Carte mentale</h2>
               <p class="sub">
-                Une vue d’ensemble sans redites. Clique sur un nœud pour afficher le détail (à droite). Sur mobile, ça passe en liste.
+                Cliquer sur un nœud pour afficher le détail.
               </p>
             </div>
             <button class="btn" type="button" id="resetBtn">Réinitialiser</button>
@@ -692,11 +693,7 @@
               <div class="center" role="group" aria-label="Centre">
                 <h3>Un Bol à l’École</h3>
                 <p>Petit-déjeuner • bien-être • apprentissages • égalité</p>
-                <div class="mini" aria-label="Tags">
-                  <span class="tag">Rituel</span>
-                  <span class="tag">REP+</span>
-                  <span class="tag">Lien familles</span>
-                  <span class="tag">Transversal</span>
+               
                 </div>
               </div>
 
@@ -731,6 +728,7 @@
               </div>
 
               <div class="node n7" data-node="ressourcesNode" tabindex="0" role="button" aria-label="Ressources et médias">
+
                 <div class="nTitle"><span class="badgeDot" style="background:var(--sky)"></span>Ressources</div>
                 <p class="nBody">Dossier PDF • vidéos • podcasts • presse • institutionnel</p>
               </div>
@@ -740,12 +738,10 @@
               <div class="miniTitle">Détail</div>
               <h3 class="panelTitle" id="panelTitle">Clique un nœud 👈</h3>
               <p class="panelText" id="panelText">
-                Chaque nœud = un résumé + quelques points clés (sans répétition).
+                
               </p>
               <ul class="bullets" id="panelBullets">
-                <li>Tu peux tout réécrire ensuite avec tes formulations exactes.</li>
-                <li>On peut aussi ajouter des “liens internes” vers les sections.</li>
-                <li>Ou rester ultra minimaliste.</li>
+               
               </ul>
 
               <div class="miniBtns">
@@ -922,138 +918,170 @@
     </section>
 
     <!-- MEDIAS -->
-    <section id="medias">
-      <div class="wrap">
-        <div class="band">
-          <div class="sectionHead">
-            <div>
-              <h2>Médias & ressources</h2>
-              <p class="sub">
-                Une sélection utile pour journalistes & partenaires : dossier, ressources pédagogiques, vidéos, podcasts, presse et liens institutionnels.
-              </p>
-            </div>
-          </div>
+   <!-- ====== MÉDIAS : vidéos mises en avant ====== -->
+<div class="embedGrid">
+  <div class="embed">
+    <div class="head">
+      <span class="mediaIcon" aria-hidden="true">🎥</span>
+      Présentation de l’ouvrage (Hachette)
+    </div>
+    <iframe
+      src="https://www.youtube.com/embed/Ks9hg6O8tLI"
+      title="Présentation de l’ouvrage chez Hachette"
+      allowfullscreen></iframe>
+  </div>
 
-          <div class="grid3">
-            <div class="tile">
-              <h4>Dossier & ressources</h4>
-              <ul>
-                <li>
-                  <b>Dossier de présentation du projet</b> —
-                  <a href="Dossier_presentation_Un_Bol_a_lEcole_Celine_Haller_aere.pdf" target="_blank" rel="noopener">télécharger le PDF</a>
-                </li>
-                <li>
-                  <b>Livre Hachette</b> —
-                  <a href="https://www.enseignants.hachette-education.com/recherche/?s=mettre%2520en%2520place%2520un%2520petit%2520dejeuner%2520pedagogique" target="_blank" rel="noopener">Mettre en place un petit-déjeuner pédagogique</a>
-                </li>
-                <li>
-                  <b>Formation Nathan</b> —
-                  <a href="https://www.nathan.fr/la-salle-des-profs/articles/menez-des-petits-dejeuners-pedagogiques-en-classe" target="_blank" rel="noopener">Mener des petits-déjeuners pédagogiques en classe</a>
-                </li>
-              </ul>
-              <p style="margin-top:12px; font-weight:900; color:rgba(15,23,42,.72);">
-                Pour recevoir des informations complémentaires ou organiser un échange exploratoire,
-                contactez-moi via la section <a href="#contact">Contact</a>.
-              </p>
-            </div>
+  <div class="embed">
+    <div class="head">
+      <span class="mediaIcon" aria-hidden="true">🎬</span>
+      Portrait — Académie de Strasbourg
+    </div>
+    <iframe
+      src="https://www.youtube.com/embed/1StcZQ8VKL0"
+      title="Portrait – Académie de Strasbourg"
+      allowfullscreen></iframe>
+  </div>
+</div>
 
-            <div class="tile">
-              <h4>Repères rapides</h4>
-              <ul>
-                <li>Professeure des écoles — REP+</li>
-                <li>Académie de Strasbourg</li>
-                <li>Global Teacher Prize — Top 10</li>
-                <li>Disponible en français ou en anglais</li>
-              </ul>
-            </div>
+<!-- ====== MÉDIAS : liens par catégories (plus lisible + plus joli) ====== -->
+<div class="mediaCats">
 
-            <div class="tile">
-              <h4>Accès rapides</h4>
-              <div class="mediaGrid" style="grid-template-columns:1fr; margin-top:10px;">
-                <a class="linkCard" href="https://eduscol.education.fr/2179/focus-sur-le-dispositif-des-petits-dejeuners" target="_blank" rel="noopener">
-                  <p class="t">Éduscol — Focus dispositif</p>
-                  <p class="s">Présentation & documents</p>
-                </a>
-                <a class="linkCard" href="https://www.ac-strasbourg.fr/nos-enseignants-ont-du-talent-celine-haller-122922" target="_blank" rel="noopener">
-                  <p class="t">Académie de Strasbourg — Portrait</p>
-                  <p class="s">« Nos enseignants ont du talent »</p>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="embedGrid">
-            <div class="embed">
-              <div class="head">Présentation de l’ouvrage (Hachette)</div>
-              <iframe
-                src="https://www.youtube.com/embed/Ks9hg6O8tLI"
-                title="Présentation de l’ouvrage chez Hachette"
-                allowfullscreen></iframe>
-            </div>
-
-            <div class="embed">
-              <div class="head">Portrait — Académie de Strasbourg</div>
-              <iframe
-                src="https://www.youtube.com/embed/1StcZQ8VKL0"
-                title="Portrait – Académie de Strasbourg"
-                allowfullscreen></iframe>
-            </div>
-          </div>
-
-          <div class="mediaGrid">
-            <a class="linkCard" href="https://fb.watch/bMrCC7afBr/" target="_blank" rel="noopener">
-              <p class="t">Vidéo du Ministère (Facebook)</p>
-              <p class="s">Format réseaux</p>
-            </a>
-            <a class="linkCard" href="https://www.youtube.com/watch?v=wdEZYuT3xfA" target="_blank" rel="noopener">
-              <p class="t">Autre vidéo (YouTube)</p>
-              <p class="s">Lien externe</p>
-            </a>
-            <a class="linkCard" href="https://www.radiofrance.fr/franceinter/podcasts/le-13-14/le-13-14-du-jeudi-27-fevrier-2025-2055975" target="_blank" rel="noopener">
-              <p class="t">France Inter — Le 13h/14h</p>
-              <p class="s">Émission / podcast</p>
-            </a>
-            <a class="linkCard" href="https://www.deezer.com/fr/show/2392602" target="_blank" rel="noopener">
-              <p class="t">Canopé — Podcast (Deezer)</p>
-              <p class="s">Ressource audio</p>
-            </a>
-
-            <a class="linkCard" href="https://www.bfmtv.com/alsace/bas-rhin/strasbourg/je-suis-tres-fiere-celine-haller-parmi-les-dix-meilleurs-professeurs-du-monde-de-retour-a-hautepierre_AV-202502260197.html" target="_blank" rel="noopener">
-              <p class="t">BFMTV — Reportage</p>
-              <p class="s">Vidéo / article</p>
-            </a>
-            <a class="linkCard" href="https://www.lalsace.fr/bas-rhin/2019/11/02/des-petits-dejeuners-nourrissants-a-tous-points-de-vue" target="_blank" rel="noopener">
-              <p class="t">L’Alsace — Article</p>
-              <p class="s">Suite à la visite de la Rectrice</p>
-            </a>
-            <a class="linkCard" href="https://fr.linkedin.com/posts/loopsider_avec-ses-petits-d%C3%A9jeuners-p%C3%A9dagogiques-cette-activity-7307309749417463810-wf6V" target="_blank" rel="noopener">
-              <p class="t">Loopsider (LinkedIn) — Vidéo</p>
-              <p class="s">Format réseaux</p>
-            </a>
-            <a class="linkCard" href="Telematin.mp4" target="_blank" rel="noopener">
-              <p class="t">Télématin — France 2</p>
-              <p class="s">Fichier vidéo (local)</p>
-            </a>
-            <a class="linkCard" href="President.mov" target="_blank" rel="noopener">
-              <p class="t">Le Président de la République</p>
-              <p class="s">Visite officielle (fichier local)</p>
-            </a>
-            <a class="linkCard" href="https://www.linkedin.com/posts/c%C3%A9line-haller-b0a172b3_activity-6854811049162489856-nET_?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener">
-              <p class="t">Visite de Mme Elimas (LinkedIn)</p>
-              <p class="s">Publication</p>
-            </a>
-            <a class="linkCard" href="https://www.linkedin.com/posts/academie-de-strasbourg_aezducationnationale-acadaezmiedestrasbourg-ugcPost-7402389476884492288-AeUB?utm_source=share&utm_medium=member_ios" target="_blank" rel="noopener">
-              <p class="t">Visite du Président François Hollande (LinkedIn)</p>
-              <p class="s">Post vidéo / reportage</p>
-            </a>
-            <a class="linkCard" href="#" onclick="return false;" aria-disabled="true" style="opacity:.7;">
-              <p class="t">Projet académique — Académie de Strasbourg</p>
-              <p class="s">(ajouter le lien exact)</p>
-            </a>
-          </div>
-        </div>
+  <!-- VIDEOS -->
+  <section class="mediaCat mediaCat--mint" aria-label="Vidéos">
+    <div class="mediaCatHead">
+      <div class="mediaCatTitle">
+        <span class="mediaIcon" aria-hidden="true">🎥</span>
+        Vidéos
       </div>
-    </section>
+      <span class="mediaPill">à voir</span>
+    </div>
+
+    <div class="mediaGrid" style="grid-template-columns:1fr;">
+      <a class="linkCard" href="https://fb.watch/bMrCC7afBr/" target="_blank" rel="noopener">
+        <p class="t">Vidéo du Ministère (Facebook)</p>
+        <p class="s">Format réseaux</p>
+      </a>
+
+      <a class="linkCard" href="https://www.youtube.com/watch?v=wdEZYuT3xfA" target="_blank" rel="noopener">
+        <p class="t">Autre vidéo (YouTube)</p>
+        <p class="s">Lien externe</p>
+      </a>
+
+      <a class="linkCard" href="Telematin.mp4" target="_blank" rel="noopener">
+        <p class="t">Télématin — France 2</p>
+        <p class="s">Fichier vidéo (local)</p>
+      </a>
+
+      <a class="linkCard" href="President.mov" target="_blank" rel="noopener">
+        <p class="t">Le Président de la République</p>
+        <p class="s">Visite officielle (fichier local)</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- PODCASTS -->
+  <section class="mediaCat mediaCat--sky" aria-label="Podcasts">
+    <div class="mediaCatHead">
+      <div class="mediaCatTitle">
+        <span class="mediaIcon" aria-hidden="true">🎧</span>
+        Podcasts
+      </div>
+      <span class="mediaPill">à écouter</span>
+    </div>
+
+    <div class="mediaGrid" style="grid-template-columns:1fr;">
+      <a class="linkCard"
+         href="https://www.radiofrance.fr/franceinter/podcasts/le-13-14/le-13-14-du-jeudi-27-fevrier-2025-2055975"
+         target="_blank" rel="noopener">
+        <p class="t">France Inter — Le 13h/14h</p>
+        <p class="s">Émission / podcast</p>
+      </a>
+
+      <a class="linkCard" href="https://www.deezer.com/fr/show/2392602" target="_blank" rel="noopener">
+        <p class="t">Canopé — Podcast (Deezer)</p>
+        <p class="s">Ressource audio</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- PRESSE -->
+  <section class="mediaCat mediaCat--coral" aria-label="Presse">
+    <div class="mediaCatHead">
+      <div class="mediaCatTitle">
+        <span class="mediaIcon" aria-hidden="true">📰</span>
+        Presse
+      </div>
+      <span class="mediaPill">ils en parlent</span>
+    </div>
+
+    <div class="mediaGrid" style="grid-template-columns:1fr;">
+      <a class="linkCard"
+         href="https://www.bfmtv.com/alsace/bas-rhin/strasbourg/je-suis-tres-fiere-celine-haller-parmi-les-dix-meilleurs-professeurs-du-monde-de-retour-a-hautepierre_AV-202502260197.html"
+         target="_blank" rel="noopener">
+        <p class="t">BFMTV — Reportage</p>
+        <p class="s">Vidéo / article</p>
+      </a>
+
+      <a class="linkCard"
+         href="https://www.lalsace.fr/bas-rhin/2019/11/02/des-petits-dejeuners-nourrissants-a-tous-points-de-vue"
+         target="_blank" rel="noopener">
+        <p class="t">L’Alsace — Article</p>
+        <p class="s">Suite à la visite de la Rectrice</p>
+      </a>
+
+      <a class="linkCard"
+         href="https://fr.linkedin.com/posts/loopsider_avec-ses-petits-d%C3%A9jeuners-p%C3%A9dagogiques-cette-activity-7307309749417463810-wf6V"
+         target="_blank" rel="noopener">
+        <p class="t">Loopsider (LinkedIn) — Vidéo</p>
+        <p class="s">Format réseaux</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- INSTITUTIONNEL -->
+  <section class="mediaCat mediaCat--sun" aria-label="Ressources institutionnelles">
+    <div class="mediaCatHead">
+      <div class="mediaCatTitle">
+        <span class="mediaIcon" aria-hidden="true">🏛️</span>
+        Institutionnel
+      </div>
+      <span class="mediaPill">ressources</span>
+    </div>
+
+    <div class="mediaGrid" style="grid-template-columns:1fr;">
+      <a class="linkCard" href="https://eduscol.education.fr/2179/focus-sur-le-dispositif-des-petits-dejeuners" target="_blank" rel="noopener">
+        <p class="t">Éduscol — Focus dispositif</p>
+        <p class="s">Présentation & documents</p>
+      </a>
+
+      <a class="linkCard" href="https://www.ac-strasbourg.fr/nos-enseignants-ont-du-talent-celine-haller-122922" target="_blank" rel="noopener">
+        <p class="t">Académie de Strasbourg — Portrait</p>
+        <p class="s">« Nos enseignants ont du talent »</p>
+      </a>
+
+      <a class="linkCard"
+         href="https://www.linkedin.com/posts/c%C3%A9line-haller-b0a172b3_activity-6854811049162489856-nET_?utm_source=share&utm_medium=member_desktop"
+         target="_blank" rel="noopener">
+        <p class="t">Visite de Mme Elimas (LinkedIn)</p>
+        <p class="s">Publication</p>
+      </a>
+
+      <a class="linkCard"
+         href="https://www.linkedin.com/posts/academie-de-strasbourg_aezducationnationale-acadaezmiedestrasbourg-ugcPost-7402389476884492288-AeUB?utm_source=share&utm_medium=member_ios"
+         target="_blank" rel="noopener">
+        <p class="t">Visite du Président François Hollande (LinkedIn)</p>
+        <p class="s">Post vidéo / reportage</p>
+      </a>
+
+      <a class="linkCard" href="#" onclick="return false;" aria-disabled="true" style="opacity:.7;">
+        <p class="t">Projet académique — Académie de Strasbourg</p>
+        <p class="s">(ajouter le lien exact)</p>
+      </a>
+    </div>
+  </section>
+
+</div>
+
 
     <!-- CONTACT -->
     <section id="contact">
