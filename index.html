@@ -370,13 +370,17 @@
     }
 
     /* Node positions (desktop) */
-    .n1{ left: 50%; top: 6%; transform: translate(-50%, 0); }
-    .n2{ left: 9%; top: 22%; }
-    .n3{ left: 83%; top: 22%; transform: translate(-50%, 0); }
-    .n4{ left: 6%; top: 56%; }
-    .n5{ left: 88%; top: 56%; transform: translate(-50%, 0); }
-    .n6{ left: 50%; top: 85%; transform: translate(-50%, -50%); }
-    .n7{ left: 50%; top: 62%; transform: translate(-50%, 0); width: 252px; }
+    /* Positions DESKTOP (large) : belle carte mentale, espacée */
+.n1{ left: 50%; top: 4%;  transform: translate(-50%, 0); }
+.n2{ left: 6%;  top: 16%; }
+.n3{ left: 94%; top: 16%; transform: translate(-100%, 0); }
+.n4{ left: 4%;  top: 58%; }
+.n5{ left: 96%; top: 58%; transform: translate(-100%, 0); }
+.n6{ left: 50%; top: 92%; transform: translate(-50%, -100%); }
+.n7{ left: 50%; top: 64%; transform: translate(-50%, 0); width: 260px; }
+
+/* Un peu plus d’air pour éviter les collisions */
+.node{ max-width: 260px; }
 
     /* Side panel */
     .panel{
@@ -605,6 +609,50 @@
   border-radius:18px;
   border:1px solid rgba(15,23,42,.10);
   box-shadow:0 14px 34px rgba(15,23,42,.10);
+}
+
+/* ===== Anti-chevauchement : dès que l'écran rétrécit, on passe en grille ===== */
+@media (max-width: 1100px){
+  .mind{
+    position: relative;
+    padding: 18px;
+    min-height: unset;
+  }
+
+  /* On garde le centre en haut, puis les nœuds en 2 colonnes */
+  .center{
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .node{
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: none;
+  }
+
+  .mind{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* Le centre prend toute la largeur */
+  .center{ grid-column: 1 / -1; }
+
+  /* Sur cette largeur, on met aussi “Ressources” + “Interventions” en pleine largeur (souvent plus longs) */
+  .n7{ grid-column: 1 / -1; width: auto; }
+  .n6{ grid-column: 1 / -1; }
+}
+
+/* Mobile : 1 colonne */
+@media (max-width: 700px){
+  .mind{ grid-template-columns: 1fr; }
+  .center{ grid-column: auto; }
+  .n7, .n6{ grid-column: auto; }
 }
 
   </style>
