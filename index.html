@@ -328,7 +328,7 @@
     }
     .mind{
       position:relative;
-      min-height: 590px;
+      min-height: 720px;
       border-radius: 26px;
       border:1px solid var(--border);
       background: rgba(255,255,255,.72);
@@ -760,7 +760,7 @@
   display:flex;
   gap:10px;
   align-items:flex-start;
-  width:250px;
+  width:230px;
   padding:14px;
   border-radius:20px;
   border:1px solid rgba(15,23,42,.12);
@@ -1504,17 +1504,17 @@
     if (window.matchMedia("(max-width: 900px)").matches) return;
 
     const rect = mind.getBoundingClientRect();
-    const r = Math.min(rect.width, rect.height) * 0.36;
+    const r = Math.min(rect.width, rect.height) * 0.44;
 
     // angles par node (stable)
     const angleMap = {
       pourquoi: -90,
-      demarche: -145,
-      apprentissages: -35,
-      publics: 20,
+      demarche: -150,
+      apprentissages: -30,
+      publics: 30,
       interventionsNode: 90,
-      ressourcesNode: 135,
-      impact: 165
+      ressourcesNode: 150,
+      impact: 180
     };
 
     // Centre (au milieu)
@@ -1564,4 +1564,7 @@
   // init
   reset();
   setTimeout(layoutRadial, 60);
+  window.addEventListener("load", () => setTimeout(layoutRadial, 120));
+
 </script>
+
