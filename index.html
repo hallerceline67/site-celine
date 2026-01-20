@@ -1634,11 +1634,14 @@ function layoutRadial(){
   });
 
   // init
-  reset();
-  setTimeout(layoutRadial, 60);
-  window.addEventListener("load", () => setTimeout(layoutRadial, 120));
+reset();
+setTimeout(layoutRadial, 80);
+window.addEventListener("resize", () => setTimeout(layoutRadial, 80));
+window.addEventListener("load", () => setTimeout(layoutRadial, 120));
+
 
 </script>
+
 
 
 
