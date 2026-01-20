@@ -912,140 +912,125 @@
     </section>
 
     <!-- CARTE MENTALE -->
-    <section id="carte">
-      <div class="wrap">
-        <div class="band">
-          <div class="sectionHead">
-            <div>
-              <h2>Carte mentale</h2>
-              <p class="sub">
-                Cliquer sur un nœud pour afficher le détail.
-              </p>
+<section id="carte">
+  <div class="wrap">
+    <div class="band">
+      <div class="sectionHead">
+        <div>
+          <h2>Carte mentale</h2>
+          <p class="sub">Cliquer sur un nœud pour afficher le détail.</p>
+        </div>
+        <button class="btn" type="button" id="resetBtn">Réinitialiser</button>
+      </div>
+
+      <div class="mindWrap">
+        <!-- CADRE CARTE -->
+        <div class="mind" id="mindMap" aria-label="Carte mentale interactive">
+          <!-- traits (dessinés en JS) -->
+          <svg class="mindLinks" id="mindLinks" aria-hidden="true"></svg>
+
+          <!-- centre -->
+          <div class="center" id="mindCenter" role="group" aria-label="Centre">
+            <h3>Un Bol à l’École</h3>
+            <p>Petit-déjeuner • bien-être • apprentissages • égalité</p>
+            <div class="mini" aria-label="Tags">
+              <span class="tag">Rituel</span>
+              <span class="tag">REP+</span>
+              <span class="tag">Lien familles</span>
+              <span class="tag">Transversal</span>
             </div>
-            <button class="btn" type="button" id="resetBtn">Réinitialiser</button>
           </div>
 
-          <div class="mindWrap">
-            <div class="mind" id="mindMap" aria-label="Carte mentale interactive">
-  <!-- traits (dessinés en JS) -->
-  <svg class="mindLinks" id="mindLinks" aria-hidden="true"></svg>
+          <!-- NOEUDS (7) -->
+          <button class="nodeBtn" data-node="pourquoi" type="button" aria-label="Pourquoi">
+            <span class="iconBubble" aria-hidden="true">
+              <!-- soleil -->
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16h1v3h-2V2h1Zm0 19h1v3h-2v-3h1ZM2 11h3v2H2v-2Zm19 0h3v2h-3v-2ZM4.2 5.6l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4Zm14.1 14.1 2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4ZM18.4 4.9l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1ZM2.1 18.4l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Z"/>
+              </svg>
+            </span>
+            <span class="nodeText">
+              <span class="nodeTitle">Pourquoi</span>
+              <span class="nodeSub">Inégalités • bien-être • climat</span>
+            </span>
+          </button>
 
-  <!-- centre -->
-  <div class="center" id="mindCenter" role="group" aria-label="Centre">
-    <h3>Un Bol à l’École</h3>
-    <p>Petit-déjeuner • bien-être • apprentissages • égalité</p>
-    <div class="mini" aria-label="Tags">
-      <span class="tag">Rituel</span>
-      <span class="tag">REP+</span>
-      <span class="tag">Lien familles</span>
-      <span class="tag">Transversal</span>
+          <button class="nodeBtn" data-node="demarche" type="button" aria-label="Démarche">
+            <span class="iconBubble" aria-hidden="true">
+              <!-- boussole -->
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm0-18a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm3.9 5.1-2.4 6.3-6.3 2.4 2.4-6.3 6.3-2.4Zm-4 6.8 1-2.7-2.7 1 1.7 1.7Z"/>
+              </svg>
+            </span>
+            <span class="nodeText">
+              <span class="nodeTitle">Démarche</span>
+              <span class="nodeSub">Un rituel pensé pour apprendre</span>
+            </span>
+          </button>
+
+          <button class="nodeBtn" data-node="apprentissages" type="button" aria-label="Apprentissages">
+            <span class="iconBubble" aria-hidden="true">
+              <!-- livre -->
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M6 4h10a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H6a3 3 0 0 0-3 3V7a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v12.2A4.9 4.9 0 0 1 6 19h11a1 1 0 0 1 1 1V7a1 1 0 0 0-1-1H6Zm2 3h7v2H8V9Zm0 4h7v2H8v-2Z"/>
+              </svg>
+            </span>
+            <span class="nodeText">
+              <span class="nodeTitle">Apprentissages</span>
+              <span class="nodeSub">Langage • maths • sciences • CPS</span>
+            </span>
+          </button>
+
+          <button class="nodeBtn" data-node="publics" type="button" aria-label="Publics">
+            <span class="iconBubble" aria-hidden="true">👥</span>
+            <span class="nodeText">
+              <span class="nodeTitle">Publics</span>
+              <span class="nodeSub">Équipes • collectivités • fondations • médias</span>
+            </span>
+          </button>
+
+          <button class="nodeBtn" data-node="interventionsNode" type="button" aria-label="Interventions">
+            <span class="iconBubble" aria-hidden="true">🎤</span>
+            <span class="nodeText">
+              <span class="nodeTitle">Interventions</span>
+              <span class="nodeSub">Conférences • formations • accompagnement</span>
+            </span>
+          </button>
+
+          <button class="nodeBtn" data-node="ressourcesNode" type="button" aria-label="Ressources & médias">
+            <span class="iconBubble" aria-hidden="true">📁</span>
+            <span class="nodeText">
+              <span class="nodeTitle">Ressources & médias</span>
+              <span class="nodeSub">PDF • vidéos • podcasts • presse • officiel</span>
+            </span>
+          </button>
+
+          <button class="nodeBtn" data-node="impact" type="button" aria-label="Impact & diffusion">
+            <span class="iconBubble" aria-hidden="true">📊</span>
+            <span class="nodeText">
+              <span class="nodeTitle">Impact & diffusion</span>
+              <span class="nodeSub">Déploiement • ressources • évaluation</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- PANNEAU DROITE -->
+        <aside class="panel" aria-label="Détails du nœud">
+          <div class="miniTitle">Détail</div>
+          <h3 class="panelTitle" id="panelTitle">Clique un nœud 👈</h3>
+          <p class="panelText" id="panelText"></p>
+          <ul class="bullets" id="panelBullets"></ul>
+
+          <div class="miniBtns">
+            <a class="btn ghost" href="#interventions">Voir les formats</a>
+            <a class="btn primary" href="#contact">Me contacter</a>
+          </div>
+        </aside>
+
+      </div>
     </div>
   </div>
-
-  <!-- noeuds : positions calculées en JS -->
-  <button class="nodeBtn" data-node="pourquoi" type="button" aria-label="Pourquoi">
-    <span class="iconBubble" aria-hidden="true">
-      <!-- soleil -->
-      <svg viewBox="0 0 24 24" width="18" height="18">
-        <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16h1v3h-2V2h1Zm0 19h1v3h-2v-3h1ZM2 11h3v2H2v-2Zm19 0h3v2h-3v-2ZM4.2 5.6l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4Zm14.1 14.1 2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4ZM18.4 4.9l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1ZM2.1 18.4l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Z"/>
-      </svg>
-    </span>
-    <span class="nodeText">
-      <span class="nodeTitle">Pourquoi</span>
-      <span class="nodeSub">Inégalités • bien-être • climat</span>
-    </span>
-  </button>
-
-  <button class="nodeBtn" data-node="demarche" type="button" aria-label="Démarche">
-    <span class="iconBubble" aria-hidden="true">
-      <!-- boussole -->
-      <svg viewBox="0 0 24 24" width="18" height="18">
-        <path fill="currentColor" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm0-18a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm3.9 5.1-2.4 6.3-6.3 2.4 2.4-6.3 6.3-2.4Zm-4 6.8 1-2.7-2.7 1 1.7 1.7Z"/>
-      </svg>
-    </span>
-    <span class="nodeText">
-      <span class="nodeTitle">Démarche</span>
-      <span class="nodeSub">Un rituel pensé pour apprendre</span>
-    </span>
-  </button>
-
-
-<button class="nodeBtn" data-node="apprentissages" type="button" aria-label="Apprentissages">
-  <button class="nodeBtn" data-node="impact" type="button" aria-label="Impact & diffusion">
-  <span class="iconBubble" aria-hidden="true">📡</span>
-  <span class="nodeText">
-    <span class="nodeTitle">Impact & diffusion</span>
-    <span class="nodeSub">Déploiement • ressources • évaluation</span>
-  </span>
-</button>
-
-<button class="nodeBtn" data-node="publics" type="button" aria-label="Publics">
-  <span class="iconBubble" aria-hidden="true">👥</span>
-  <span class="nodeText">
-    <span class="nodeTitle">Publics</span>
-    <span class="nodeSub">Équipes • collectivités • fondations • médias</span>
-  </span>
-</button>
-
-<button class="nodeBtn" data-node="interventionsNode" type="button" aria-label="Interventions">
-  <span class="iconBubble" aria-hidden="true">🎤</span>
-  <span class="nodeText">
-    <span class="nodeTitle">Interventions</span>
-    <span class="nodeSub">Conférences • formations • accompagnement</span>
-  </span>
-</button>
-
-<button class="nodeBtn" data-node="ressourcesNode" type="button" aria-label="Ressources & médias">
-  <span class="iconBubble" aria-hidden="true">📁</span>
-  <span class="nodeText">
-    <span class="nodeTitle">Ressources & médias</span>
-    <span class="nodeSub">PDF • vidéos • podcasts • presse • officiel</span>
-  </span>
-</button>
-  
-<button class="nodeBtn" data-node="impact" type="button" aria-label="Impact & diffusion">
-  <span class="iconBubble" aria-hidden="true">📊</span>
-  <span class="nodeText">
-    <span class="nodeTitle">Impact & diffusion</span>
-    <span class="nodeSub">Déploiement • ressources • évaluation</span>
-  </span>
-</button>
-
-  <span class="iconBubble" aria-hidden="true">
-    <!-- livre -->
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-      <path fill="currentColor" d="M6 4h10a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H6a3 3 0 0 0-3 3V7a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v12.2A4.9 4.9 0 0 1 6 19h11a1 1 0 0 1 1 1V7a1 1 0 0 0-1-1H6Zm2 3h7v2H8V9Zm0 4h7v2H8v-2Z"/>
-    </svg>
-  </span>
-  <span class="nodeText">
-    <span class="nodeTitle">Apprentissages</span>
-    <span class="nodeSub">Langage • maths • sciences • CPS</span>
-  </span>
-</button>
-
-              </div>
-            <aside class="panel" aria-label="Détails du nœud">
-              <div class="miniTitle">Détail</div>
-              <h3 class="panelTitle" id="panelTitle">Clique un nœud 👈</h3>
-              <p class="panelText" id="panelText">
-                
-              </p>
-              <ul class="bullets" id="panelBullets">
-               
-              </ul>
-
-              <div class="miniBtns">
-                <a class="btn ghost" href="#interventions">Voir les formats</a>
-                <a class="btn primary" href="#contact">Me contacter</a>
-
-                   </div>
-                           
-            
-            </aside>
-          </div>
-        </div>
-      </div>
-    </section>
+</section>
 
     <!-- PARCOURS -->
     <section id="parcours">
@@ -1641,6 +1626,7 @@ window.addEventListener("load", () => setTimeout(layoutRadial, 120));
 
 
 </script>
+
 
 
 
