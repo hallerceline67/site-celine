@@ -684,6 +684,52 @@
   .center{ grid-column: auto; }
   .n7, .n6{ grid-column: auto; }
 }
+/* STOP ancien système de nodes (évite les doublons/chevauchements) */
+.node{ display:none !important; }
+.center{ z-index: 3; }
+.nodeBtn{ z-index: 2; }
+.mindLinks{ z-index: 1; }
+
+/* ===== Carte mentale : version JS (radiale) ===== */
+.mind{
+  position: relative !important;
+  min-height: 640px;
+}
+
+.center{
+  position: absolute !important;
+  z-index: 3;
+}
+
+.node{
+  position: absolute !important;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* État actif */
+.node.active{
+  outline: 2px solid rgba(96,165,250,.55);
+  outline-offset: 2px;
+}
+
+/* Responsive : on laisse le CSS faire (plus de positions absolues) */
+@media (max-width: 900px){
+  .mind{
+    min-height: unset;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+  .center, .node{
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100%;
+  }
+}
 
   </style>
 </head>
@@ -847,43 +893,7 @@
 
               </div>
 
-              <div class="node n1" data-node="pourquoi" tabindex="0" role="button" aria-label="Pourquoi">
-                <div class="nTitle"><span class="badgeDot" style="background:var(--sun)"></span>Pourquoi</div>
-                <p class="nBody">Inégalités • bien-être • climat</p>
-              </div>
-
-              <div class="node n2" data-node="demarche" tabindex="0" role="button" aria-label="Démarche pédagogique">
-                <div class="nTitle"><span class="badgeDot" style="background:var(--mint)"></span>Démarche</div>
-                <p class="nBody">Pas une distribution : un support d’apprentissages</p>
-              </div>
-
-              <div class="node n3" data-node="apprentissages" tabindex="0" role="button" aria-label="Apprentissages">
-                <div class="nTitle"><span class="badgeDot" style="background:var(--sky)"></span>Apprentissages</div>
-                <p class="nBody">Langage • maths • sciences • CPS • citoyenneté</p>
-              </div>
-
-              <div class="node n4" data-node="impact" tabindex="0" role="button" aria-label="Impact et diffusion">
-                <div class="nTitle"><span class="badgeDot" style="background:var(--leaf)"></span>Impact</div>
-                <p class="nBody">Diffusion large • déploiement • ressources</p>
-              </div>
-
-              <div class="node n5" data-node="publics" tabindex="0" role="button" aria-label="Publics">
-                <div class="nTitle"><span class="badgeDot" style="background:var(--violet)"></span>Publics</div>
-                <p class="nBody">Équipes • collectivités • fondations • médias</p>
-              </div>
-
-              <div class="node n6" data-node="interventionsNode" tabindex="0" role="button" aria-label="Interventions">
-                <div class="nTitle"><span class="badgeDot" style="background:var(--coral)"></span>Interventions</div>
-                <p class="nBody">Conférences • formations • accompagnement • médias</p>
-              </div>
-
-              <div class="node n7" data-node="ressourcesNode" tabindex="0" role="button" aria-label="Ressources et médias">
-
-                <div class="nTitle"><span class="badgeDot" style="background:var(--sky)"></span>Ressources</div>
-                <p class="nBody">Dossier PDF • vidéos • podcasts • presse • institutionnel</p>
-              </div>
-            </div>
-
+                           
             <aside class="panel" aria-label="Détails du nœud">
               <div class="miniTitle">Détail</div>
               <h3 class="panelTitle" id="panelTitle">Clique un nœud 👈</h3>
@@ -1283,119 +1293,185 @@
       <a href="#top">Retour en haut</a>
     </div>
   </footer>
+<script>
+  // Année auto
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  <script>
-    // Année auto
-    document.getElementById("year").textContent = new Date().getFullYear();
+  // ===== Mind map data (tes infos) =====
+  const DATA = {
+    pourquoi: {
+      title: "Pourquoi",
+      text: "À partir du petit déjeuner, le projet agit sur le bien-être, le climat de classe et la réduction des inégalités dès le début de journée.",
+      bullets: [
+        "Éducation prioritaire : besoins concrets, réponses simples",
+        "Rituel sécurisant qui installe une disponibilité pour apprendre",
+        "Levier pour parler égalité, santé, rapport à l’école"
+      ]
+    },
+    demarche: {
+      title: "Démarche",
+      text: "Ce n’est pas une distribution : c’est un temps ritualisé, pensé comme un support d’apprentissages et de lien.",
+      bullets: [
+        "Un cadre pédagogique + une organisation réaliste",
+        "Un moment universel, réutilisable chaque semaine",
+        "Un projet adaptable au contexte de chaque école/collectivité"
+      ]
+    },
+    apprentissages: {
+      title: "Apprentissages",
+      text: "Des contenus ancrés dans le réel, transversaux et motivants, avec des outils et séances structurées.",
+      bullets: [
+        "Langage oral/écrit",
+        "Maths (mesures, proportions, statistiques…)",
+        "Sciences (nutrition, digestion, énergie, microbiote…)",
+        "Compétences psychosociales + citoyenneté/égalité"
+      ]
+    },
+    impact: {
+      title: "Impact & diffusion",
+      text: "Le projet a dépassé la classe puis l’école, inspirant de nombreuses initiatives : aujourd’hui, il bénéficie à plus de 300 000 enfants.",
+      bullets: [
+        "Accompagnement d’écoles et de collectivités",
+        "Contributions à des ressources et formations",
+        "Échanges avec chercheurs et acteurs de la lutte contre la pauvreté"
+      ]
+    },
+    publics: {
+      title: "Publics",
+      text: "J’interviens auprès d’enseignants, de collectivités, de fondations/associations et de médias, en France et à l’étranger.",
+      bullets: [
+        "Équipes éducatives & cadres de l’EN",
+        "Collectivités, villes, territoires",
+        "Fondations, associations, partenaires",
+        "Journalistes, podcasts, reportages"
+      ]
+    },
+    interventionsNode: {
+      title: "Interventions",
+      text: "Des formats clairs : conférence, formation, accompagnement, et interventions médias (FR/EN).",
+      bullets: [
+        "Conférences inspirantes (30–60 min)",
+        "Formations/ateliers (½ journée / 1 jour)",
+        "Accompagnement sur mesure (diagnostic → suivi)",
+        "Médias : interviews, tables rondes, reportages"
+      ]
+    },
+    ressourcesNode: {
+      title: "Ressources & médias",
+      text: "Tout le nécessaire pour préparer un échange : dossier PDF, ressources pédagogiques, vidéos, podcasts, presse et institutionnel.",
+      bullets: [
+        "Dossier de présentation (PDF)",
+        "Livre Hachette + formation Nathan",
+        "Sélection vidéos/podcasts/presse",
+        "Liens Éduscol + Académie de Strasbourg"
+      ]
+    }
+  };
 
-    // ===== Mind map data (reprend tes infos) =====
-    const DATA = {
-      pourquoi: {
-        title: "Pourquoi",
-        text: "À partir du petit déjeuner, le projet agit sur le bien-être, le climat de classe et la réduction des inégalités dès le début de journée.",
-        bullets: [
-          "Éducation prioritaire : besoins concrets, réponses simples",
-          "Rituel sécurisant qui installe une disponibilité pour apprendre",
-          "Levier pour parler égalité, santé, rapport à l’école"
-        ]
-      },
-      demarche: {
-        title: "Démarche",
-        text: "Ce n’est pas une distribution : c’est un temps ritualisé, pensé comme un support d’apprentissages et de lien.",
-        bullets: [
-          "Un cadre pédagogique + une organisation réaliste",
-          "Un moment universel, réutilisable chaque semaine",
-          "Un projet adaptable au contexte de chaque école/collectivité"
-        ]
-      },
-      apprentissages: {
-        title: "Apprentissages",
-        text: "Des contenus ancrés dans le réel, transversaux et motivants, avec des outils et séances structurées.",
-        bullets: [
-          "Langage oral/écrit",
-          "Maths (mesures, proportions, statistiques…)",
-          "Sciences (nutrition, digestion, énergie, microbiote…)",
-          "Compétences psychosociales + citoyenneté/égalité"
-        ]
-      },
-      impact: {
-        title: "Impact & diffusion",
-        text: "Le projet a dépassé la classe puis l’école, inspirant de nombreuses initiatives : aujourd’hui, il bénéficie à plus de 300 000 enfants.",
-        bullets: [
-          "Accompagnement d’écoles et de collectivités",
-          "Contributions à des ressources et formations",
-          "Échanges avec chercheurs et acteurs de la lutte contre la pauvreté"
-        ]
-      },
-      publics: {
-        title: "Publics",
-        text: "J’interviens auprès d’enseignants, de collectivités, de fondations/associations et de médias, en France et à l’étranger.",
-        bullets: [
-          "Équipes éducatives & cadres de l’EN",
-          "Collectivités, villes, territoires",
-          "Fondations, associations, partenaires",
-          "Journalistes, podcasts, reportages"
-        ]
-      },
-      interventionsNode: {
-        title: "Interventions",
-        text: "Des formats clairs : conférence, formation, accompagnement, et interventions médias (FR/EN).",
-        bullets: [
-          "Conférences inspirantes (30–60 min)",
-          "Formations/ateliers (½ journée / 1 jour)",
-          "Accompagnement sur mesure (diagnostic → suivi)",
-          "Médias : interviews, tables rondes, reportages"
-        ]
-      },
-      ressourcesNode: {
-        title: "Ressources & médias",
-        text: "Tout le nécessaire pour préparer un échange : dossier PDF, ressources pédagogiques, vidéos, podcasts, presse et institutionnel.",
-        bullets: [
-          "Dossier de présentation (PDF)",
-          "Livre Hachette + formation Nathan",
-          "Sélection vidéos/podcasts/presse",
-          "Liens Éduscol + Académie de Strasbourg"
-        ]
-      }
+  // ===== Elements =====
+  const mind = document.querySelector(".mind");               // le grand cadre de la carte mentale
+  const center = document.querySelector(".center");           // la case centrale
+  const nodes = Array.from(document.querySelectorAll(".node"));
+  const panelTitle = document.getElementById("panelTitle");
+  const panelText = document.getElementById("panelText");
+  const panelBullets = document.getElementById("panelBullets");
+  const resetBtn = document.getElementById("resetBtn");
+
+  // ===== Panel =====
+  function setActive(key){
+    nodes.forEach(n => n.classList.toggle("active", n.dataset.node === key));
+    const d = DATA[key];
+    if(!d) return;
+
+    panelTitle.textContent = d.title;
+    panelText.textContent = d.text;
+
+    panelBullets.innerHTML = "";
+    d.bullets.forEach(b => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      panelBullets.appendChild(li);
+    });
+  }
+
+  function reset(){
+    nodes.forEach(n => n.classList.remove("active"));
+    panelTitle.textContent = "Carte mentale";
+    panelText.textContent = "Clique sur une case autour du centre pour afficher le détail.";
+    panelBullets.innerHTML = `
+      <li>Chaque case ouvre un résumé + quelques points clés.</li>
+      <li>On garde un rendu aéré et pro, sans répétitions.</li>
+    `;
+  }
+
+  // ===== Layout radial (anti-chevauchement) =====
+  function layoutRadial(){
+    if(!mind || !center || nodes.length === 0) return;
+
+    // Sur mobile, laisse le CSS faire (grille/liste)
+    if (window.matchMedia("(max-width: 900px)").matches) return;
+
+    const rect = mind.getBoundingClientRect();
+    const r = Math.min(rect.width, rect.height) * 0.36;
+
+    // angles par node (stable)
+    const angleMap = {
+      pourquoi: -90,
+      demarche: -145,
+      apprentissages: -35,
+      publics: 20,
+      interventionsNode: 90,
+      ressourcesNode: 135,
+      impact: 165
     };
 
-    const nodes = Array.from(document.querySelectorAll(".node"));
-    const panelTitle = document.getElementById("panelTitle");
-    const panelText = document.getElementById("panelText");
-    const panelBullets = document.getElementById("panelBullets");
-    const resetBtn = document.getElementById("resetBtn");
+    // Centre (au milieu)
+    center.style.left = "50%";
+    center.style.top = "50%";
+    center.style.transform = "translate(-50%, -50%)";
 
-    function setActive(key){
-      nodes.forEach(n => n.classList.toggle("active", n.dataset.node === key));
-      const d = DATA[key];
-      if(!d) return;
+    // Nodes (autour)
+    nodes.forEach(node => {
+      const key = node.dataset.node;
+      const deg = angleMap[key] ?? 0;
+      const a = deg * Math.PI / 180;
 
-      panelTitle.textContent = d.title;
-      panelText.textContent = d.text;
+      const x = rect.width/2 + r * Math.cos(a);
+      const y = rect.height/2 + r * Math.sin(a);
 
-      panelBullets.innerHTML = "";
-      d.bullets.forEach(b => {
-        const li = document.createElement("li");
-        li.textContent = b;
-        panelBullets.appendChild(li);
-      });
-    }
+      const w = node.offsetWidth;
+      const h = node.offsetHeight;
 
-    function reset(){
-      nodes.forEach(n => n.classList.remove("active"));
-           `;
-    }
-
-    nodes.forEach(n => {
-      n.addEventListener("click", () => setActive(n.dataset.node));
-      n.addEventListener("keydown", (e) => {
-        if(e.key === "Enter" || e.key === " "){
-          e.preventDefault();
-          setActive(n.dataset.node);
-        }
-      });
+      node.style.left = `${x - w/2}px`;
+      node.style.top  = `${y - h/2}px`;
+      node.style.transform = "none";
     });
-    resetBtn.addEventListener("click", reset);
-  </script>
-</body>
-</html>
+  }
+
+  // ===== Interactions =====
+  nodes.forEach(n => {
+    // accessibilité: si c’est un div, on le rend “cliquable”
+    n.setAttribute("tabindex", "0");
+    n.setAttribute("role", "button");
+
+    n.addEventListener("click", () => setActive(n.dataset.node));
+    n.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        setActive(n.dataset.node);
+      }
+    });
+  });
+
+  resetBtn?.addEventListener("click", () => { reset(); layoutRadial(); });
+
+  window.addEventListener("resize", () => {
+    setTimeout(layoutRadial, 60);
+  });
+
+  // init
+  reset();
+  setTimeout(layoutRadial, 60);
+</script>
+/* Désactive les anciens placements manuels */
+.n1,.n2,.n3,.n4,.n5,.n6,.n7{ left:auto !important; top:auto !important; transform:none !important; }
