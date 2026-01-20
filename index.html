@@ -1518,15 +1518,7 @@
     });
   }
 
-  function reset(){
-    nodes.forEach(n => n.classList.remove("active"));
-    panelTitle.textContent = "Carte mentale";
-    panelText.textContent = "Clique sur une case autour du centre pour afficher le détail.";
-    panelBullets.innerHTML = `
-      <li>Chaque case ouvre un résumé + quelques points clés.</li>
-      <li>On garde un rendu aéré et pro, sans répétitions.</li>
-    `;
-  }
+ 
 
   // ===== Layout radial (anti-chevauchement) =====
   function layoutRadial(){
@@ -1600,6 +1592,7 @@
   window.addEventListener("load", () => setTimeout(layoutRadial, 120));
 
 </script>
+
 
 
 
