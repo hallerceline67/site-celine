@@ -1502,9 +1502,12 @@
   };
 
   // ===== Elements =====
-  const mind = document.querySelector(".mind");               // le grand cadre de la carte mentale
-  const center = document.querySelector(".center");           // la case centrale
+const mind = document.getElementById("mindMap");
+              // le grand cadre de la carte mentale
+const center = document.getElementById("mindCenter");
+        // la case centrale
 const nodes = Array.from(document.querySelectorAll("#mindMap .nodeBtn"));
+
 console.log("nodeBtns trouvés =", nodes.length);
 
   const panelTitle = document.getElementById("panelTitle");
@@ -1533,26 +1536,59 @@ console.log("nodeBtns trouvés =", nodes.length);
 
   // ===== Layout radial (anti-chevauchement) =====
 function layoutRadial(){
-  if(!mind || !center || nodes.length === 0) return;
+ const linksSvg = document.getElementById("mindLinks");
 
+function drawLinks(){
+  if(!linksSvg || !mind || !center) return;
+  const w = mind.clientWidth;
+  const h = mind.clientHeight;
+
+  linksSvg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  linksSvg.innerHTML = "";
+
+  const cRect = center.getBoundingClientRect();
+  const mRect = mind.getBoundingClientRect();
+
+  const cx = (cRect.left - mRect.left) + cRect.width/2;
+  const cy = (cRect.top  - mRect.top)  + cRect.height/2;
+
+  nodes.forEach(node => {
+    const nRect = node.getBoundingClientRect();
+    const nx = (nRect.left - mRect.left) + nRect.width/2;
+    const ny = (nRect.top  - mRect.top)  + nRect.height/2;
+
+    const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+    line.setAttribute("x1", cx);
+    line.setAttribute("y1", cy);
+    line.setAttribute("x2", nx);
+    line.setAttribute("y2", ny);
+    line.setAttribute("stroke", "rgba(15,23,42,.14)");
+    line.setAttribute("stroke-width", "2");
+    linksSvg.appendChild(line);
+  });
+}
+
+function layoutRadial(){
+  if(!mind || !center || nodes.length === 0) return;
   if (window.matchMedia("(max-width: 900px)").matches) return;
 
   const w = mind.clientWidth;
   const h = mind.clientHeight;
 
-  const r = Math.min(w, h) * 0.42;
+  // cercle plus stable
+  const r = Math.min(w, h) * 0.44;
 
+  // angles (7 noeuds) bien répartis
   const angleMap = {
     pourquoi: -90,
     apprentissages: -30,
-    demarche: -150,
     publics: 30,
     interventionsNode: 90,
+    impact: 180,
     ressourcesNode: 150,
-    impact: 180
+    demarche: -150
   };
 
-  // centre exact
   center.style.left = "50%";
   center.style.top = "50%";
   center.style.transform = "translate(-50%, -50%)";
@@ -1571,6 +1607,8 @@ function layoutRadial(){
     node.style.left = `${x - bw/2}px`;
     node.style.top  = `${y - bh/2}px`;
   });
+
+  drawLinks();
 }
 
 
@@ -1601,6 +1639,7 @@ function layoutRadial(){
   window.addEventListener("load", () => setTimeout(layoutRadial, 120));
 
 </script>
+
 
 
 
