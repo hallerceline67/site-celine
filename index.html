@@ -1002,6 +1002,14 @@
     <span class="nodeSub">PDF • vidéos • podcasts • presse • officiel</span>
   </span>
 </button>
+  
+<button class="nodeBtn" data-node="impact" type="button" aria-label="Impact & diffusion">
+  <span class="iconBubble" aria-hidden="true">📊</span>
+  <span class="nodeText">
+    <span class="nodeTitle">Impact & diffusion</span>
+    <span class="nodeSub">Déploiement • ressources • évaluation</span>
+  </span>
+</button>
 
   <span class="iconBubble" aria-hidden="true">
     <!-- livre -->
@@ -1482,7 +1490,9 @@
   // ===== Elements =====
   const mind = document.querySelector(".mind");               // le grand cadre de la carte mentale
   const center = document.querySelector(".center");           // la case centrale
-  const nodes = Array.from(document.querySelectorAll(".nodeBtn"));
+const nodes = Array.from(document.querySelectorAll("#mindMap .nodeBtn"));
+console.log("nodeBtns trouvés =", nodes.length);
+
   const panelTitle = document.getElementById("panelTitle");
   const panelText = document.getElementById("panelText");
   const panelBullets = document.getElementById("panelBullets");
@@ -1577,6 +1587,7 @@ function layoutRadial(){
   window.addEventListener("load", () => setTimeout(layoutRadial, 120));
 
 </script>
+
 
 
 
