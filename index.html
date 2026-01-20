@@ -1508,49 +1508,47 @@
  
 
   // ===== Layout radial (anti-chevauchement) =====
-  function layoutRadial(){
-    if(!mind || !center || nodes.length === 0) return;
+function layoutRadial(){
+  if(!mind || !center || nodes.length === 0) return;
 
-    // Sur mobile, laisse le CSS faire (grille/liste)
-    if (window.matchMedia("(max-width: 900px)").matches) return;
+  if (window.matchMedia("(max-width: 900px)").matches) return;
 
-    const rect = mind.getBoundingClientRect();
-    const r = Math.min(rect.width, rect.height) * 0.52;
+  const w = mind.clientWidth;
+  const h = mind.clientHeight;
 
-    // angles par node (stable)
-   const angleMap = {
-  pourquoi: -90,
-  apprentissages: -40,
-  demarche: -150,
-  publics: 30,
-  interventionsNode: 90,
-  ressourcesNode: 150,
-  impact: 180
-};
+  const r = Math.min(w, h) * 0.42;
 
+  const angleMap = {
+    pourquoi: -90,
+    apprentissages: -30,
+    demarche: -150,
+    publics: 30,
+    interventionsNode: 90,
+    ressourcesNode: 150,
+    impact: 180
+  };
 
-    // Centre (au milieu)
-    center.style.left = "50%";
-    center.style.top = "50%";
-    center.style.transform = "translate(-50%, -50%)";
+  // centre exact
+  center.style.left = "50%";
+  center.style.top = "50%";
+  center.style.transform = "translate(-50%, -50%)";
 
-    // Nodes (autour)
-    nodes.forEach(node => {
-      const key = node.dataset.node;
-      const deg = angleMap[key] ?? 0;
-      const a = deg * Math.PI / 180;
+  nodes.forEach(node => {
+    const key = node.dataset.node;
+    const deg = angleMap[key] ?? 0;
+    const a = deg * Math.PI / 180;
 
-      const x = rect.width/2 + r * Math.cos(a);
-      const y = rect.height/2 + r * Math.sin(a);
+    const x = w/2 + r * Math.cos(a);
+    const y = h/2 + r * Math.sin(a);
 
-      const w = node.offsetWidth;
-      const h = node.offsetHeight;
+    const bw = node.offsetWidth;
+    const bh = node.offsetHeight;
 
-      node.style.left = `${x - w/2}px`;
-      node.style.top  = `${y - h/2}px`;
-      node.style.transform = "none";
-    });
-  }
+    node.style.left = `${x - bw/2}px`;
+    node.style.top  = `${y - bh/2}px`;
+  });
+}
+
 
   // ===== Interactions =====
   nodes.forEach(n => {
@@ -1579,6 +1577,7 @@
   window.addEventListener("load", () => setTimeout(layoutRadial, 120));
 
 </script>
+
 
 
 
