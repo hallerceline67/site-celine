@@ -938,6 +938,22 @@
 .sideCard{
   display: none !important;
 }
+/* Grand cadre englobant la section Mon parcours */
+#parcours .wrap{
+  background: rgba(255,255,255,.78);
+  border:1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+/* On enlève l’effet "collé" en haut */
+#parcours .sectionHead{
+  margin-bottom: 24px;
+}
+#parcours .tile{
+  background: rgba(255,255,255,.9);
+}
 
   </style>
 </head>
@@ -1861,6 +1877,7 @@ window.addEventListener("load", setPanelCollapsedMobile);
 window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
