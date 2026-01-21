@@ -1684,7 +1684,7 @@ function layoutMindMap(){
 
   const radius = Math.max(170, Math.min(rWrap.width, rWrap.height) * 0.33);
 
-  nodes.forEach((node, i) => {
+    nodes.forEach((node, i) => {
     const a = (i / nodes.length) * Math.PI * 2 - Math.PI/2;
     const x = cx + Math.cos(a) * radius;
     const y = cy + Math.sin(a) * radius;
@@ -1710,10 +1710,10 @@ function layoutMindMap(){
     path.setAttribute('stroke-width', '2');
     svg.appendChild(path);
   });
-}
+} // ✅ <-- FIN de layoutMindMap (il manquait ce crochet)
 
 window.addEventListener('DOMContentLoaded', () => {
- 
+  setTimeout(layoutMindMap, 120); // ✅ lance le placement au chargement
 });
 
 let mmT;
@@ -1726,6 +1726,7 @@ window.addEventListener('resize', () => {
 
 
 </script>
+
 
 
 
