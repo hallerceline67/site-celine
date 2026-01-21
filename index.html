@@ -1591,6 +1591,17 @@ console.log("nodeBtns trouvés =", nodes.length);
       panelBullets.appendChild(li);
     });
   }
+function resetMind(){
+  nodes.forEach(n => n.classList.remove("active"));
+
+  panelTitle.textContent = "Clique un nœud 👈";
+  panelText.textContent = "";
+  panelBullets.innerHTML = "";
+
+  mind.classList.remove("hasActive");
+
+  layoutRadial();
+}
 
  mind.classList.add("hasActive");
 
@@ -1683,11 +1694,11 @@ nodes.forEach(n => {
   });
 });
 
-// reset() n’existe pas chez toi -> on reset sur un noeud par défaut
-resetBtn?.addEventListener("click", () => {
-  setActive("pourquoi");
-  layoutRadial();
+resetBtn?.addEventListener("click", (e) => {
+  e.preventDefault();
+  resetMind();
 });
+
 
 // init
 window.addEventListener("load", () => {
@@ -1747,6 +1758,7 @@ function layoutMindMap(){
 
 
 </script>
+
 
 
 
