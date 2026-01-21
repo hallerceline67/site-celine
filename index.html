@@ -889,6 +889,24 @@
 #mindMap.hasActive #mindCenter{
   box-shadow: 0 22px 56px rgba(45,212,191,.12), 0 14px 40px rgba(15,23,42,.10) !important;
 }
+/* ===== Mobile: panneau "Détail" en accordéon ===== */
+@media (max-width: 900px){
+  .panel{
+    position: relative;
+  }
+
+  .panelToggle{
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .panel.isCollapsed #panelText,
+  .panel.isCollapsed #panelBullets,
+  .panel.isCollapsed .miniBtns{
+    display: none !important;
+  }
+}
 
   </style>
 </head>
@@ -1591,6 +1609,12 @@ console.log("nodeBtns trouvés =", nodes.length);
       panelBullets.appendChild(li);
     });
   }
+ if (window.matchMedia("(max-width: 900px)").matches) {
+  panel?.classList.remove("isCollapsed");
+  if (panelToggleBtn) panelToggleBtn.textContent = "Masquer le détail";
+  panel?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+ 
 function resetMind(){
   nodes.forEach(n => n.classList.remove("active"));
 
@@ -1756,8 +1780,57 @@ function layoutMindMap(){
   });
 } // ✅ <-- FIN de layoutMindMap (il manquait ce crochet)
 
+// ===== Mobile: accordéon pour le panneau Détail =====
+const panel = document.querySelector(".panel");
+let panelToggleBtn = null;
+
+function ensurePanelToggle(){
+  if(!panel) return;
+  if(panelToggleBtn) return;
+
+  panelToggleBtn = document.createElement("button");
+  panelToggleBtn.type = "button";
+  panelToggleBtn.className = "btn ghost panelToggle";
+  panelToggleBtn.textContent = "Afficher le détail";
+
+  // on l'insère après le miniTitle ("Détail")
+  const miniTitle = panel.querySelector(".miniTitle");
+  if(miniTitle && miniTitle.parentNode){
+    miniTitle.parentNode.insertBefore(panelToggleBtn, miniTitle.nextSibling);
+  }else{
+    panel.insertBefore(panelToggleBtn, panel.firstChild);
+  }
+
+  panelToggleBtn.addEventListener("click", () => {
+    panel.classList.toggle("isCollapsed");
+    panelToggleBtn.textContent = panel.classList.contains("isCollapsed")
+      ? "Afficher le détail"
+      : "Masquer le détail";
+  });
+}
+
+function setPanelCollapsedMobile(){
+  if(!panel) return;
+  const isMobile = window.matchMedia("(max-width: 900px)").matches;
+
+  if(isMobile){
+    ensurePanelToggle();
+    // par défaut, on replie
+    panel.classList.add("isCollapsed");
+    panelToggleBtn.textContent = "Afficher le détail";
+  }else{
+    // desktop: on déplie
+    panel.classList.remove("isCollapsed");
+    if(panelToggleBtn) panelToggleBtn.textContent = "Masquer le détail";
+  }
+}
+
+// Au chargement + au resize
+window.addEventListener("load", setPanelCollapsedMobile);
+window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
