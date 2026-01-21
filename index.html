@@ -1087,6 +1087,39 @@ p{
 li{
   margin-bottom: 0.5em;
 }
+.heroImages{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 18px;
+  margin: 24px auto;
+}
+
+/* Livre plus petit */
+.bookHero{
+  width: 120px;
+  border-radius: 10px;
+  border:1px solid rgba(15,23,42,.12);
+  box-shadow:0 10px 22px rgba(15,23,42,.12);
+}
+
+/* Photo principale */
+.photoHero{
+  width:220px;
+  border-radius:18px;
+  border:1px solid rgba(15,23,42,.10);
+  box-shadow:0 14px 34px rgba(15,23,42,.10);
+}
+
+/* Mobile : on empile */
+@media (max-width:700px){
+  .heroImages{
+    flex-direction: column;
+  }
+  .bookHero{
+    width: 110px;
+  }
+}
 
   </style>
 </head>
@@ -1132,7 +1165,11 @@ li{
 
 
             <!-- Remplace le fichier image si besoin -->
-           <img src="celine-haller.jpg" alt="Céline Haller" class="photoHero">
+       <div class="heroImages">
+  <img src="guide.JPG" alt="Guide Un Bol à l'École" class="bookHero">
+  <img src="celine-haller.jpg" alt="Céline Haller" class="photoHero">
+</div>
+
 
 
             <p class="lead">
@@ -2013,6 +2050,7 @@ window.addEventListener("load", setPanelCollapsedMobile);
 window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
