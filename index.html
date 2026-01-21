@@ -954,6 +954,28 @@
 #parcours .tile{
   background: rgba(255,255,255,.9);
 }
+/* Grand cadre englobant la section Interventions */
+#interventions .wrap{
+  background: rgba(255,255,255,.78);
+  border:1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+/* Respiration sous le titre */
+#interventions .sectionHead{
+  margin-bottom: 24px;
+}
+
+/* Les cartes internes restent bien visibles */
+#interventions .tile{
+  background: rgba(255,255,255,.9);
+}
+#interventions .twoCols,
+#interventions .threeCols{
+  margin-top: 12px;
+}
 
   </style>
 </head>
@@ -1877,6 +1899,7 @@ window.addEventListener("load", setPanelCollapsedMobile);
 window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
