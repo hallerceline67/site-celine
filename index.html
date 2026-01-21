@@ -1031,6 +1031,62 @@ ul li{
 p, li{
   font-weight: 350;
 }
+/* ===== Harmonisation des interlignes ===== */
+
+/* Titres */
+h1{
+  line-height: 1.05;
+}
+h2{
+  line-height: 1.15;
+}
+h3, h4, h5, h6{
+  line-height: 1.2;
+}
+
+/* Sous-titres */
+.sub,
+.heroTitle h2,
+.mediaCatSubtitle{
+  line-height: 1.4;
+}
+
+/* Texte courant */
+p,
+.panelText,
+.tile p,
+.offer p,
+.linkCard .s,
+.profile p,
+.smallNote{
+  line-height: 1.6;
+}
+
+/* Listes */
+li{
+  line-height: 1.55;
+}
+
+/* Paragraphes longs */
+.lead{
+  line-height: 1.7;
+}
+
+/* Textes compacts (labels, tags, boutons) */
+label,
+.tag,
+.chip,
+.pillSmall,
+.badge,
+.btn{
+  line-height: 1.2;
+}
+p{
+  margin-bottom: 0.8em;
+}
+li{
+  margin-bottom: 0.5em;
+}
 
   </style>
 </head>
@@ -1954,6 +2010,7 @@ window.addEventListener("load", setPanelCollapsedMobile);
 window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
