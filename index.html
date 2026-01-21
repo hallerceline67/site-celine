@@ -859,6 +859,12 @@
   transform: translate(-50%, -50%);
   z-index: 3;
 }
+/* Desktop: le JS place déjà les nodes, donc pas de translate */
+@media (min-width: 901px){
+  #mindMap .nodeBtn{
+    transform: none !important;
+  }
+}
 
   </style>
 </head>
@@ -1602,7 +1608,7 @@ function layoutRadial(){
 
   const w = mind.clientWidth;
   const h = mind.clientHeight;
-  const r = Math.min(w, h) * 0.44;
+  const r = Math.min(w, h) * 0.52;
 
   const angleMap = {
     pourquoi: -90,
@@ -1714,6 +1720,7 @@ function layoutMindMap(){
 
 
 </script>
+
 
 
 
