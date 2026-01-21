@@ -1669,8 +1669,62 @@ setTimeout(layoutRadial, 80);
 window.addEventListener("resize", () => setTimeout(layoutRadial, 80));
 window.addEventListener("load", () => setTimeout(layoutRadial, 120));
 
+<script>
+function layoutMindMap(){
+  const wrap = document.getElementById('mindMap');
+  const center = document.getElementById('mindCenter');
+  const svg = document.getElementById('mindLinks');
+  const nodes = [...wrap.querySelectorAll('.nodeBtn')];
+
+  if(!wrap || !center || !svg || nodes.length === 0) return;
+
+  const rWrap = wrap.getBoundingClientRect();
+  const cx = rWrap.width / 2;
+  const cy = rWrap.height / 2;
+
+  const radius = Math.max(170, Math.min(rWrap.width, rWrap.height) * 0.33);
+
+  nodes.forEach((node, i) => {
+    const a = (i / nodes.length) * Math.PI * 2 - Math.PI/2;
+    const x = cx + Math.cos(a) * radius;
+    const y = cy + Math.sin(a) * radius;
+
+    node.style.left = `${x}px`;
+    node.style.top  = `${y}px`;
+  });
+
+  svg.setAttribute('viewBox', `0 0 ${rWrap.width} ${rWrap.height}`);
+  svg.innerHTML = '';
+
+  nodes.forEach((node) => {
+    const rNode = node.getBoundingClientRect();
+    const nx = (rNode.left - rWrap.left) + rNode.width/2;
+    const ny = (rNode.top  - rWrap.top)  + rNode.height/2;
+
+    const midx = (cx + nx) / 2;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', `M ${cx} ${cy} C ${midx} ${cy}, ${midx} ${ny}, ${nx} ${ny}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', 'rgba(0,0,0,.18)');
+    path.setAttribute('stroke-width', '2');
+    svg.appendChild(path);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(() => requestAnimationFrame(layoutMindMap));
+});
+
+let mmT;
+window.addEventListener('resize', () => {
+  clearTimeout(mmT);
+  mmT = setTimeout(layoutMindMap, 120);
+});
+</script>
 
 </script>
+
 
 
 
