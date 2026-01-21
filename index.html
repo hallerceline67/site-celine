@@ -1564,12 +1564,12 @@ console.log("nodeBtns trouvés =", nodes.length);
 
  
 
-  // ===== Layout radial (anti-chevauchement) =====
-function layoutRadial(){
- const linksSvg = document.getElementById("mindLinks");
+// ===== Layout radial (anti-chevauchement) =====
+const linksSvg = document.getElementById("mindLinks");
 
 function drawLinks(){
   if(!linksSvg || !mind || !center) return;
+
   const w = mind.clientWidth;
   const h = mind.clientHeight;
 
@@ -1592,8 +1592,6 @@ function drawLinks(){
     line.setAttribute("y1", cy);
     line.setAttribute("x2", nx);
     line.setAttribute("y2", ny);
-    line.setAttribute("stroke", "rgba(15,23,42,.14)");
-    line.setAttribute("stroke-width", "2");
     linksSvg.appendChild(line);
   });
 }
@@ -1604,11 +1602,8 @@ function layoutRadial(){
 
   const w = mind.clientWidth;
   const h = mind.clientHeight;
-
-  // cercle plus stable
   const r = Math.min(w, h) * 0.44;
 
-  // angles (7 noeuds) bien répartis
   const angleMap = {
     pourquoi: -90,
     apprentissages: -30,
@@ -1641,33 +1636,38 @@ function layoutRadial(){
   drawLinks();
 }
 
+// ===== Interactions =====
+nodes.forEach(n => {
+  n.setAttribute("tabindex", "0");
+  n.setAttribute("role", "button");
 
-  // ===== Interactions =====
-  nodes.forEach(n => {
-    // accessibilité: si c’est un div, on le rend “cliquable”
-    n.setAttribute("tabindex", "0");
-    n.setAttribute("role", "button");
-
-    n.addEventListener("click", () => setActive(n.dataset.node));
-    n.addEventListener("keydown", (e) => {
-      if(e.key === "Enter" || e.key === " "){
-        e.preventDefault();
-        setActive(n.dataset.node);
-      }
-    });
+  n.addEventListener("click", () => setActive(n.dataset.node));
+  n.addEventListener("keydown", (e) => {
+    if(e.key === "Enter" || e.key === " "){
+      e.preventDefault();
+      setActive(n.dataset.node);
+    }
   });
+});
 
-  resetBtn?.addEventListener("click", () => { reset(); layoutRadial(); });
+// reset() n’existe pas chez toi -> on reset sur un noeud par défaut
+resetBtn?.addEventListener("click", () => {
+  setActive("pourquoi");
+  layoutRadial();
+});
 
-  window.addEventListener("resize", () => {
-    setTimeout(layoutRadial, 60);
-  });
+// init
+window.addEventListener("load", () => {
+  setActive("pourquoi");
+  layoutRadial();
+});
 
-  // init
-reset();
-setTimeout(layoutRadial, 80);
-window.addEventListener("resize", () => setTimeout(layoutRadial, 80));
-window.addEventListener("load", () => setTimeout(layoutRadial, 120));
+// resize
+let tRad;
+window.addEventListener("resize", () => {
+  clearTimeout(tRad);
+  tRad = setTimeout(layoutRadial, 120);
+});
 
 
 function layoutMindMap(){
@@ -1712,20 +1712,9 @@ function layoutMindMap(){
   });
 } // ✅ <-- FIN de layoutMindMap (il manquait ce crochet)
 
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(layoutMindMap, 120); // ✅ lance le placement au chargement
-});
-
-let mmT;
-window.addEventListener('resize', () => {
-  clearTimeout(mmT);
-  mmT = setTimeout(layoutMindMap, 120);
-});
-
- 
-
 
 </script>
+
 
 
 
