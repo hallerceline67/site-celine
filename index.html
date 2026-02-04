@@ -28,42 +28,39 @@
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
- body{
-  margin:0;
-  font-family: Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(96,165,250,.35), transparent 60%),
-    radial-gradient(900px 500px at 90% 0%, rgba(45,212,191,.28), transparent 60%),
-    radial-gradient(900px 500px at 70% 120%, rgba(167,139,250,.25), transparent 60%),
-    linear-gradient(180deg, #eaf3ff 0%, #f7fbff 60%, #ffffff 100%);
-  line-height:1.6;
-}
-
+    body{
+      margin:0;
+      font-family: Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(96,165,250,.35), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(45,212,191,.28), transparent 60%),
+        radial-gradient(900px 500px at 70% 120%, rgba(167,139,250,.25), transparent 60%),
+        linear-gradient(180deg, #eaf3ff 0%, #f7fbff 60%, #ffffff 100%);
+      line-height:1.6;
+    }
 
     a{ color:inherit; text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-/* Titres des sections médias */
-.mediaCatTitle{
-  font-weight:900;
-  letter-spacing:-.2px;
-  font-size:18px;
-}
+    /* Titres des sections médias */
+    .mediaCatTitle{
+      font-weight:900;
+      letter-spacing:-.2px;
+      font-size:18px;
+    }
+    .mediaCatSubtitle{
+      font-size:13px;
+      color: rgba(15,23,42,.65);
+      font-weight:700;
+      margin-top:2px;
+    }
 
-.mediaCatSubtitle{
-  font-size:13px;
-  color: rgba(15,23,42,.65);
-  font-weight:700;
-  margin-top:2px;
-}
-
-   .wrap{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding-inline: clamp(16px, 2.5vw, 34px); /* moins “marge fixe”, plus fluide */
-}
-
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-inline: clamp(16px, 2.5vw, 34px);
+    }
 
     /* Header / Nav */
     header{
@@ -142,35 +139,28 @@
       gap:26px;
       align-items:stretch;
     }
-.heroTitle{
-  text-align:center;
-  max-width:900px;
-  margin: 0 auto 28px auto;
-}
-
-.heroKicker{
-  font-size:12px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-weight:800;
-  color: rgba(15,23,42,.55);
-  margin-bottom:10px;
-}
-
-.heroTitle h1{
-  font-size: clamp(34px, 5vw, 54px);
-  line-height:1.05;
-  margin:0 0 10px 0;
-  font-weight:900;
-}
-
-.heroTitle h2{
-  font-size: clamp(16px, 2.4vw, 22px);
-  line-height:1.35;
-  font-weight:600;
-  color: rgba(15,23,42,.75);
-  margin:0;
-}
+    .heroTitle{ text-align:center; max-width:900px; margin: 0 auto 28px auto; }
+    .heroKicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:800;
+      color: rgba(15,23,42,.55);
+      margin-bottom:10px;
+    }
+    .heroTitle h1{
+      font-size: clamp(34px, 5vw, 54px);
+      line-height:1.05;
+      margin:0 0 10px 0;
+      font-weight:900;
+    }
+    .heroTitle h2{
+      font-size: clamp(16px, 2.4vw, 22px);
+      line-height:1.35;
+      font-weight:600;
+      color: rgba(15,23,42,.75);
+      margin:0;
+    }
 
     .heroCard{ padding:30px 28px; position:relative; overflow:hidden; }
     .heroCard::before{
@@ -376,42 +366,6 @@
       color: rgba(15,23,42,.72);
     }
 
-    .node{
-      position:absolute;
-      width: 232px;
-      padding:14px 14px;
-      border-radius: 20px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 10px 25px rgba(15,23,42,.08);
-      cursor:pointer;
-      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-      user-select:none;
-    }
-    .node:hover{ transform: translateY(-2px); box-shadow: 0 16px 32px rgba(15,23,42,.10); }
-    .node.active{ border-color: rgba(15,23,42,.22); transform: translateY(-2px); }
-    .node .nTitle{ font-weight:900; letter-spacing:-.2px; margin:0 0 6px; display:flex; align-items:center; gap:10px; }
-    .badgeDot{
-      width:12px; height:12px; border-radius:999px;
-      background: var(--mint);
-      box-shadow: 0 10px 18px rgba(45,212,191,.24);
-      flex:0 0 auto;
-    }
-    .node .nBody{
-      margin:0;
-      color: rgba(15,23,42,.72);
-      font-size: 13.5px;
-      line-height:1.35;
-      font-weight:900;
-    }
-
-    /* Node positions (desktop) */
-    /* Positions DESKTOP (large) : belle carte mentale, espacée */
-
-
-/* Un peu plus d’air pour éviter les collisions */
-.node{ max-width: 260px; }
-
     /* Side panel */
     .panel{
       padding:18px;
@@ -544,26 +498,6 @@
     .linkCard .t{ font-weight:900; margin:0 0 4px; }
     .linkCard .s{ margin:0; color: rgba(15,23,42,.70); font-weight:900; font-size: 13.5px; line-height:1.45; }
 
-    .embedGrid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    .embed{
-      border-radius: 22px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.74);
-      box-shadow: 0 10px 24px rgba(15,23,42,.07);
-      overflow:hidden;
-    }
-    .embed .head{
-      padding:14px 16px;
-      border-bottom:1px solid var(--border);
-      font-weight:900;
-    }
-    .embed iframe{ width:100%; height:240px; border:0; display:block; }
-
     /* Contact */
     .strip{
       display:grid;
@@ -621,684 +555,316 @@
       .grid3{ grid-template-columns: 1fr; }
       .offerGrid{ grid-template-columns: 1fr; }
       .mediaGrid{ grid-template-columns: 1fr; }
-      .embedGrid{ grid-template-columns: 1fr; }
       .twoCols{ grid-template-columns: 1fr; }
       .strip{ grid-template-columns: 1fr; }
       .formRow{ grid-template-columns: 1fr; }
     }
     @media (max-width: 700px){
       .mind{ min-height: unset; padding: 16px; }
-      .center, .node{ position:static; transform:none; width:100%; }
+      .center, .nodeBtn{ position:static; transform:none; width:100%; }
       .center{ margin-bottom: 12px; }
-      .node{ margin: 10px 0; }
+      .nodeBtn{ margin: 10px 0; }
     }
-.photoHero{
-  display:block;
-  margin: 20px auto;
-  width:220px;
-  border-radius:18px;
-  border:1px solid rgba(15,23,42,.10);
-  box-shadow:0 14px 34px rgba(15,23,42,.10);
-}
 
-/* ===== Anti-chevauchement : dès que l'écran rétrécit, on passe en grille ===== */
-@media (max-width: 1100px){
-  .mind{
-    position: relative;
-    padding: 18px;
-    min-height: unset;
-  }
-
-  /* On garde le centre en haut, puis les nœuds en 2 colonnes */
-  .center{
-    position: static;
-    transform: none;
-    width: 100%;
-    margin-bottom: 12px;
-  }
-
-  .node{
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: none;
-  }
-
-  .mind{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  /* Le centre prend toute la largeur */
-  .center{ grid-column: 1 / -1; }
-
-  /* Sur cette largeur, on met aussi “Ressources” + “Interventions” en pleine largeur (souvent plus longs) */
-  .n7{ grid-column: 1 / -1; width: auto; }
-  .n6{ grid-column: 1 / -1; }
-}
-
-/* Mobile : 1 colonne */
-@media (max-width: 700px){
-  .mind{ grid-template-columns: 1fr; }
-  .center{ grid-column: auto; }
-  .n7, .n6{ grid-column: auto; }
-}
-/* STOP ancien système de nodes (évite les doublons/chevauchements) */
-
-.center{ z-index: 3; }
-.nodeBtn{ z-index: 2; }
-.mindLinks{ z-index: 1; }
-
-/* ===== Carte mentale : version JS (radiale) ===== */
-.mind{
-  position: relative !important;
-  min-height: 640px;
-}
-
-.center{
-  position: absolute !important;
-  z-index: 3;
-}
-
-.node{
-  position: absolute !important;
-  z-index: 2;
-  cursor: pointer;
-}
-
-/* État actif */
-.node.active{
-  outline: 2px solid rgba(96,165,250,.55);
-  outline-offset: 2px;
-}
-
-/* Responsive : on laisse le CSS faire (plus de positions absolues) */
-@media (max-width: 900px){
-  .mind{
-    min-height: unset;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 16px;
-  }
-  .center, .node{
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    width: 100%;
-  }
-}
-/* ===== Étape 2 : Carte mentale (version nodeBtn) ===== */
-
-.mind{
-  position: relative;
-  min-height: 640px;
-}
-
-/* traits */
-.mindLinks{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  opacity:.6;
-}
-.mindLinks line{
-  stroke: rgba(15,23,42,.14);
-  stroke-width: 2;
-}
-
-/* centre */
-.center{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-
-/* boutons (nœuds) */
-.nodeBtn{
-  position:absolute;
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  width:230px;
-  padding:14px;
-  border-radius:20px;
-  border:1px solid rgba(15,23,42,.12);
-  background: rgba(255,255,255,.82);
-  box-shadow: 0 10px 25px rgba(15,23,42,.08);
-  cursor:pointer;
-  text-align:left;
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-
-.nodeBtn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(15,23,42,.10);
-}
-
-.nodeBtn.active{
-  border-color: rgba(96,165,250,.55);
-}
-
-.iconBubble{
-  width:34px;
-  height:34px;
-  border-radius:999px;
-  border:1px solid rgba(15,23,42,.10);
-  background: rgba(255,255,255,.70);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex:0 0 auto;
-  color: rgba(15,23,42,.78);
-}
-
-.nodeTitle{ display:block; font-weight:900; margin-bottom:4px; }
-.nodeSub{ display:block; color: rgba(15,23,42,.70); font-weight:900; font-size: 13.5px; line-height:1.25; }
-
-/* mobile : plus d'absolu */
-@media (max-width: 900px){
-  .mind{
-    min-height: unset;
-    padding: 16px;
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .mindLinks{ display:none; }
-  .center{ position:static; transform:none; width:100%; }
-  .nodeBtn{ position:static; width:100%; }
-}
-
-.nodeBtn{
-  position:absolute;
-}
-
-/* Zone carte mentale */
-#mindMap{
-  position: relative;
-  min-height: 520px;
-}
-
-/* Centre */
-#mindCenter{
-  position: absolute;
-}
-
-/* Zone carte mentale */
-#mindMap{
-  position: relative;
-  min-height: 520px;
-  height: clamp(520px, 60vh, 760px);
-  overflow: hidden;
-}
-
-/* Liens en fond */
-#mindLinks{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* Centre au-dessus */
-#mindCenter{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-/* NŒUDS (tes boutons) */
-#mindMap .nodeBtn{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-/* Desktop: le JS place déjà les nodes, donc pas de translate */
-@media (min-width: 901px){
-  #mindMap .nodeBtn{
-    transform: none !important;
-  }
-}
-/* Force la taille du centre (Un Bol à l'École) */
-#mindCenter{
-  width: 200px !important;
-  padding: 14px 14px !important;
-}
-
-#mindCenter h3{
-  font-size: 18px !important;
-}
-
-#mindCenter p{
-  font-size: 12.5px !important;
-}
-/* Nœud actif : glow + petit lift */
-#mindMap .nodeBtn.active{
-  border-color: rgba(96,165,250,.75) !important;
-  box-shadow: 0 18px 40px rgba(96,165,250,.18), 0 10px 25px rgba(15,23,42,.10) !important;
-  transform: translateY(-3px) !important;
-}
-
-/* Petit “halo” discret autour du centre quand un nœud est actif */
-#mindMap.hasActive #mindCenter{
-  box-shadow: 0 22px 56px rgba(45,212,191,.12), 0 14px 40px rgba(15,23,42,.10) !important;
-}
-/* ===== Mobile: panneau "Détail" en accordéon ===== */
-@media (max-width: 900px){
-  .panel{
-    position: relative;
-  }
-
-  .panelToggle{
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-
-  .panel.isCollapsed #panelText,
-  .panel.isCollapsed #panelBullets,
-  .panel.isCollapsed .miniBtns{
-    display: none !important;
-  }
-}
-/* ===== Médias en colonnes ===== */
-.mediaCats{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 22px;
-}
-
-/* Tablette */
-@media (max-width: 1100px){
-  .mediaCats{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 700px){
-  .mediaCats{
-    grid-template-columns: 1fr;
-  }
-}
-.mediaCat{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.sideCard{
-  display: none !important;
-}
-/* Grand cadre englobant la section Mon parcours */
-#parcours .wrap{
-  background: rgba(255,255,255,.78);
-  border:1px solid var(--border);
-  border-radius: 28px;
-  box-shadow: var(--shadow);
-  padding: 32px;
-}
-
-/* On enlève l’effet "collé" en haut */
-#parcours .sectionHead{
-  margin-bottom: 24px;
-}
-#parcours .tile{
-  background: rgba(255,255,255,.9);
-}
-/* Grand cadre englobant la section Interventions */
-#interventions .wrap{
-  background: rgba(255,255,255,.78);
-  border:1px solid var(--border);
-  border-radius: 28px;
-  box-shadow: var(--shadow);
-  padding: 32px;
-}
-
-/* Respiration sous le titre */
-#interventions .sectionHead{
-  margin-bottom: 24px;
-}
-
-/* Les cartes internes restent bien visibles */
-#interventions .tile{
-  background: rgba(255,255,255,.9);
-}
-#interventions .twoCols,
-#interventions .threeCols{
-  margin-top: 12px;
-}
-/* ===== Hiérarchie typographique ===== */
-
-/* Titres principaux */
-h1, h2, h3, h4, h5, h6{
-  font-weight: 900;
-}
-
-/* Sous-titres */
-.sub,
-.heroKicker,
-.miniTitle,
-.mediaCatTitle,
-.panelTitle,
-.tile h4,
-.offer h4{
-  font-weight: 800;
-}
-
-/* Textes secondaires / descriptifs */
-.heroTitle h2,
-.mediaCatSubtitle,
-.nodeSub,
-.panelText,
-.tile p,
-.offer p,
-.linkCard .s,
-.profile p,
-.lead,
-p,
-li,
-label,
-.smallNote{
-  font-weight: 400;
-}
-
-/* Listes */
-ul li{
-  font-weight: 400;
-}
-
-/* Boutons restent lisibles */
-.btn{
-  font-weight: 800;
-}
-
-/* Tags / chips */
-.tag,
-.chip,
-.pillSmall,
-.badge{
-  font-weight: 700;
-}
-p, li{
-  font-weight: 350;
-}
-/* ===== Harmonisation des interlignes ===== */
-
-/* Titres */
-h1{
-  line-height: 1.05;
-}
-h2{
-  line-height: 1.15;
-}
-h3, h4, h5, h6{
-  line-height: 1.2;
-}
-
-/* Sous-titres */
-.sub,
-.heroTitle h2,
-.mediaCatSubtitle{
-  line-height: 1.4;
-}
-
-/* Texte courant */
-p,
-.panelText,
-.tile p,
-.offer p,
-.linkCard .s,
-.profile p,
-.smallNote{
-  line-height: 1.6;
-}
-
-/* Listes */
-li{
-  line-height: 1.55;
-}
-
-/* Paragraphes longs */
-.lead{
-  line-height: 1.7;
-}
-
-/* Textes compacts (labels, tags, boutons) */
-label,
-.tag,
-.chip,
-.pillSmall,
-.badge,
-.btn{
-  line-height: 1.2;
-}
-p{
-  margin-bottom: 0.8em;
-}
-li{
-  margin-bottom: 0.5em;
-}
-.heroImages{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 18px;
-  margin: 24px auto;
-}
-
-/* Livre plus petit */
-.bookHero{
-  width: 120px;
-  border-radius: 10px;
-  border:1px solid rgba(15,23,42,.12);
-  box-shadow:0 10px 22px rgba(15,23,42,.12);
-}
-
-/* Photo principale */
-.photoHero{
-  width:220px;
-  border-radius:18px;
-  border:1px solid rgba(15,23,42,.10);
-  box-shadow:0 14px 34px rgba(15,23,42,.10);
-}
-
-/* Mobile : on empile */
-@media (max-width:700px){
-  .heroImages{
-    flex-direction: column;
-  }
-  .bookHero{
-    width: 110px;
-  }
-}
-.heroPro{
-  display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap:40px;
-  align-items:center;
-  margin:40px 0;
-}
-
-.heroLabel{
-  font-weight:800;
-  font-size:13px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color: rgba(15,23,42,.55);
-}
-
-.heroText h1{
-  margin:8px 0;
-}
-
-.heroDesc{
-  max-width:60ch;
-}
-
-.heroActions{
-  display:flex;
-  gap:12px;
-  margin-top:20px;
-  flex-wrap:wrap;
-}
-
-.heroVisual{
-  position:relative;
-  display:flex;
-  flex-direction: column;   /* ← empile verticalement */
-  align-items: center;      /* ← centre tout */
-}
-
-
-.heroPhoto{
-  width:260px;
-  border-radius:20px;
-  box-shadow:0 20px 40px rgba(15,23,42,.15);
-}
-
-.heroBook{
-  position:absolute;
-  left:-30px;
-  bottom:20px;
-  width:110px;
-  border-radius:10px;
-  box-shadow:0 12px 24px rgba(15,23,42,.15);
-  background:#fff;
-}
-
-@media(max-width:900px){
-  .heroPro{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-  .heroVisual{
-    order:-1;
-  }
-  .heroBook{
-    position:static;
-    margin:12px auto 0;
-  }
-}
-.heroKicker,
-.heroTitle{
-  display:none !important;
-}
-.heroText{
-  max-width: 720px;
-  margin: 20px auto 0 auto;
-  text-align: center;
-  font-size: 18px;
-  line-height: 1.65;
-  font-weight: 400;
-  color: rgba(15,23,42,.78);
-}
-
-.heroText strong{
-  font-weight: 800;
-  color: rgba(15,23,42,.95);
-}
-
-.heroText em{
-  font-style: normal;
-  font-weight: 700;
-  color: rgba(15,23,42,.9);
-}
-.lead{
-  max-width: 760px;
-  margin: 24px auto 0 auto;
-  text-align: center;
-  font-size: 18px;
-  line-height: 1.7;
-  font-weight: 400;
-  color: rgba(15,23,42,.78);
-}
-
-.lead em{
-  font-style: normal;
-  font-weight: 700;
-  color: rgba(15,23,42,.9);
-}
-.mediaCats{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 60px 22px;
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:18px;
-}
-
-.mediaCat{
-  background: rgba(255,255,255,.78);
-  border-radius: 22px;
-  border:1px solid var(--border);
-  box-shadow: var(--shadow);
-  padding:18px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.mediaCatTitle{
-  font-weight:900;
-  font-size:17px;
-}
-
-.mediaCatSubtitle{
-  font-size:13px;
-  color: rgba(15,23,42,.65);
-  font-weight:700;
-  margin-bottom:10px;
-}
-
-.mediaCat .linkCard{
-  padding:10px 12px;
-}
-@media(max-width:900px){
-  .mediaCats{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:600px){
-  .mediaCats{
-    grid-template-columns:1fr;
-  }
-}
-/* Lien LinkedIn sous la photo */
-.linkedinLink{
-  margin-top: 12px;
-  padding: 6px 14px;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #0a66c2;
-  text-decoration: none;
-  border: 1px solid rgba(10,102,194,.3);
-  border-radius: 999px;
-  background: rgba(255,255,255,.7);
-}
-
-.linkedinLink:hover{
-  background: rgba(10,102,194,.08);
-  text-decoration: none;
-}
-
-
+    /* ===== Carte mentale : version nodeBtn ===== */
+    .mindLinks{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      opacity:.6;
+    }
+    .mindLinks line{
+      stroke: rgba(15,23,42,.14);
+      stroke-width: 2;
+    }
+
+    .nodeBtn{
+      position:absolute;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      width:230px;
+      padding:14px;
+      border-radius:20px;
+      border:1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 10px 25px rgba(15,23,42,.08);
+      cursor:pointer;
+      text-align:left;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .nodeBtn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(15,23,42,.10);
+    }
+    .nodeBtn.active{
+      border-color: rgba(96,165,250,.55);
+    }
+
+    .iconBubble{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.70);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      color: rgba(15,23,42,.78);
+    }
+    .nodeTitle{ display:block; font-weight:900; margin-bottom:4px; }
+    .nodeSub{ display:block; color: rgba(15,23,42,.70); font-weight:900; font-size: 13.5px; line-height:1.25; }
+
+    /* Zone carte mentale */
+    #mindMap{
+      position: relative;
+      min-height: 520px;
+      height: clamp(520px, 60vh, 760px);
+      overflow: hidden;
+    }
+
+    /* Liens en fond */
+    #mindLinks{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Centre au-dessus */
+    #mindCenter{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 200px !important;
+      padding: 14px 14px !important;
+    }
+    #mindCenter h3{ font-size: 18px !important; }
+    #mindCenter p{ font-size: 12.5px !important; }
+
+    /* NŒUDS (tes boutons) */
+    #mindMap .nodeBtn{
+      position: absolute;
+      z-index: 3;
+    }
+
+    /* Desktop: le JS place déjà les nodes */
+    @media (min-width: 901px){
+      #mindMap .nodeBtn{ transform: none !important; }
+    }
+
+    /* Nœud actif : glow + petit lift */
+    #mindMap .nodeBtn.active{
+      border-color: rgba(96,165,250,.75) !important;
+      box-shadow: 0 18px 40px rgba(96,165,250,.18), 0 10px 25px rgba(15,23,42,.10) !important;
+      transform: translateY(-3px) !important;
+    }
+
+    /* Petit “halo” discret autour du centre quand un nœud est actif */
+    #mindMap.hasActive #mindCenter{
+      box-shadow: 0 22px 56px rgba(45,212,191,.12), 0 14px 40px rgba(15,23,42,.10) !important;
+    }
+
+    /* ===== Mobile: accordéon pour le panneau Détail ===== */
+    @media (max-width: 900px){
+      .panelToggle{ width:100%; justify-content:space-between; margin-top:10px; }
+      .panel.isCollapsed #panelText,
+      .panel.isCollapsed #panelBullets,
+      .panel.isCollapsed .miniBtns{ display:none !important; }
+      .mindLinks{ display:none; }
+      .center{ position:static; transform:none; width:100%; }
+      .nodeBtn{ position:static; width:100%; }
+      .mind{ min-height: unset; padding:16px; }
+      #mindMap{ height:auto; }
+    }
+
+    /* ===== Médias en colonnes ===== */
+    .mediaCats{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 60px 22px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:18px;
+    }
+    .mediaCat{
+      background: rgba(255,255,255,.78);
+      border-radius: 22px;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .mediaCatTitle{ font-weight:900; font-size:17px; }
+    .mediaCatSubtitle{
+      font-size:13px;
+      color: rgba(15,23,42,.65);
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .mediaCat .linkCard{ padding:10px 12px; }
+    @media(max-width:900px){ .mediaCats{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:600px){ .mediaCats{ grid-template-columns:1fr; } }
+
+    /* Grand cadre englobant la section Mon parcours */
+    #parcours .wrap{
+      background: rgba(255,255,255,.78);
+      border:1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    #parcours .sectionHead{ margin-bottom: 24px; }
+    #parcours .tile{ background: rgba(255,255,255,.9); }
+
+    /* Grand cadre englobant la section Interventions */
+    #interventions .wrap{
+      background: rgba(255,255,255,.78);
+      border:1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    #interventions .sectionHead{ margin-bottom: 24px; }
+    #interventions .tile{ background: rgba(255,255,255,.9); }
+
+    /* Hiérarchie typographique */
+    h1, h2, h3, h4, h5, h6{ font-weight: 900; }
+    .sub, .heroKicker, .miniTitle, .mediaCatTitle, .panelTitle, .tile h4, .offer h4{ font-weight: 800; }
+    .heroTitle h2, .mediaCatSubtitle, .nodeSub, .panelText, .tile p, .offer p, .linkCard .s, .profile p, .lead, p, li, label, .smallNote{ font-weight: 400; }
+    ul li{ font-weight: 400; }
+    .btn{ font-weight: 800; }
+    .tag, .chip, .pillSmall, .badge{ font-weight: 700; }
+
+    /* Interlignes */
+    h1{ line-height: 1.05; }
+    h2{ line-height: 1.15; }
+    h3, h4, h5, h6{ line-height: 1.2; }
+    .sub, .heroTitle h2, .mediaCatSubtitle{ line-height: 1.4; }
+    p, .panelText, .tile p, .offer p, .linkCard .s, .profile p, .smallNote{ line-height: 1.6; }
+    li{ line-height: 1.55; margin-bottom: 0.5em; }
+    .lead{ line-height: 1.7; }
+    label, .tag, .chip, .pillSmall, .badge, .btn{ line-height: 1.2; }
+    p{ margin-bottom: 0.8em; }
+
+    /* HERO visuel */
+    .heroPro{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:40px;
+      align-items:center;
+      margin:40px 0;
+    }
+    .heroLabel{
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: rgba(15,23,42,.55);
+    }
+    .heroText{
+      max-width: 720px;
+      margin: 20px auto 0 auto;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.65;
+      font-weight: 400;
+      color: rgba(15,23,42,.78);
+    }
+    .heroText strong{ font-weight: 800; color: rgba(15,23,42,.95); }
+    .heroText em{ font-style: normal; font-weight: 700; color: rgba(15,23,42,.9); }
+
+    .heroDesc{ max-width:60ch; margin-inline:auto; }
+
+    .heroActions{
+      display:flex;
+      gap:12px;
+      margin-top:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .heroVisual{
+      position:relative;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .heroPhoto{
+      width:260px;
+      border-radius:20px;
+      box-shadow:0 20px 40px rgba(15,23,42,.15);
+    }
+    .heroBook{
+      position:absolute;
+      left:-30px;
+      bottom:20px;
+      width:110px;
+      border-radius:10px;
+      box-shadow:0 12px 24px rgba(15,23,42,.15);
+      background:#fff;
+    }
+
+    @media(max-width:900px){
+      .heroPro{ grid-template-columns:1fr; text-align:center; }
+      .heroVisual{ order:-1; }
+      .heroBook{ position:static; margin:12px auto 0; }
+    }
+
+    /* Anciennes versions cachées */
+    .heroKicker, .heroTitle{ display:none !important; }
+
+    .lead{
+      max-width: 760px;
+      margin: 24px auto 0 auto;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.7;
+      font-weight: 400;
+      color: rgba(15,23,42,.78);
+    }
+    .lead em{ font-style: normal; font-weight: 700; color: rgba(15,23,42,.9); }
+
+    /* Lien LinkedIn sous la photo */
+    .linkedinLink{
+      margin-top: 12px;
+      padding: 6px 14px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0a66c2;
+      text-decoration: none;
+      border: 1px solid rgba(10,102,194,.3);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+    }
+    .linkedinLink:hover{
+      background: rgba(10,102,194,.08);
+      text-decoration: none;
+    }
+
+    /* ✅ Petite photo discrète (une seule à chaque fois) */
+    .singlePhoto{
+      width: 95px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 12px;
+      border:1px solid rgba(15,23,42,.12);
+      box-shadow:0 6px 14px rgba(15,23,42,.12);
+      margin-top: 12px;
+    }
+
+    /* Option: si tu veux masquer la sideCard (tu l’avais déjà) */
+    .sideCard{ display:none !important; }
   </style>
 </head>
 
@@ -1319,8 +885,6 @@ li{
           <a class="pill" href="international.html">🌍 International</a>
           <a class="pill" href="#medias">Médias</a>
           <a class="pill" href="#contact">Contact</a>
-      
-
         </nav>
 
         <div style="display:flex; gap:10px; align-items:center;">
@@ -1339,50 +903,43 @@ li{
         <div class="heroGrid">
           <div class="card heroCard">
             <div class="miniTitle">Éducation & innovation sociale</div>
-            <div class="heroTitle">
-  <div class="heroKicker">Éducation & innovation sociale</div>
-  <h1>Céline Haller</h1>
-  <h2>Professeure des écoles & créatrice du projet <em>Un Bol à l’École</em></h2>
-</div>
 
+            <div class="heroPro">
+              <div class="heroText">
+                <span class="heroLabel">Éducation • Innovation sociale • Terrain</span>
+                <h1>Céline Haller</h1>
+                <h2>Professeure des écoles & créatrice du projet Un Bol à l’École</h2>
 
-            <!-- Remplace le fichier image si besoin -->
-    <div class="heroPro">
-  <div class="heroText">
-    <span class="heroLabel">Éducation • Innovation sociale • Terrain</span>
-    <h1>Céline Haller</h1>
-    <h2>Professeure des écoles & créatrice du projet Un Bol à l’École</h2>
+                <p class="heroDesc">
+                  Une démarche pédagogique reconnue, née du terrain, au service du bien-être,
+                  des apprentissages et de la réduction des inégalités.
+                </p>
 
-    <p class="heroDesc">
-      Une démarche pédagogique reconnue, née du terrain, au service du bien-être,
-      des apprentissages et de la réduction des inégalités.
-    </p>
+                <div class="heroActions">
+                  <a class="btn primary" href="#contact">Inviter en conférence</a>
+                  <a class="btn ghost" href="#projet">Découvrir le projet</a>
+                </div>
+              </div>
 
-    <div class="heroActions">
-      <a class="btn primary" href="#contact">Inviter en conférence</a>
-      <a class="btn ghost" href="#projet">Découvrir le projet</a>
-    </div>
-  </div>
+              <div class="heroVisual">
+                <img src="celine-haller.jpg" alt="Céline Haller" class="heroPhoto">
+                <img src="guide.JPG" alt="Guide Un Bol à l’École" class="heroBook">
 
-<div class="heroVisual">
-  <img src="celine-haller.jpg" alt="Céline Haller" class="heroPhoto">
-  <img src="guide.JPG" alt="Guide Un Bol à l’École" class="heroBook">
+                <!-- Lien LinkedIn -->
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="linkedinLink">
+                  🔗 Voir mon profil LinkedIn
+                </a>
 
-  <!-- Lien LinkedIn -->
-  <a href="https://www.linkedin.com/in/céline-haller-b0a172b3"
-     target="_blank"
-     rel="noopener"
-     class="linkedinLink">
-    🔗 Voir mon profil LinkedIn
-  </a>
-</div>
-
-
+                <!-- ✅ 1 petite photo ici -->
+                <img src="geo.JPEG" class="singlePhoto" alt="En classe">
+              </div>
+            </div>
 
             <p class="lead">
               Je suis professeure des écoles en éducation prioritaire à Strasbourg depuis 2012 et enseignante depuis 2007.<br/>
               Je suis la créatrice du projet <em>Un Bol à l’École</em>, un dispositif pédagogique autour du petit déjeuner, reconnu pour son impact éducatif et social.<br/>
-              En parallèle de mon métier d’enseignante, j’interviens aujourd’hui auprès d’enseignants, de collectivités, de fondations et de médias pour partager cette expérience de terrain et accompagner des projets éducatifs. Grâce à ce projet, j'ai été sélectionnée dans le 10 finalistes mondiaux du Global Teacher Prize en 2025. Il a également obtenu le 1er Prix de l'Innovation en promotion de la Santé Mentale et relationnelle en 2023. 
+              En parallèle de mon métier d’enseignante, j’interviens aujourd’hui auprès d’enseignants, de collectivités, de fondations et de médias pour partager cette expérience de terrain et accompagner des projets éducatifs.
+              Grâce à ce projet, j'ai été sélectionnée dans le 10 finalistes mondiaux du Global Teacher Prize en 2025. Il a également obtenu le 1er Prix de l'Innovation en promotion de la Santé Mentale et relationnelle en 2023.
             </p>
 
             <div class="chips" aria-label="Mots-clés">
@@ -1401,9 +958,9 @@ li{
             <div class="note">Basée à Strasbourg — interventions en France et à l’international</div>
           </div>
 
+          <!-- (sideCard masquée par CSS) -->
           <aside class="card sideCard" aria-label="Encadré profil">
             <span class="badge">Global Teacher Prize — Top 10</span>
-
             <div class="profile" aria-label="Profil">
               <div class="avatar" aria-hidden="true">C</div>
               <div>
@@ -1415,7 +972,7 @@ li{
             <ul class="sideList">
               <li>Plusieurs années d’expérimentation de petits déjeuners pédagogiques en classe.</li>
               <li>Un projet désormais déployé dans de nombreuses écoles et collectivités, bénéficiant à plus de 300 000 enfants à travers le territoire.</li>
-              <li>Un projet inscrit dans le Plan pauvreté du Gouvernement depuis 2019 qui permet son financement dans les écoles éligibles.<li>
+              <li>Un projet inscrit dans le Plan pauvreté du Gouvernement depuis 2019 qui permet son financement dans les écoles éligibles.</li>
               <li>Interventions auprès d’enseignants, associations, fondations et décideurs publics.</li>
             </ul>
 
@@ -1424,130 +981,122 @@ li{
               <a class="btn primary" href="#contact">Prendre contact</a>
             </div>
           </aside>
+
         </div>
       </div>
     </section>
 
     <!-- CARTE MENTALE -->
-<section id="carte">
-  <div class="wrap">
-    <div class="band">
-      <div class="sectionHead">
-        <div>
-          <h2>Carte mentale</h2>
-          <p class="sub">Cliquer sur un nœud pour afficher le détail.</p>
-        </div>
-        <button class="btn" type="button" id="resetBtn">Réinitialiser</button>
-      </div>
-
-      <div class="mindWrap">
-        <!-- CADRE CARTE -->
-        <div class="mind" id="mindMap" aria-label="Carte mentale interactive">
-          <!-- traits (dessinés en JS) -->
-          <svg class="mindLinks" id="mindLinks" aria-hidden="true"></svg>
-
-          <!-- centre -->
-          <div class="center" id="mindCenter" role="group" aria-label="Centre">
-            <h3>Un Bol à l’École</h3>
-            <p>Petit-déjeuner • bien-être • apprentissages • égalité</p>
-            <div class="mini" aria-label="Tags">
-              <span class="tag">Rituel</span>
-              <span class="tag">REP+</span>
-              <span class="tag">Lien familles</span>
-              <span class="tag">Transversal</span>
+    <section id="carte">
+      <div class="wrap">
+        <div class="band">
+          <div class="sectionHead">
+            <div>
+              <h2>Carte mentale</h2>
+              <p class="sub">Cliquer sur un nœud pour afficher le détail.</p>
             </div>
+            <button class="btn" type="button" id="resetBtn">Réinitialiser</button>
           </div>
 
-          <!-- NOEUDS (7) -->
-          <button class="nodeBtn" data-node="pourquoi" type="button" aria-label="Pourquoi">
-            <span class="iconBubble" aria-hidden="true">
-              <!-- soleil -->
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16h1v3h-2V2h1Zm0 19h1v3h-2v-3h1ZM2 11h3v2H2v-2Zm19 0h3v2h-3v-2ZM4.2 5.6l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4Zm14.1 14.1 2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4ZM18.4 4.9l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1ZM2.1 18.4l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Z"/>
-              </svg>
-            </span>
-            <span class="nodeText">
-              <span class="nodeTitle">Pourquoi</span>
-              <span class="nodeSub">Inégalités • bien-être • climat</span>
-            </span>
-          </button>
+          <div class="mindWrap">
+            <div class="mind" id="mindMap" aria-label="Carte mentale interactive">
+              <svg class="mindLinks" id="mindLinks" aria-hidden="true"></svg>
 
-          <button class="nodeBtn" data-node="demarche" type="button" aria-label="Démarche">
-            <span class="iconBubble" aria-hidden="true">
-              <!-- boussole -->
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                <path fill="currentColor" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm0-18a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm3.9 5.1-2.4 6.3-6.3 2.4 2.4-6.3 6.3-2.4Zm-4 6.8 1-2.7-2.7 1 1.7 1.7Z"/>
-              </svg>
-            </span>
-            <span class="nodeText">
-              <span class="nodeTitle">Démarche</span>
-              <span class="nodeSub">Un rituel pensé pour apprendre</span>
-            </span>
-          </button>
+              <div class="center" id="mindCenter" role="group" aria-label="Centre">
+                <h3>Un Bol à l’École</h3>
+                <p>Petit-déjeuner • bien-être • apprentissages • égalité</p>
+                <div class="mini" aria-label="Tags">
+                  <span class="tag">Rituel</span>
+                  <span class="tag">REP+</span>
+                  <span class="tag">Lien familles</span>
+                  <span class="tag">Transversal</span>
+                </div>
+              </div>
 
-          <button class="nodeBtn" data-node="apprentissages" type="button" aria-label="Apprentissages">
-            <span class="iconBubble" aria-hidden="true">
-              <!-- livre -->
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                <path fill="currentColor" d="M6 4h10a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H6a3 3 0 0 0-3 3V7a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v12.2A4.9 4.9 0 0 1 6 19h11a1 1 0 0 1 1 1V7a1 1 0 0 0-1-1H6Zm2 3h7v2H8V9Zm0 4h7v2H8v-2Z"/>
-              </svg>
-            </span>
-            <span class="nodeText">
-              <span class="nodeTitle">Apprentissages</span>
-              <span class="nodeSub">Langage • maths • sciences • CPS</span>
-            </span>
-          </button>
+              <button class="nodeBtn" data-node="pourquoi" type="button" aria-label="Pourquoi">
+                <span class="iconBubble" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16h1v3h-2V2h1Zm0 19h1v3h-2v-3h1ZM2 11h3v2H2v-2Zm19 0h3v2h-3v-2ZM4.2 5.6l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4Zm14.1 14.1 2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4ZM18.4 4.9l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1ZM2.1 18.4l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Z"/>
+                  </svg>
+                </span>
+                <span class="nodeText">
+                  <span class="nodeTitle">Pourquoi</span>
+                  <span class="nodeSub">Inégalités • bien-être • climat</span>
+                </span>
+              </button>
 
-          <button class="nodeBtn" data-node="publics" type="button" aria-label="Publics">
-            <span class="iconBubble" aria-hidden="true">👥</span>
-            <span class="nodeText">
-              <span class="nodeTitle">Publics</span>
-              <span class="nodeSub">Équipes • collectivités • fondations • médias</span>
-            </span>
-          </button>
+              <button class="nodeBtn" data-node="demarche" type="button" aria-label="Démarche">
+                <span class="iconBubble" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm0-18a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm3.9 5.1-2.4 6.3-6.3 2.4 2.4-6.3 6.3-2.4Zm-4 6.8 1-2.7-2.7 1 1.7 1.7Z"/>
+                  </svg>
+                </span>
+                <span class="nodeText">
+                  <span class="nodeTitle">Démarche</span>
+                  <span class="nodeSub">Un rituel pensé pour apprendre</span>
+                </span>
+              </button>
 
-          <button class="nodeBtn" data-node="interventionsNode" type="button" aria-label="Interventions">
-            <span class="iconBubble" aria-hidden="true">🎤</span>
-            <span class="nodeText">
-              <span class="nodeTitle">Interventions</span>
-              <span class="nodeSub">Conférences • formations • accompagnement</span>
-            </span>
-          </button>
+              <button class="nodeBtn" data-node="apprentissages" type="button" aria-label="Apprentissages">
+                <span class="iconBubble" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M6 4h10a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H6a3 3 0 0 0-3 3V7a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v12.2A4.9 4.9 0 0 1 6 19h11a1 1 0 0 1 1 1V7a1 1 0 0 0-1-1H6Zm2 3h7v2H8V9Zm0 4h7v2H8v-2Z"/>
+                  </svg>
+                </span>
+                <span class="nodeText">
+                  <span class="nodeTitle">Apprentissages</span>
+                  <span class="nodeSub">Langage • maths • sciences • CPS</span>
+                </span>
+              </button>
 
-          <button class="nodeBtn" data-node="ressourcesNode" type="button" aria-label="Ressources & médias">
-            <span class="iconBubble" aria-hidden="true">📁</span>
-            <span class="nodeText">
-              <span class="nodeTitle">Ressources & médias</span>
-              <span class="nodeSub">PDF • vidéos • podcasts • presse • officiel</span>
-            </span>
-          </button>
+              <button class="nodeBtn" data-node="publics" type="button" aria-label="Publics">
+                <span class="iconBubble" aria-hidden="true">👥</span>
+                <span class="nodeText">
+                  <span class="nodeTitle">Publics</span>
+                  <span class="nodeSub">Équipes • collectivités • fondations • médias</span>
+                </span>
+              </button>
 
-          <button class="nodeBtn" data-node="impact" type="button" aria-label="Impact & diffusion">
-            <span class="iconBubble" aria-hidden="true">📊</span>
-            <span class="nodeText">
-              <span class="nodeTitle">Impact & diffusion</span>
-              <span class="nodeSub">Déploiement • ressources • évaluation</span>
-            </span>
-          </button>
+              <button class="nodeBtn" data-node="interventionsNode" type="button" aria-label="Interventions">
+                <span class="iconBubble" aria-hidden="true">🎤</span>
+                <span class="nodeText">
+                  <span class="nodeTitle">Interventions</span>
+                  <span class="nodeSub">Conférences • formations • accompagnement</span>
+                </span>
+              </button>
+
+              <button class="nodeBtn" data-node="ressourcesNode" type="button" aria-label="Ressources & médias">
+                <span class="iconBubble" aria-hidden="true">📁</span>
+                <span class="nodeText">
+                  <span class="nodeTitle">Ressources & médias</span>
+                  <span class="nodeSub">PDF • vidéos • podcasts • presse • officiel</span>
+                </span>
+              </button>
+
+              <button class="nodeBtn" data-node="impact" type="button" aria-label="Impact & diffusion">
+                <span class="iconBubble" aria-hidden="true">📊</span>
+                <span class="nodeText">
+                  <span class="nodeTitle">Impact & diffusion</span>
+                  <span class="nodeSub">Déploiement • ressources • évaluation</span>
+                </span>
+              </button>
+            </div>
+
+            <aside class="panel" aria-label="Détails du nœud">
+              <div class="miniTitle">Détail</div>
+              <h3 class="panelTitle" id="panelTitle">Clique un nœud 👈</h3>
+              <p class="panelText" id="panelText"></p>
+              <ul class="bullets" id="panelBullets"></ul>
+
+              <div class="miniBtns">
+                <a class="btn ghost" href="#interventions">Voir les formats</a>
+                <a class="btn primary" href="#contact">Me contacter</a>
+              </div>
+            </aside>
+          </div>
         </div>
-
-        <!-- PANNEAU DROITE -->
-        <aside class="panel" aria-label="Détails du nœud">
-          <div class="miniTitle">Détail</div>
-          <h3 class="panelTitle" id="panelTitle">Clique un nœud 👈</h3>
-          <p class="panelText" id="panelText"></p>
-          <ul class="bullets" id="panelBullets"></ul>
-
-          <div class="miniBtns">
-            <a class="btn ghost" href="#interventions">Voir les formats</a>
-            <a class="btn primary" href="#contact">Me contacter</a>
-          </div>
-        </aside>
-
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- PARCOURS -->
     <section id="parcours">
@@ -1566,6 +1115,10 @@ li{
               Enseignante de terrain, je construis mes propositions à partir de ce qui se passe vraiment dans une classe :
               les besoins des élèves, les contraintes des équipes, les réalités des familles.
             </p>
+
+            <!-- ✅ 1 petite photo ici -->
+            <img src="maths.jpg" class="singlePhoto" alt="Atelier pédagogique">
+
             <ul>
               <li>Approche concrète des pratiques de classe</li>
               <li>Apports de la recherche en éducation et sciences sociales</li>
@@ -1593,7 +1146,7 @@ li{
             <div>
               <h2>« Un Bol à l’École » — bien plus qu’un petit déjeuner</h2>
               <p class="sub">
-                À partir d’un moment simple et universel — le petit déjeuner — un dispositif complet qui articule alimentation, bien-être,santé mentale, pédagogie innovante,
+                À partir d’un moment simple et universel — le petit déjeuner — un dispositif complet qui articule alimentation, bien-être, santé mentale, pédagogie innovante,
                 apprentissages fondamentaux et lien avec les familles.
               </p>
             </div>
@@ -1611,12 +1164,14 @@ li{
                 <li>Sciences (nutrition, digestion, énergie, microbiote…)</li>
                 <li>Compétences psychosociales (coopération, empathie, engagement, attention, persévérance, solidarité, estime de soi…)</li>
                 <li>Éducation à la citoyenneté et à l’égalité</li>
-                <li>Éducation au Développement Durable </li>
+                <li>Éducation au Développement Durable</li>
                 <li>Renforcement de l'axe parentalité</li>
-                <li>Renforcement de l'autonomie et de l'engagement de l'élève pour le mener vers une responsabilisation totale</li>
+                <li>Renforcement de l'autonomie et de l'engagement de l'élève</li>
               </ul>
               <p style="margin-top:10px;">
-               Ce projet permet d’aborder de nombreux domaines liés aux apprentissages de façon concrète et véritablement efficiente et il a de réels effets sur la scolarité des élèves et leur bien-être à l’école ainsi que sur le mien ! Ce projet incarne la vision d’une école qui forme des enfants éclairés, engagés et pleinement acteurs de leur avenir. 
+                Ce projet permet d’aborder de nombreux domaines liés aux apprentissages de façon concrète et véritablement efficiente
+                et il a de réels effets sur la scolarité des élèves et leur bien-être à l’école ainsi que sur le mien !
+                Ce projet incarne la vision d’une école qui forme des enfants éclairés, engagés et pleinement acteurs de leur avenir.
               </p>
             </div>
 
@@ -1631,6 +1186,9 @@ li{
                 <li>Contributions à des ressources pédagogiques et formations pour enseignants</li>
                 <li>Échanges réguliers avec des chercheurs et des acteurs de la lutte contre la pauvreté</li>
               </ul>
+
+              <!-- ✅ 1 petite photo ici (si tu veux plutôt ici) -->
+              <!-- <img src="bonheur.jpg" class="singlePhoto" alt="Moment de groupe"> -->
             </div>
           </div>
         </div>
@@ -1644,6 +1202,9 @@ li{
           <div>
             <h2>Interventions</h2>
             <p class="sub">J’interviens auprès d’enseignants, de cadres de l’Éducation nationale, de collectivités, de fondations et d’associations — en France et à l’étranger.</p>
+
+            <!-- ✅ 1 petite photo ici -->
+            <img src="GTP.jpg" class="singlePhoto" alt="Global Teacher Prize">
           </div>
         </div>
 
@@ -1715,139 +1276,129 @@ li{
       </div>
     </section>
 
-  
-</div>
-
-<!-- ====== MÉDIAS : liens par catégories (plus lisible + plus joli) ====== -->
-<!-- ====== MÉDIAS : classement éditorial ====== -->
-<div class="mediaCats">
-
-  <!-- DÉCOUVRIR -->
-  <section class="mediaCat mediaCat--sky" aria-label="Découvrir le projet">
-    <div class="mediaCatHead">
-      <div>
-        <div class="mediaCatTitle">Découvrir le projet</div>
-        <div class="mediaCatSubtitle">Entrer dans l’univers de « Un Bol à l’École »🥣</div>
+    <!-- ✅ MÉDIAS (on met bien un id pour que le menu marche) -->
+    <section id="medias">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Médias</h2>
+            <p class="sub">Une sélection de vidéos, podcasts, presse et ressources institutionnelles.</p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="mediaGrid" style="grid-template-columns:1fr;">
-      <a class="linkCard" href="https://www.youtube.com/watch?v=Ks9hg6O8tLI" target="_blank" rel="noopener">
-        <p class="t">Présentation de l’ouvrage 📚— Hachette</p>
-        <p class="s">Vidéo (ouvre YouTube)</p>
-      </a>
+      <div class="mediaCats">
+        <!-- DÉCOUVRIR -->
+        <section class="mediaCat" aria-label="Découvrir le projet">
+          <div>
+            <div class="mediaCatTitle">Découvrir le projet</div>
+            <div class="mediaCatSubtitle">Entrer dans l’univers de « Un Bol à l’École » 🥣</div>
+          </div>
 
-      <a class="linkCard" href="https://www.deezer.com/fr/show/2392602" target="_blank" rel="noopener">
-        <p class="t">Podcast Canopé 🎙️</p>
-        <p class="s">Écoute (ouvre Deezer)</p>
-      </a>
+          <div class="mediaGrid" style="grid-template-columns:1fr;">
+            <a class="linkCard" href="https://www.youtube.com/watch?v=Ks9hg6O8tLI" target="_blank" rel="noopener">
+              <p class="t">Présentation de l’ouvrage 📚 — Hachette</p>
+              <p class="s">Vidéo (ouvre YouTube)</p>
+            </a>
 
-      <a class="linkCard"
-         href="https://www.radiofra📰nce.fr/franceinter/podcasts/le-13-14/le-13-14-du-jeudi-27-fevrier-2025-2055975"
-         target="_blank" rel="noopener">
-        <p class="t">France Inter 📻 — Le 13h/14h</p>
-        <p class="s">Émission / podcast (ouvre Radio France)</p>
-      </a>
-    </div>
-  </section>
+            <a class="linkCard" href="https://www.deezer.com/fr/show/2392602" target="_blank" rel="noopener">
+              <p class="t">Podcast Canopé 🎙️</p>
+              <p class="s">Écoute (ouvre Deezer)</p>
+            </a>
 
-  <!-- REPORTAGES -->
-  <section class="mediaCat mediaCat--coral" aria-label="Reportages et médias grand public">
-    <div class="mediaCatHead">
-      <div>
-        <div class="mediaCatTitle">Reportages & médias grand public</div>
-        <div class="mediaCatSubtitle">Télévision et reportages📺</div>
+            <a class="linkCard"
+               href="https://www.radiofrance.fr/franceinter/podcasts/le-13-14/le-13-14-du-jeudi-27-fevrier-2025-2055975"
+               target="_blank" rel="noopener">
+              <p class="t">France Inter 📻 — Le 13h/14h</p>
+              <p class="s">Émission / podcast (ouvre Radio France)</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- REPORTAGES -->
+        <section class="mediaCat" aria-label="Reportages et médias grand public">
+          <div>
+            <div class="mediaCatTitle">Reportages & médias grand public</div>
+            <div class="mediaCatSubtitle">Télévision et reportages 📺</div>
+          </div>
+
+          <div class="mediaGrid" style="grid-template-columns:1fr;">
+            <a class="linkCard" href="Telematin.mp4" target="_blank" rel="noopener">
+              <p class="t">Télématin 🎦 — France 2</p>
+              <p class="s">Fichier vidéo (local)</p>
+            </a>
+
+            <a class="linkCard"
+               href="https://www.bfmtv.com/alsace/bas-rhin/strasbourg/je-suis-tres-fiere-celine-haller-parmi-les-dix-meilleurs-professeurs-du-monde-de-retour-a-hautepierre_AV-202502260197.html"
+               target="_blank" rel="noopener">
+              <p class="t">BFMTV — Reportage 🎦</p>
+              <p class="s">Vidéo / article</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- PRESSE -->
+        <section class="mediaCat" aria-label="Presse">
+          <div>
+            <div class="mediaCatTitle">Presse</div>
+            <div class="mediaCatSubtitle">Articles & formats éditoriaux</div>
+          </div>
+
+          <div class="mediaGrid" style="grid-template-columns:1fr;">
+            <a class="linkCard"
+               href="https://www.lalsace.fr/bas-rhin/2019/11/02/des-petits-dejeuners-nourrissants-a-tous-points-de-vue"
+               target="_blank" rel="noopener">
+              <p class="t">L’Alsace 📰 — Article</p>
+              <p class="s">Suite à la visite de la Rectrice</p>
+            </a>
+
+            <a class="linkCard"
+               href="https://fr.linkedin.com/posts/loopsider_avec-ses-petits-d%C3%A9jeuners-p%C3%A9dagogiques-cette-activity-7307309749417463810-wf6V"
+               target="_blank" rel="noopener">
+              <p class="t">Loopsider 🎦 (LinkedIn) — Vidéo</p>
+              <p class="s">Format réseaux</p>
+            </a>
+
+            <a class="linkCard" href="https://www.youtube.com/watch?v=wdEZYuT3xfA" target="_blank" rel="noopener">
+              <p class="t">Ici Alsace 🎦 (YouTube)</p>
+              <p class="s">Lien externe</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- INSTITUTIONNEL -->
+        <section class="mediaCat" aria-label="Institutionnel">
+          <div>
+            <div class="mediaCatTitle">Institutionnel</div>
+            <div class="mediaCatSubtitle">Ressources officielles & reconnaissance</div>
+          </div>
+
+          <div class="mediaGrid" style="grid-template-columns:1fr;">
+            <a class="linkCard" href="https://eduscol.education.fr/2179/focus-sur-le-dispositif-des-petits-dejeuners" target="_blank" rel="noopener">
+              <p class="t">Éduscol 🌐 — Focus dispositif</p>
+              <p class="s">Présentation & documents</p>
+            </a>
+
+            <a class="linkCard" href="https://www.ac-strasbourg.fr/nos-enseignants-ont-du-talent-celine-haller-122922" target="_blank" rel="noopener">
+              <p class="t">Académie de Strasbourg — Portrait 👍</p>
+              <p class="s">« Nos enseignants ont du talent »</p>
+            </a>
+
+            <a class="linkCard" href="https://fb.watch/bMrCC7afBr/" target="_blank" rel="noopener">
+              <p class="t">Vidéo officielle du Ministère 🎦 (Facebook)</p>
+              <p class="s">Format institutionnel</p>
+            </a>
+
+            <a class="linkCard"
+               href="https://www.ac-strasbourg.fr/projet-d-academie-122780"
+               target="_blank" rel="noopener">
+              <p class="t">Projet académique 📖 — Académie de Strasbourg</p>
+              <p class="s">Lien officiel</p>
+            </a>
+          </div>
+        </section>
       </div>
-    </div>
-
-    <div class="mediaGrid" style="grid-template-columns:1fr;">
-      <a class="linkCard" href="Telematin.mp4" target="_blank" rel="noopener">
-        <p class="t">Télématin 🎦 — France 2</p>
-        <p class="s">Fichier vidéo (local)</p>
-      </a>
-
-      <a class="linkCard"
-         href="https://www.bfmtv.com/alsace/bas-rhin/strasbourg/je-suis-tres-fiere-celine-haller-parmi-les-dix-meilleurs-professeurs-du-monde-de-retour-a-hautepierre_AV-202502260197.html"
-         target="_blank" rel="noopener">
-        <p class="t">BFMTV — Reportage 🎦</p>
-        <p class="s">Vidéo / article</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- PRESSE -->
-  <section class="mediaCat mediaCat--mint" aria-label="Presse">
-    <div class="mediaCatHead">
-      <div>
-        <div class="mediaCatTitle">Presse</div>
-        <div class="mediaCatSubtitle">Articles & formats éditoriaux</div>
-      </div>
-    </div>
-
-    <div class="mediaGrid" style="grid-template-columns:1fr;">
-      <a class="linkCard"
-         href="https://www.lalsace.fr/bas-rhin/2019/11/02/des-petits-dejeuners-nourrissants-a-tous-points-de-vue"
-         target="_blank" rel="noopener">
-        <p class="t">L’Alsace 📰 — Article</p>
-        <p class="s">Suite à la visite de la Rectrice</p>
-      </a>
-
-      <a class="linkCard"
-         href="https://fr.linkedin.com/posts/loopsider_avec-ses-petits-d%C3%A9jeuners-p%C3%A9dagogiques-cette-activity-7307309749417463810-wf6V"
-         target="_blank" rel="noopener">
-        <p class="t">Loopsider 🎦 (LinkedIn) — Vidéo</p>
-        <p class="s">Format réseaux</p>
-      </a>
-
-      <a class="linkCard" href="https://www.youtube.com/watch?v=wdEZYuT3xfA" target="_blank" rel="noopener">
-        <p class="t">Ici Alsace 🎦(YouTube)</p>
-        <p class="s">Lien externe</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- INSTITUTIONNEL -->
-  <section class="mediaCat mediaCat--sun" aria-label="Institutionnel">
-    <div class="mediaCatHead">
-      <div>
-        <div class="mediaCatTitle">Institutionnel</div>
-        <div class="mediaCatSubtitle">Ressources officielles & reconnaissance</div>
-      </div>
-    </div>
-
-    <div class="mediaGrid" style="grid-template-columns:1fr;">
-      <a class="linkCard" href="https://eduscol.education.fr/2179/focus-sur-le-dispositif-des-petits-dejeuners" target="_blank" rel="noopener">
-        <p class="t">Éduscol 🌐— Focus dispositif</p>
-        <p class="s">Présentation & documents</p>
-      </a>
-
-      <a class="linkCard" href="https://www.ac-strasbourg.fr/nos-enseignants-ont-du-talent-celine-haller-122922" target="_blank" rel="noopener">
-        <p class="t">Académie de Strasbourg — Portrait 👍</p>
-        <p class="s">« Nos enseignants ont du talent »</p>
-      </a>
-
-      <a class="linkCard" href="https://fb.watch/bMrCC7afBr/" target="_blank" rel="noopener">
-        <p class="t">Vidéo officielle du Ministère 🎦 (Facebook)</p>
-        <p class="s">Format institutionnel</p>
-      </a>
-
-      <a class="linkCard"
-         href="https://www.linkedin.com/posts/academie-de-strasbourg_aezducationnationale-acadaezmiedestrasbourg-ugcPost-7402389476884492288-AeUB?utm_source=share&utm_medium=member_ios"
-         target="_blank" rel="noopener">
-        <p class="t">Visite du Président François Hollande 👍(LinkedIn)</p>
-        <p class="s">Post vidéo / reportage</p>
-      </a>
-
-
-      <a class="linkCard" href="#" onclick="return false;" aria-disabled="true" style="opacity:.7;">
-        <p class="t">Projet académique 📖 — Académie de Strasbourg</p>
-        <p class="s">https://www.ac-strasbourg.fr/projet-d-academie-122780</p>
-      </a>
-    </div>
-  </section>
-
-</div>
-
+    </section>
 
     <!-- CONTACT -->
     <section id="contact">
@@ -1891,7 +1442,6 @@ li{
             <div class="contactCard">
               <div class="miniTitle">Formulaire (option)</div>
 
-              <!-- Formulaire mailto : ouvre le logiciel de messagerie -->
               <form action="mailto:unbolalecole@gmail.com" method="post" enctype="text/plain">
                 <div class="formRow">
                   <div>
@@ -1912,9 +1462,7 @@ li{
 
                 <div style="margin-top:12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
                   <button class="btn primary" type="submit">Envoyer la demande</button>
-                  <span class="smallNote" style="margin:0;">
-                    ⚠️ Selon votre navigateur, l’envoi ouvre votre messagerie.
-                  </span>
+                  <span class="smallNote" style="margin:0;">⚠️ Selon votre navigateur, l’envoi ouvre votre messagerie.</span>
                 </div>
               </form>
             </div>
@@ -1931,11 +1479,12 @@ li{
       <a href="#top">Retour en haut</a>
     </div>
   </footer>
+
 <script>
   // Année auto
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // ===== Mind map data (tes infos) =====
+  // ===== Mind map data =====
   const DATA = {
     pourquoi: {
       title: "Pourquoi",
@@ -2007,18 +1556,16 @@ li{
   };
 
   // ===== Elements =====
-const mind = document.getElementById("mindMap");
-              // le grand cadre de la carte mentale
-const center = document.getElementById("mindCenter");
-        // la case centrale
-const nodes = Array.from(document.querySelectorAll("#mindMap .nodeBtn"));
+  const mind = document.getElementById("mindMap");
+  const center = document.getElementById("mindCenter");
+  const nodes = Array.from(document.querySelectorAll("#mindMap .nodeBtn"));
 
-console.log("nodeBtns trouvés =", nodes.length);
-
+  const panel = document.querySelector(".panel");
   const panelTitle = document.getElementById("panelTitle");
   const panelText = document.getElementById("panelText");
   const panelBullets = document.getElementById("panelBullets");
   const resetBtn = document.getElementById("resetBtn");
+  const linksSvg = document.getElementById("mindLinks");
 
   // ===== Panel =====
   function setActive(key){
@@ -2035,282 +1582,174 @@ console.log("nodeBtns trouvés =", nodes.length);
       li.textContent = b;
       panelBullets.appendChild(li);
     });
-  }
- if (window.matchMedia("(max-width: 900px)").matches) {
-  panel?.classList.remove("isCollapsed");
-  if (panelToggleBtn) panelToggleBtn.textContent = "Masquer le détail";
-  panel?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
- 
-function resetMind(){
-  nodes.forEach(n => n.classList.remove("active"));
 
-  panelTitle.textContent = "Clique un nœud 👈";
-  panelText.textContent = "";
-  panelBullets.innerHTML = "";
+    mind.classList.add("hasActive");
 
-  mind.classList.remove("hasActive");
-
-  layoutRadial();
-}
-
- mind.classList.add("hasActive");
-
-
-// ===== Layout radial (anti-chevauchement) =====
-const linksSvg = document.getElementById("mindLinks");
-
-function drawLinks(){
-  if(!linksSvg || !mind || !center) return;
-
-  const w = mind.clientWidth;
-  const h = mind.clientHeight;
-
-  linksSvg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-  linksSvg.innerHTML = "";
-
-  const cRect = center.getBoundingClientRect();
-  const mRect = mind.getBoundingClientRect();
-
-  const cx = (cRect.left - mRect.left) + cRect.width/2;
-  const cy = (cRect.top  - mRect.top)  + cRect.height/2;
-
-  nodes.forEach(node => {
-    const nRect = node.getBoundingClientRect();
-    const nx = (nRect.left - mRect.left) + nRect.width/2;
-    const ny = (nRect.top  - mRect.top)  + nRect.height/2;
-
-    const line = document.createElementNS("http://www.w3.org/2000/svg","line");
-    line.setAttribute("x1", cx);
-    line.setAttribute("y1", cy);
-    line.setAttribute("x2", nx);
-    line.setAttribute("y2", ny);
-    linksSvg.appendChild(line);
-  });
-}
-
-function layoutRadial(){
-  if(!mind || !center || nodes.length === 0) return;
-  if (window.matchMedia("(max-width: 900px)").matches) return;
-
-  const w = mind.clientWidth;
-  const h = mind.clientHeight;
-  const r = Math.min(w, h) * 0.52;
-
-  const angleMap = {
-    pourquoi: -50,
-    apprentissages: -10,
-    publics: 15,
-    interventionsNode: 70,
-    impact: 180,
-    ressourcesNode: 150,
-    demarche: -150
-  };
-
-  center.style.left = "50%";
-  center.style.top = "50%";
-  center.style.transform = "translate(-50%, -50%)";
-
-  nodes.forEach(node => {
-    const key = node.dataset.node;
-    const deg = angleMap[key] ?? 0;
-    const a = deg * Math.PI / 180;
-
-   const rNode = (key === "interventionsNode") ? r * 0.80 : r; // ← rapproche Interventions
-const x = w/2 + rNode * Math.cos(a);
-const y = h/2 + rNode * Math.sin(a);
-
-
-    const bw = node.offsetWidth;
-    const bh = node.offsetHeight;
-
-    node.style.left = `${x - bw/2}px`;
-    node.style.top  = `${y - bh/2}px`;
-  });
-
-  drawLinks();
-}
-
-// ===== Interactions =====
-nodes.forEach(n => {
-  n.setAttribute("tabindex", "0");
-  n.setAttribute("role", "button");
-
-  n.addEventListener("click", () => setActive(n.dataset.node));
-  n.addEventListener("keydown", (e) => {
-    if(e.key === "Enter" || e.key === " "){
-      e.preventDefault();
-      setActive(n.dataset.node);
+    // Sur mobile, on ouvre le panneau et on scroll un peu
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      panel?.classList.remove("isCollapsed");
+      if (panelToggleBtn) panelToggleBtn.textContent = "Masquer le détail";
+      panel?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  });
-});
-
-resetBtn?.addEventListener("click", (e) => {
-  e.preventDefault();
-  resetMind();
-});
-
-
-// init
-window.addEventListener("load", () => {
-  setActive("pourquoi");
-  layoutRadial();
-});
-
-// resize
-let tRad;
-window.addEventListener("resize", () => {
-  clearTimeout(tRad);
-  tRad = setTimeout(layoutRadial, 120);
-});
-
-
-function layoutMindMap(){
-  const wrap = document.getElementById('mindMap');
-  const center = document.getElementById('mindCenter');
-  const svg = document.getElementById('mindLinks');
-  const nodes = [...wrap.querySelectorAll('.nodeBtn')];
-
-  if(!wrap || !center || !svg || nodes.length === 0) return;
-
-  const rWrap = wrap.getBoundingClientRect();
-  const cx = rWrap.width / 2;
-  const cy = rWrap.height / 2;
-
-  const radius = Math.max(170, Math.min(rWrap.width, rWrap.height) * 0.33);
-
-    nodes.forEach((node, i) => {
-    const a = (i / nodes.length) * Math.PI * 2 - Math.PI/2;
-    const x = cx + Math.cos(a) * radius;
-    const y = cy + Math.sin(a) * radius;
-
-    node.style.left = `${x}px`;
-    node.style.top  = `${y}px`;
-  });
-
-  svg.setAttribute('viewBox', `0 0 ${rWrap.width} ${rWrap.height}`);
-  svg.innerHTML = '';
-
-  nodes.forEach((node) => {
-    const rNode = node.getBoundingClientRect();
-    const nx = (rNode.left - rWrap.left) + rNode.width/2;
-    const ny = (rNode.top  - rWrap.top)  + rNode.height/2;
-
-    const midx = (cx + nx) / 2;
-
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d', `M ${cx} ${cy} C ${midx} ${cy}, ${midx} ${ny}, ${nx} ${ny}`);
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke', 'rgba(0,0,0,.18)');
-    path.setAttribute('stroke-width', '2');
-    svg.appendChild(path);
-  });
-} // ✅ <-- FIN de layoutMindMap (il manquait ce crochet)
-
-// ===== Mobile: accordéon pour le panneau Détail =====
-const panel = document.querySelector(".panel");
-let panelToggleBtn = null;
-
-function ensurePanelToggle(){
-  if(!panel) return;
-  if(panelToggleBtn) return;
-
-  panelToggleBtn = document.createElement("button");
-  panelToggleBtn.type = "button";
-  panelToggleBtn.className = "btn ghost panelToggle";
-  panelToggleBtn.textContent = "Afficher le détail";
-
-  // on l'insère après le miniTitle ("Détail")
-  const miniTitle = panel.querySelector(".miniTitle");
-  if(miniTitle && miniTitle.parentNode){
-    miniTitle.parentNode.insertBefore(panelToggleBtn, miniTitle.nextSibling);
-  }else{
-    panel.insertBefore(panelToggleBtn, panel.firstChild);
   }
 
-  panelToggleBtn.addEventListener("click", () => {
-    panel.classList.toggle("isCollapsed");
-    panelToggleBtn.textContent = panel.classList.contains("isCollapsed")
-      ? "Afficher le détail"
-      : "Masquer le détail";
+  function resetMind(){
+    nodes.forEach(n => n.classList.remove("active"));
+    panelTitle.textContent = "Clique un nœud 👈";
+    panelText.textContent = "";
+    panelBullets.innerHTML = "";
+    mind.classList.remove("hasActive");
+    layoutRadial();
+  }
+
+  // ===== Traits =====
+  function drawLinks(){
+    if(!linksSvg || !mind || !center) return;
+
+    const w = mind.clientWidth;
+    const h = mind.clientHeight;
+
+    linksSvg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    linksSvg.innerHTML = "";
+
+    const cRect = center.getBoundingClientRect();
+    const mRect = mind.getBoundingClientRect();
+
+    const cx = (cRect.left - mRect.left) + cRect.width/2;
+    const cy = (cRect.top  - mRect.top)  + cRect.height/2;
+
+    nodes.forEach(node => {
+      const nRect = node.getBoundingClientRect();
+      const nx = (nRect.left - mRect.left) + nRect.width/2;
+      const ny = (nRect.top  - mRect.top)  + nRect.height/2;
+
+      const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+      line.setAttribute("x1", cx);
+      line.setAttribute("y1", cy);
+      line.setAttribute("x2", nx);
+      line.setAttribute("y2", ny);
+      linksSvg.appendChild(line);
+    });
+  }
+
+  // ===== Layout radial (anti-chevauchement) =====
+  function layoutRadial(){
+    if(!mind || !center || nodes.length === 0) return;
+    if (window.matchMedia("(max-width: 900px)").matches) return;
+
+    const w = mind.clientWidth;
+    const h = mind.clientHeight;
+    const r = Math.min(w, h) * 0.52;
+
+    const angleMap = {
+      pourquoi: -50,
+      apprentissages: -10,
+      publics: 15,
+      interventionsNode: 70,
+      impact: 180,
+      ressourcesNode: 150,
+      demarche: -150
+    };
+
+    center.style.left = "50%";
+    center.style.top = "50%";
+    center.style.transform = "translate(-50%, -50%)";
+
+    nodes.forEach(node => {
+      const key = node.dataset.node;
+      const deg = angleMap[key] ?? 0;
+      const a = deg * Math.PI / 180;
+
+      const rNode = (key === "interventionsNode") ? r * 0.80 : r;
+      const x = w/2 + rNode * Math.cos(a);
+      const y = h/2 + rNode * Math.sin(a);
+
+      const bw = node.offsetWidth;
+      const bh = node.offsetHeight;
+
+      node.style.left = `${x - bw/2}px`;
+      node.style.top  = `${y - bh/2}px`;
+    });
+
+    drawLinks();
+  }
+
+  // ===== Interactions =====
+  nodes.forEach(n => {
+    n.setAttribute("tabindex", "0");
+    n.setAttribute("role", "button");
+
+    n.addEventListener("click", () => setActive(n.dataset.node));
+    n.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        setActive(n.dataset.node);
+      }
+    });
   });
-}
 
-function setPanelCollapsedMobile(){
-  if(!panel) return;
-  const isMobile = window.matchMedia("(max-width: 900px)").matches;
+  resetBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    resetMind();
+  });
 
-  if(isMobile){
-    ensurePanelToggle();
-    // par défaut, on replie
-    panel.classList.add("isCollapsed");
+  // ===== Mobile: accordéon panneau =====
+  let panelToggleBtn = null;
+
+  function ensurePanelToggle(){
+    if(!panel) return;
+    if(panelToggleBtn) return;
+
+    panelToggleBtn = document.createElement("button");
+    panelToggleBtn.type = "button";
+    panelToggleBtn.className = "btn ghost panelToggle";
     panelToggleBtn.textContent = "Afficher le détail";
-  }else{
-    // desktop: on déplie
-    panel.classList.remove("isCollapsed");
-    if(panelToggleBtn) panelToggleBtn.textContent = "Masquer le détail";
+
+    const miniTitle = panel.querySelector(".miniTitle");
+    if(miniTitle && miniTitle.parentNode){
+      miniTitle.parentNode.insertBefore(panelToggleBtn, miniTitle.nextSibling);
+    }else{
+      panel.insertBefore(panelToggleBtn, panel.firstChild);
+    }
+
+    panelToggleBtn.addEventListener("click", () => {
+      panel.classList.toggle("isCollapsed");
+      panelToggleBtn.textContent = panel.classList.contains("isCollapsed")
+        ? "Afficher le détail"
+        : "Masquer le détail";
+    });
   }
-}
 
-// Au chargement + au resize
-window.addEventListener("load", setPanelCollapsedMobile);
-window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
+  function setPanelCollapsedMobile(){
+    if(!panel) return;
+    const isMobile = window.matchMedia("(max-width: 900px)").matches;
 
+    if(isMobile){
+      ensurePanelToggle();
+      panel.classList.add("isCollapsed");
+      panelToggleBtn.textContent = "Afficher le détail";
+    }else{
+      panel.classList.remove("isCollapsed");
+      if(panelToggleBtn) panelToggleBtn.textContent = "Masquer le détail";
+    }
+  }
+
+  // init
+  window.addEventListener("load", () => {
+    setPanelCollapsedMobile();
+    setActive("pourquoi");
+    layoutRadial();
+  });
+
+  // resize
+  let tRad;
+  window.addEventListener("resize", () => {
+    clearTimeout(tRad);
+    tRad = setTimeout(() => {
+      setPanelCollapsedMobile();
+      layoutRadial();
+    }, 120);
+  });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
