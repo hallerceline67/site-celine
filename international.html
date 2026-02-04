@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>International — Céline Haller</title>
+  <meta name="description" content="Céline Haller — Conferences, training & partnerships. Un Bol à l’École: well-being, equity and learning through a school-based breakfast program." />
+
+  <style>
+    :root{
+      --bg:#fbfbfd;
+      --ink:#0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --border: rgba(15, 23, 42, .10);
+      --shadow: 0 12px 34px rgba(15, 23, 42, .08);
+      --radius: 22px;
+      --max: 1320px;
+
+      --mint:#2dd4bf;
+      --coral:#fb7185;
+      --sun:#fbbf24;
+      --sky:#60a5fa;
+      --violet:#a78bfa;
+      --leaf:#34d399;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(96,165,250,.35), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(45,212,191,.28), transparent 60%),
+        radial-gradient(900px 500px at 70% 120%, rgba(167,139,250,.25), transparent 60%),
+        linear-gradient(180deg, #eaf3ff 0%, #f7fbff 60%, #ffffff 100%);
+      line-height:1.6;
+    }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-inline: clamp(16px, 2.5vw, 34px);
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,251,253,.72);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.2px; white-space:nowrap;
+    }
+    .dot{
+      width:14px; height:14px; border-radius:999px;
+      background: linear-gradient(135deg, var(--mint), var(--sky));
+      box-shadow: 0 6px 18px rgba(45,212,191,.25);
+      flex:0 0 auto;
+    }
+    .links{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap; justify-content:flex-end;
+      font-weight:800; color:rgba(15,23,42,.78); font-size:14px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      border-radius:999px;
+      box-shadow: 0 8px 22px rgba(15,23,42,.06);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 10px 30px rgba(15,23,42,.08);
+      font-weight:900;
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+      user-select:none;
+      text-decoration:none;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 34px rgba(15,23,42,.10); }
+    .btn.primary{
+      border:none;
+      color:#071018;
+      background: linear-gradient(135deg, rgba(45,212,191,.95), rgba(96,165,250,.95));
+    }
+    .btn.ghost{ background: rgba(255,255,255,.60); }
+
+    section{ padding:72px 0; }
+
+    .card{
+      background: rgba(255,255,255,.78);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero{
+      padding:78px 0 28px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns:1fr; }
+      .links{ display:none; }
+    }
+    .heroCard{ padding:30px 28px; position:relative; overflow:hidden; }
+    .heroCard::before{
+      content:"";
+      position:absolute; inset:-90px -70px auto auto;
+      width:240px; height:240px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(251,191,36,.35), transparent 60%);
+      pointer-events:none;
+    }
+    .heroCard > *{ position:relative; z-index:1; }
+
+    .kicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:900;
+      color: rgba(15,23,42,.55);
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(34px, 4.6vw, 56px);
+      letter-spacing:-.6px;
+      line-height:1.05;
+    }
+    .lead{
+      margin:0 0 16px;
+      color: rgba(15,23,42,.78);
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 70ch;
+    }
+    .chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .chip{
+      font-size:13px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      color: rgba(15,23,42,.74);
+      font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .chip .sw{ width:10px; height:10px; border-radius:999px; display:inline-block; }
+
+    .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+    .note{
+      margin-top:12px;
+      color: rgba(15,23,42,.62);
+      font-weight:800;
+      font-size: 13px;
+    }
+
+    .sideCard{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .miniTitle{
+      font-size:12px;
+      color: rgba(15,23,42,.55);
+      letter-spacing:.18em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    .badge{
+      display:inline-flex; align-items:center;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.62);
+      font-weight:900;
+      font-size: 12.5px;
+      color: rgba(15,23,42,.74);
+      width: fit-content;
+    }
+
+    .band{
+      position:relative;
+      border-radius: 28px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.70);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+    .band::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 220px at 15% 10%, rgba(45,212,191,.22), transparent 60%),
+        radial-gradient(520px 220px at 75% 0%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(520px 240px at 80% 110%, rgba(251,113,133,.16), transparent 62%);
+      pointer-events:none;
+    }
+    .band > *{ position:relative; z-index:1; }
+
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+    }
+    h2{
+      margin:0;
+      font-size: clamp(22px, 2.4vw, 32px);
+      letter-spacing:-.4px;
+      line-height:1.15;
+    }
+    .sub{
+      margin:0;
+      color: rgba(15,23,42,.70);
+      max-width: 72ch;
+      line-height:1.55;
+      font-size: 15.5px;
+      font-weight:500;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){
+      .grid2{ grid-template-columns:1fr; }
+    }
+    .tile{
+      padding:18px;
+      border-radius: 22px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 10px 25px rgba(15,23,42,.07);
+    }
+    .tile h3{ margin:0 0 6px; font-size:18px; letter-spacing:-.2px; }
+    .tile p{ margin:0; color: rgba(15,23,42,.74); line-height:1.6; font-weight:400; }
+    .tile ul{ margin:10px 0 0; padding-left: 18px; color: rgba(15,23,42,.74); line-height:1.6; }
+    .tile li{ margin:6px 0; }
+
+    footer{
+      padding: 28px 0 54px;
+      color: rgba(15,23,42,.60);
+      font-weight:800;
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Back to home">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Céline Haller</span>
+        </a>
+
+        <nav class="links" aria-label="Navigation">
+          <a class="pill" href="index.html#carte">Mind map</a>
+          <a class="pill" href="index.html#projet">Project</a>
+          <a class="pill" href="index.html#interventions">Talks</a>
+          <a class="pill" href="index.html#medias">Media</a>
+          <a class="pill" href="index.html#contact">Contact</a>
+          <a class="pill" href="international.html" aria-current="page">🌍 International</a>
+        </nav>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn ghost" href="index.html">FR version</a>
+          <a class="btn primary" href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="card heroCard">
+            <div class="kicker">International</div>
+            <h1>Conferences, training & partnerships</h1>
+            <p class="lead">
+              I am a French primary school teacher and educational innovator. For over ten years, I have developed
+              field-based projects combining well-being, equity and learning.
+            </p>
+
+            <div class="chips" aria-label="Key topics">
+              <span class="chip"><span class="sw" style="background:var(--sky)"></span>Well-being</span>
+              <span class="chip"><span class="sw" style="background:var(--mint)"></span>Equity</span>
+              <span class="chip"><span class="sw" style="background:var(--violet)"></span>Learning engagement</span>
+              <span class="chip"><span class="sw" style="background:var(--sun)"></span>School-family link</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="mailto:unbolalecole@hotmail.com?subject=International%20inquiry%20-%20Un%20Bol%20%C3%A0%20l%E2%80%99%C3%89cole">Email me</a>
+              <a class="btn" href="index.html#projet">Discover the project</a>
+              <a class="btn ghost" href="index.html#medias">Media & references</a>
+            </div>
+
+            <div class="note">Based in France • Available online or on-site • English / French</div>
+          </div>
+
+          <aside class="card sideCard" aria-label="Highlights">
+            <div class="miniTitle">Highlights</div>
+            <span class="badge">Global Teacher Prize — Top 10 (2025)</span>
+            <span class="badge">1st Prize — Innovation in Mental & Relational Health (2023)</span>
+            <div class="tile" style="margin-top:4px;">
+              <h3>What I do</h3>
+              <ul>
+                <li>Keynotes and conferences</li>
+                <li>Professional development for educators</li>
+                <li>Program design & implementation support</li>
+                <li>International pilots and partnerships</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="band">
+          <div class="sectionHead">
+            <div>
+              <h2>My project — Un Bol à l’École</h2>
+              <p class="sub">
+                “Un Bol à l’École” is a school-based breakfast program designed to support vulnerable children through a daily educational ritual.
+                It connects nutrition, emotional security and learning engagement, with a strong focus on equity and inclusion.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div class="tile">
+              <h3>Why it matters</h3>
+              <ul>
+                <li>Creates a safe, predictable start of the day</li>
+                <li>Improves attention and classroom climate</li>
+                <li>Strengthens relationships with families</li>
+                <li>Reduces inequality in access to learning</li>
+              </ul>
+            </div>
+
+            <div class="tile">
+              <h3>How I can help</h3>
+              <ul>
+                <li>Talks, panels and keynotes</li>
+                <li>Training for school teams and leaders</li>
+                <li>Support to design and launch a program</li>
+                <li>Adaptation to local contexts</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="mailto:unbolalecole@hotmail.com?subject=International%20collaboration%20-%20Un%20Bol%20%C3%A0%20l%E2%80%99%C3%89cole">Start a conversation</a>
+            <a class="btn ghost" href="index.html#contact">See contact details (FR)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> — Céline Haller • International
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
