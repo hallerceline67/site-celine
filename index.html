@@ -15,7 +15,7 @@
       --border: rgba(15, 23, 42, .10);
       --shadow: 0 12px 34px rgba(15, 23, 42, .08);
       --radius: 22px;
-      --max: 1120px;
+      --max: 1320px;
 
       /* accents (blocs colorés) */
       --mint:#2dd4bf;
@@ -58,7 +58,12 @@
   margin-top:2px;
 }
 
-    .wrap{ max-width:var(--max); margin:0 auto; padding:0 22px; }
+   .wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: clamp(16px, 2.5vw, 34px); /* moins “marge fixe”, plus fluide */
+}
+
 
     /* Header / Nav */
     header{
@@ -2220,6 +2225,7 @@ window.addEventListener("load", setPanelCollapsedMobile);
 window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
