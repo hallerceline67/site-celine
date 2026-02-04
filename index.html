@@ -1277,6 +1277,19 @@ li{
     grid-template-columns:1fr;
   }
 }
+/* Lien LinkedIn sous la photo */
+.linkedinLink{
+  margin-top: 14px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0a66c2; /* bleu LinkedIn */
+  text-decoration: none;
+}
+
+.linkedinLink:hover{
+  text-decoration: underline;
+}
 
   </style>
 </head>
@@ -1343,10 +1356,17 @@ li{
     </div>
   </div>
 
-  <div class="heroVisual">
-    <img src="celine-haller.jpg" alt="Céline Haller" class="heroPhoto">
-    <img src="guide.JPG" alt="Guide Un Bol à l’École" class="heroBook">
-  </div>
+<div class="heroVisual">
+  <img src="celine-haller.jpg" alt="Céline Haller" class="heroPhoto">
+  <img src="guide.JPG" alt="Guide Un Bol à l’École" class="heroBook">
+
+  <!-- Lien LinkedIn -->
+  <a href="https://www.linkedin.com/in/céline-haller-b0a172b3"
+     target="_blank"
+     rel="noopener"
+     class="linkedinLink">
+    🔗 Voir mon profil LinkedIn
+  </a>
 </div>
 
 
@@ -2229,6 +2249,7 @@ window.addEventListener("load", setPanelCollapsedMobile);
 window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
