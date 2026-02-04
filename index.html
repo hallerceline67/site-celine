@@ -1160,8 +1160,10 @@ li{
 .heroVisual{
   position:relative;
   display:flex;
-  justify-content:center;
+  flex-direction: column;   /* ← empile verticalement */
+  align-items: center;      /* ← centre tout */
 }
+
 
 .heroPhoto{
   width:260px;
@@ -1279,17 +1281,23 @@ li{
 }
 /* Lien LinkedIn sous la photo */
 .linkedinLink{
-  margin-top: 14px;
+  margin-top: 12px;
+  padding: 6px 14px;
   display: inline-block;
   font-size: 14px;
   font-weight: 700;
-  color: #0a66c2; /* bleu LinkedIn */
+  color: #0a66c2;
   text-decoration: none;
+  border: 1px solid rgba(10,102,194,.3);
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
 }
 
 .linkedinLink:hover{
-  text-decoration: underline;
+  background: rgba(10,102,194,.08);
+  text-decoration: none;
 }
+
 
   </style>
 </head>
@@ -2249,6 +2257,7 @@ window.addEventListener("load", setPanelCollapsedMobile);
 window.addEventListener("resize", () => setTimeout(setPanelCollapsedMobile, 120));
 
 </script>
+
 
 
 
