@@ -872,6 +872,17 @@
 
     /* Option: si tu veux masquer la sideCard (tu l’avais déjà) */
     .sideCard{ display:none !important; }
+    /* Version grande pour photo phare (GTP) */
+.singlePhoto--big{
+  width: 240px;
+}
+
+@media (max-width:700px){
+  .singlePhoto--big{
+    width: 180px;
+  }
+}
+
   </style>
 </head>
 
@@ -1188,6 +1199,8 @@
                 Le projet s’est progressivement diffusé au-delà de ma classe, puis de mon école, jusqu’à inspirer de nombreuses initiatives dans d’autres territoires
                 (<b>plus de 300&nbsp;000 enfants</b> bénéficient aujourd’hui de ce dispositif).
               </p>
+              <img src="bonheur.jpg" class="singlePhoto" alt="Climat positif en classe">
+
               <ul>
                 <li>Accompagnement d’écoles et de collectivités dans la mise en place du petit déjeuner à l’école</li>
                 <li>Contributions à des ressources pédagogiques et formations pour enseignants</li>
@@ -1211,7 +1224,8 @@
             <p class="sub">J’interviens auprès d’enseignants, de cadres de l’Éducation nationale, de collectivités, de fondations et d’associations — en France et à l’étranger.</p>
 
             <!-- ✅ 1 petite photo ici -->
-            <img src="GTP.jpg" class="singlePhoto" alt="Global Teacher Prize">
+          <img src="GTP.jpg" class="singlePhoto singlePhoto--big" alt="Global Teacher Prize">
+
           </div>
         </div>
 
@@ -1760,4 +1774,5 @@
 </script>
 </body>
 </html>
+
 
